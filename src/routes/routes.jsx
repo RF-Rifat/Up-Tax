@@ -24,6 +24,7 @@ import BusinessUpdate from "../pages/Business/BusinessUpdate";
 import TaxPage from "../pages/Tax/TaxPage";
 import TaxPayerDetails from "../pages/Tax/TaxPayerDetails";
 import UpdateTax from "../pages/Tax/UpdateTax";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -32,7 +33,8 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard></Dashboard>,
+        // element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
       },
       {
         path: "/setting",
