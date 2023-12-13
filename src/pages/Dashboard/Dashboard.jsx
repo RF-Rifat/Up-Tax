@@ -9,7 +9,7 @@ import convertBanglaToEnglish from "../../utils/banglaToEnglishNum";
 
 const Dashboard = () => {
   const totalCount = useCountData();
-
+console.log(totalCount);
   const [totalHouseTax, setTotalHouseTax] = useState(0);
   const [totalBusinessTax, setTotalBusinessTax] = useState(0);
 
@@ -87,19 +87,19 @@ const Dashboard = () => {
     },
     {
       user: "গৃহ্য কর",
-      userData: totalHouseTax,
+      userData: totalCount?.totalHomeAssessmentTax,
     },
     {
       user: "ব্যবসা কর",
-      userData: totalBusinessTax,
+      userData: totalCount?.totalBusinessAssessmentTax,
     },
     {
       user: "গৃহস্থ কর আদায়",
-      userData: totalHouseTaxPayed,
+      userData: totalCount?.totalHomePaidTax,
     },
     {
       user: "ব্যবসা কর আদায়",
-      userData: totalBusinessTaxPayed,
+      userData: totalCount?.totalBusinessPaidTax,
     },
 
     {

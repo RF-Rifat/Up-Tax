@@ -3,6 +3,7 @@ import useGetData from "../../hooks/useGetData";
 import TaxPaymentForm from "../shared/Tax-Payment/TaxPayment";
 import { useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
+import Payments from "../shared/Payments/Payments";
 const HouseholdDetails = () => {
   const { id } = useParams();
   const [client] = useGetData(`/collection/house/${id}`);
@@ -48,30 +49,24 @@ const HouseholdDetails = () => {
     tax_collected_by_UPO,
   } = client;
 
+  const [isOpen, setIsOpen] = useState(false);
 
-
-    const [isOpen,setIsOpen] = useState(false)
-
-
-
-  // open modal 
+  // open modal
   const handleOpenTaxPay = () => {
-    setIsOpen(!isOpen)
-    console.log(isOpen)
-  }
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  };
   //close modal
   const handleCloseTaxPay = () => {
-    setIsOpen(false)
+    setIsOpen(false);
     // console.log(isClose)
-  }
-
+  };
 
   const taxPayerInfo = {
     name: head_of_household_name,
     village: village,
     phone: head_of_household_mobile,
   };
-
 
   return (
     <div className="card-body">
@@ -223,19 +218,32 @@ const HouseholdDetails = () => {
           <Link to={`/household-update/${_id}`} className="btn join-item">
             <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
           </Link>
-          <Link to='/' className="join-item btn">back</Link>
+          <Link to="/" className="join-item btn">
+            back
+          </Link>
+          <button
+            className="btn"
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+          >
+            New Payment
+          </button>
         </div>
-
-
-      <div className={` ${isOpen?'block':'hidden'} `}>
-        <TaxPaymentForm
-        handleCloseTaxPay={handleCloseTaxPay}
-        taxPayerInfo={taxPayerInfo}
-        head_of_household_name={head_of_household_name}
-        head_of_household_mobile={head_of_household_mobile}
-        ></TaxPaymentForm>
-
-      </div>
+        <Payments
+          id={_id}
+          name={head_of_household_name}
+          phone={head_of_household_mobile}
+          clientType={"গৃহস্থ"}
+          assessmentTax={tax_based_on_assessment}
+          upTax = {tax_collected_by_UPO}
+        ></Payments>
+        <div className={` ${isOpen ? "block" : "hidden"} `}>
+          <TaxPaymentForm
+            handleCloseTaxPay={handleCloseTaxPay}
+            taxPayerInfo={taxPayerInfo}
+            head_of_household_name={head_of_household_name}
+            head_of_household_mobile={head_of_household_mobile}
+          ></TaxPaymentForm>
+        </div>
       </div>
     </div>
   );
