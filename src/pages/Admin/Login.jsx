@@ -24,8 +24,7 @@ const Login = () => {
     }
     login(email, password)
       .then((result) => {
-        toast.success("Your Email is successfully logIn");
-        Navigate("/");
+        goTo("/");
         toast.custom((t) => (
           <div
             className={`${
@@ -55,7 +54,7 @@ const Login = () => {
         event.target.reset();
       })
       .catch((error) => {
-        toast.error("Your LogIn is Invalid");
+        toast.error(error);
         console.log(error)
       });
   };

@@ -8,14 +8,18 @@ import Loading from "../shared/Loading/Loading";
 import { AiFillDelete, AiFillEdit, AiOutlineMenu } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { modifyData } from "../../api/api";
+import Pagination from "../shared/Pagination/Pagination";
 
 const Business = () => {
   // this state for search value
   const [query, setQuery] = useState(null);
-  // this state for store data 
+  // this state for store data
   const [searchData, setSearchData] = useState([]);
   // get data form api using hook
-  const [businessClients,isLoading] = useGetData("/collection/business", query);
+  const [businessClients, isLoading] = useGetData(
+    "/collection/business",
+    query
+  );
   useEffect(() => {
     setSearchData(businessClients);
   }, [businessClients]);
@@ -39,40 +43,36 @@ const Business = () => {
     { label: "একশন" },
   ];
 
-  const handleBusinessDelete = async (id)=>{
-        try {
-          const result = await Swal.fire({
-            title: "আপনি কি নিশ্চিত?",
-            text: "আপনি এই পরিবর্তনটি আর ফিরিয়ে নিতে পারবেন না!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "হ্যা, ঠিক আছে!",
-            cancelButtonText: "না",
+  const handleBusinessDelete = async (id) => {
+    try {
+      const result = await Swal.fire({
+        title: "আপনি কি নিশ্চিত?",
+        text: "আপনি এই পরিবর্তনটি আর ফিরিয়ে নিতে পারবেন না!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "হ্যা, ঠিক আছে!",
+        cancelButtonText: "না",
+      });
+
+      if (result.isConfirmed) {
+        const res = await modifyData(`/collection/business/${id}`, "DELETE");
+        if (res.deletedCount > 0) {
+          const remaining = businessClients?.filter((item) => item._id !== id);
+          setSearchData(remaining);
+          Swal.fire({
+            title: "সফলভাবে মুছে ফেলা হয়েছে!!",
+            text: "আপনার ফাইলটি মুছে ফেলা হয়েছে।",
+            icon: "success",
+            confirmButtonText: "ঠিক আছে",
           });
-
-          if (result.isConfirmed) {
-            const res = await modifyData(`/collection/business/${id}`, "DELETE");
-            if (res.deletedCount > 0) {
-              const remaining = businessClients?.filter(
-                (item) => item._id !== id
-              );
-              setSearchData(remaining);
-              Swal.fire({
-                title: "সফলভাবে মুছে ফেলা হয়েছে!!",
-                text: "আপনার ফাইলটি মুছে ফেলা হয়েছে।",
-                icon: "success",
-                confirmButtonText: "ঠিক আছে",
-              });
-            }
-          }
-
-        } catch (error) {
-          console.log(error);
         }
-
-  }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="responsive-table mx-2 ">
@@ -84,7 +84,9 @@ const Business = () => {
           <thead className="bg-green-400 text-white">
             <tr>
               {staticHeaders?.map((header, idx) => (
-                <th key={idx} className="font-bold text-[14px]">{header.label}</th>
+                <th key={idx} className="font-bold text-[14px]">
+                  {header.label}
+                </th>
               ))}
             </tr>
           </thead>
@@ -103,9 +105,7 @@ const Business = () => {
                 <td>{content.assesment_tax}</td>
                 <td>{content.UP_collected_tax}</td>
                 <td className="flex join">
-                  <Link
-                    to={`/businessClientsDetails/${content._id}`}
-                  >
+                  <Link to={`/businessClientsDetails/${content._id}`}>
                     <button className=" join-item btn">
                       <AiOutlineMenu className="text-green-500 text-[18px] md:text-[30px]"></AiOutlineMenu>
                     </button>
@@ -122,6 +122,7 @@ const Business = () => {
           </tbody>
         </table>
       </div>
+      <Pagination endpoint={'/collection/business'} setData={setSearchData}></Pagination>
     </div>
   );
 };
