@@ -6,12 +6,18 @@ import HouseholdClients from "./HouseholdClients";
 import Loading from "../shared/Loading/Loading";
 
 import Pagination from "../shared/Pagination/Pagination";
+import usePagination from "../../hooks/usePagination";
 
 const Household = () => {
+    const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
+      usePagination();
   const [query, setQuery] = useState(null);
   const [searchData, setSearchData] = useState([]);
   const [householdClients, isLoading] =
-    useGetData(`/collection/house/`, query) || [];
+    useGetData(
+      `/collection/house/?page=${activePage}&size=${itemsPerPage}`,
+      query
+    ) || [];
   useEffect(() => {
     setSearchData(householdClients);
   }, [householdClients]);
@@ -56,7 +62,13 @@ const Household = () => {
         </table>
       </div>
 
-      <Pagination endpoint={'/collection/house'} setData={setSearchData}></Pagination>
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        setItemsPerPage={setItemsPerPage}
+        // totalPages={totalPages}
+        setActivePage={setActivePage}
+        activePage={activePage}
+      ></Pagination>
     </div>
   );
 };

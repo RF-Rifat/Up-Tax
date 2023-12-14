@@ -1,9 +1,9 @@
-const Pagination = ({
+
+
+const TestPagination = ({
   itemsPerPage,
   setItemsPerPage,
-  totalPages,
-  activePage,
-  setActivePage,
+  activePage,setActivePage,
 }) => {
   return (
     <div>
@@ -30,7 +30,6 @@ const Pagination = ({
             <option>90</option>
           </select>
           <button
-            disabled={totalPages < activePage}
             onClick={() => setActivePage(activePage + 1)}
             className="join-item btn btn-outline"
           >
@@ -41,4 +40,4 @@ const Pagination = ({
     </div>
   );
 };
-export default Pagination;
+export default TestPagination;

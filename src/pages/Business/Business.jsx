@@ -9,15 +9,18 @@ import { AiFillDelete, AiFillEdit, AiOutlineMenu } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { modifyData } from "../../api/api";
 import Pagination from "../shared/Pagination/Pagination";
+import usePagination from "../../hooks/usePagination";
 
 const Business = () => {
+    const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
+      usePagination();
   // this state for search value
   const [query, setQuery] = useState(null);
   // this state for store data
   const [searchData, setSearchData] = useState([]);
   // get data form api using hook
   const [businessClients, isLoading] = useGetData(
-    "/collection/business",
+    `/collection/business?page=${activePage}&size=${itemsPerPage}`,
     query
   );
   useEffect(() => {
@@ -122,7 +125,13 @@ const Business = () => {
           </tbody>
         </table>
       </div>
-      <Pagination endpoint={'/collection/business'} setData={setSearchData}></Pagination>
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        setItemsPerPage={setItemsPerPage}
+        // totalPages={totalPages}
+        setActivePage={setActivePage}
+        activePage={activePage}
+      ></Pagination>
     </div>
   );
 };

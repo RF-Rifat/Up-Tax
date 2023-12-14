@@ -10,25 +10,40 @@ import Loading from "../shared/Loading/Loading";
 import Pagination from "../shared/Pagination/Pagination";
 import Print from "../shared/Print/Print";
 import { AuthProvider } from "../../provider/Provider";
+import TestPagination from "../shared/Pagination/TestPagination";
+import usePagination from "../../hooks/usePagination";
+import useCountData from "../../hooks/useCountData";
 
 // import { useState } from "react";
 const Village = () => {
   // ref for the table
   const tableRef = useRef(null);
-  const {user} = useContext(AuthProvider)
+  const { user } = useContext(AuthProvider);
+  const totalCount = useCountData()
+
+  const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
+    usePagination();
+
   const [villageData, setVillageData] = useState([]);
-  const [villages, isLoading] = useGetData("/collection/villages") || [];
+  const [villages, isLoading] =
+    useGetData(
+      `/collection/villages?page=${activePage}&size=${itemsPerPage}`
+    ) || [];
+  const totalItems = Number(totalCount?.villages);
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+
+
   useEffect(() => {
     setVillageData(villages);
   }, [villages]);
-  
+
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   //   handling delete event here
   const handleDelete = async (id) => {
-    // Delete pop-up
     try {
       const result = await Swal.fire({
         title: "আপনি কি নিশ্চিত?",
@@ -60,19 +75,17 @@ const Village = () => {
   };
 
   return (
-    
     <div className="overflow-x-auto">
       <div className="card-body">
-      <div className="join my-5 flex items-center justify-center">
-        <Link className='btn join-item' to="/addNew-village">
-         New village
-          <AiFillPlusSquare className=" text-xl"></AiFillPlusSquare>
-        </Link>
-        <div className="join-item">
-
-          <Print tableRef={tableRef}></Print>
+        <div className="join my-5 flex items-center justify-center">
+          <Link className="btn join-item" to="/addNew-village">
+            New village
+            <AiFillPlusSquare className=" text-xl"></AiFillPlusSquare>
+          </Link>
+          <div className="join-item">
+            <Print tableRef={tableRef}></Print>
+          </div>
         </div>
-      </div>
         <div className="table-responsive">
           <div>
             {/* Village data start here */}
@@ -119,8 +132,11 @@ const Village = () => {
         </div>
       </div>
       <Pagination
-        endpoint={"/collection/villages"}
-        setData={setVillageData}
+        itemsPerPage={itemsPerPage}
+        setItemsPerPage={setItemsPerPage}
+        totalPages={totalPages}
+        setActivePage={setActivePage}
+        activePage={activePage}
       ></Pagination>
     </div>
   );

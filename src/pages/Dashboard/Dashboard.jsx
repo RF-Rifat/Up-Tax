@@ -2,77 +2,12 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import "./dashboard.css";
 import useCountData from "../../hooks/useCountData";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import useGetData from "../../hooks/useGetData";
-import bnNumToEnNum from "../../utils/bnNumToEnNum";
-import convertBanglaToEnglish from "../../utils/banglaToEnglishNum";
+
 
 const Dashboard = () => {
   const totalCount = useCountData();
-console.log(totalCount);
-  const [totalHouseTax, setTotalHouseTax] = useState(0);
-  const [totalBusinessTax, setTotalBusinessTax] = useState(0);
-
-  const [totalHouseTaxPayed, setTotalHouseTaxPayed] = useState(0);
-  const [totalBusinessTaxPayed, setTotalBusinessTaxPayed] = useState(0);
-
-  const [data] = useGetData("/collection/house");
-  const [businessData] = useGetData("/collection/business");
-  const [taxData] = useGetData("/collection/tax");
   const [adminCounts] = useGetData("/collection/users");
-
-  useEffect(() => {
-    let total = 0;
-
-    data?.forEach((house) => {
-      const taxToPay = convertBanglaToEnglish(
-        house?.tax_based_on_assessment.trim().split(" ")[0].replace(/,/g, "")
-      );
-      total += +taxToPay;
-    });
-
-    setTotalHouseTax(total);
-  }, [data]);
-
-  useEffect(() => {
-    let totalBusiness = 0;
-
-    businessData?.forEach((business) => {
-      const taxToPay = convertBanglaToEnglish(
-        business?.assesment_tax.trim().split(" ")[0].replace(/,/g, "")
-      );
-      // console.log(taxToPay);
-      totalBusiness += +taxToPay;
-    });
-
-    console.log(totalBusiness);
-
-    setTotalBusinessTax(totalBusiness);
-  }, [businessData]);
-
-  // useEffect(() => {
-  //   let totalHousePayed = 0;
-  //   let totalBusinessPayed = 0;
-
-  //   taxData?.forEach(({ amount, type }) => {
-  //     const taxToPay = convertBanglaToEnglish(
-  //       amount.split(" ")[0].replace(/,/g, "")
-  //     );
-  //     // console.log(taxToPay);
-  //     if (type === "household") {
-  //       totalHousePayed += +taxToPay;
-  //     } else if (type === "business") {
-  //       totalBusinessPayed += +taxToPay;
-  //     }
-  //   });
-
-  //   setTotalHouseTaxPayed(totalHousePayed);
-  //   setTotalBusinessTaxPayed(totalBusinessPayed);
-
-  //   // console.log(totalBusiness);
-
-  //   // setTotalBusinessTax(totalBusiness);
-  // }, [taxData]);
 
   const TaxData = [
     {
