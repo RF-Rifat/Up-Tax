@@ -48,7 +48,7 @@ const HouseholdDetails = () => {
     tax_based_on_assessment,
     tax_collected_by_UPO,
   } = client;
-
+ 
   const [isOpen, setIsOpen] = useState(false);
 
   // open modal
@@ -66,6 +66,8 @@ const HouseholdDetails = () => {
     name: head_of_household_name,
     village: village,
     phone: head_of_household_mobile,
+    type: "household",
+    // type: "গৃহস্থ",
   };
 
   return (

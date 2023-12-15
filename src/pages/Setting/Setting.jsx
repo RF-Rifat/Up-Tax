@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useGetData from "../../hooks/useGetData";
 import BASE_URL from "../../api/api";
+import Swal from "sweetalert2";
 
 const Setting = () => {
   const [settingsData] = useGetData("/collection/settings");
@@ -27,22 +28,50 @@ const Setting = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // console.log(name, value);
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     fetch(BASE_URL + `/collection/settings/${settingsData[0]?._id}`, {
       method: "PUT",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log("Server Response:", data);
+
+        // Assuming the server response structure
+        if (data.acknowledged && data.modifiedCount > 0) {
+          // Display a success message using SweetAlert
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Settings updated successfully.",
+          }).then(() => {
+            console.log("Settings updated successfully");
+            location.reload()
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error!",
+            text: "Failed to update settings. Please try again.",
+          });
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: "An error occurred while updating settings. Please try again.",
+        });
+        console.error("Error updating settings:", error);
+      });
   };
 
   return (

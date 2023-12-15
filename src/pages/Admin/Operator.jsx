@@ -30,8 +30,6 @@ const Operator = () => {
   useEffect(() => {
     setAdminsData(users);
   }, [users]);
-  console.log(users);
-
   if (isLoading) {
     return <Loading></Loading>;
   }

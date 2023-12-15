@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
@@ -31,6 +32,10 @@ const Provider = ({ children }) => {
     });
   };
 
+  const resetPassword = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
 
   const logOut = async () => {
     setLoading(true);
@@ -54,6 +59,7 @@ const Provider = ({ children }) => {
     logOut,
     user,
     updateUser,
+    resetPassword
   };
 
   return (

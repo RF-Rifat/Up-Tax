@@ -9,6 +9,7 @@ const TaxPaymentForm = ({
   handleCloseTaxPay,
   head_of_household_name,
   head_of_household_mobile,
+  taxPayerInfo
 }) => {
   // const {name,phone} = taxPayerInfo;
   // state to store name,date,month
@@ -27,7 +28,7 @@ const TaxPaymentForm = ({
     const taxesInfo = {
       name: head_of_household_name,
       phone: head_of_household_mobile,
-      type,
+      type: taxPayerInfo.type,
       amount,
       startMonth,
       endMonth,

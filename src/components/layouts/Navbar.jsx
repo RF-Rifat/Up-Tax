@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../../provider/Provider";
+import useGetData from "../../hooks/useGetData";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthProvider);
-  console.log(user)
+  const [settingsData] = useGetData("/collection/settings");
+
   const goto = useNavigate();
 
   const handleLogout = () => {
@@ -41,7 +43,8 @@ const Navbar = () => {
           src="https://laxmipurup.uptaxs.com/public/uploaded/logo-bd.png"
           alt=""
         />
-        <p>১ নং লক্ষীপুর ইউনিয়ন পরিষদ</p>
+        <p>{settingsData[0]?.site_name}</p>
+        {/* <p>{ "১ নং লক্ষীপুর ইউনিয়ন পরিষদ"}</p> */}
       </Link>
       <div className="flex-none hidden lg:block">
         <div className="dropdown dropdown-end">

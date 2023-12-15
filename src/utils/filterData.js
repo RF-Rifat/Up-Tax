@@ -1,4 +1,3 @@
-
 const filterData = (item, query) => {
   const {
     // household
@@ -11,8 +10,9 @@ const filterData = (item, query) => {
     owner_name,
     shop_no,
     phone,
-    word
+    word,
   } = item;
+
   // condition for house holing search
   const holdingMatch = holding_number?.includes(query.trim());
   const nidMatch = national_id?.includes(query.trim());
@@ -34,7 +34,7 @@ const filterData = (item, query) => {
     fatherOrHusbandMatch ||
     businessOwnerNameMatch ||
     shopNoMatch ||
-    phoneNoMatch 
+    phoneNoMatch
   );
 };
 

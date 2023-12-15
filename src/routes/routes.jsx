@@ -29,7 +29,11 @@ import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: (
+      <PrivateRoute>
+        <App></App>
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
@@ -41,72 +45,141 @@ const routes = createBrowserRouter([
       },
       {
         path: "/setting",
-        element: <Setting></Setting>,
+        element: (
+          <PrivateRoute>
+            <Setting></Setting>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/village",
-        element: <Village></Village>,
+        element: (
+          <PrivateRoute>
+            <Village></Village>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/household",
-        element: <Household></Household>,
+        element: (
+          <PrivateRoute>
+            <Household></Household>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/business",
-        element: <Business></Business>,
+        element: (
+          <PrivateRoute>
+            <Business></Business>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/household-tax",
-        element: <HouseholdTax></HouseholdTax>,
+        element: (
+          <PrivateRoute>
+            <HouseholdTax></HouseholdTax>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/operator",
-        element: <Operator></Operator>,
+        element: (
+          <PrivateRoute>
+            <Operator></Operator>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/edit-admin/:id",
-        element: <EditAdmin />,
+        element: (
+          <PrivateRoute>
+            <EditAdmin />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-admin",
-        element: <AddAdmin />,
+        element: (
+          <PrivateRoute>
+            <AddAdmin />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/edit-village/:id",
-        element: <EditVillage></EditVillage>,
+        element: (
+          <PrivateRoute>
+            <EditVillage></EditVillage>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-household",
-        element: <AddHousehold></AddHousehold>,
+        element: (
+          <PrivateRoute>
+            <AddHousehold></AddHousehold>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/tax-payment-details",
-        element: <TaxPaymentDetails></TaxPaymentDetails>,
+        element: (
+          <PrivateRoute>
+            <TaxPaymentDetails></TaxPaymentDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update-tax/:id",
-        element: <UpdateTax />,
+        element: (
+          <PrivateRoute>
+            <UpdateTax />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/household-details/:id",
-        element: <HouseholdDetails></HouseholdDetails>,
+        element: (
+          <PrivateRoute>
+            <HouseholdDetails></HouseholdDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/household-update/:id",
-        element: <HouseholdUpdate></HouseholdUpdate>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <HouseholdUpdate></HouseholdUpdate>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/new-business",
-        element: <NewBusiness></NewBusiness>,
+        element: (
+          <PrivateRoute>
+            <NewBusiness></NewBusiness>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/businessClientsDetails/:id",
-        element: <BusinessClientDetails></BusinessClientDetails>,
+        element: (
+          <PrivateRoute>
+            <BusinessClientDetails></BusinessClientDetails>
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "/addNew-village",
-        element: <NewVillage></NewVillage>,
+        element: (
+          <PrivateRoute>
+            <NewVillage></NewVillage>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/businessUpdate/:id",

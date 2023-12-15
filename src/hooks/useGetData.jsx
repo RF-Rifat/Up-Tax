@@ -19,6 +19,7 @@ const useGetData = (endpoint, query) => {
           const queryData = data?.filter((item) => {
             // this utility function for check filter condition
             return filterData(item, query);
+            
           });
 
           setResData(queryData);

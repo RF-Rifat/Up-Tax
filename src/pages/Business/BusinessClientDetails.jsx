@@ -44,6 +44,8 @@ const BusinessClientDetails = () => {
     name: owner_name,
     village: village,
     phone: phone,
+    type: "business",
+    // type: "ব্যবসা",
   };
 
   return (

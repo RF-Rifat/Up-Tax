@@ -6,33 +6,26 @@ import BASE_URL from "../../../api/api";
 import Modal from "../Modal/Modal";
 import { calculateMonthDifference } from "../../../utils/calculateMonthDiff";
 
-const Payments = ({ id, name, phone, assessmentTax,upTax, clientType }) => {
-console.log(assessmentTax);
-
+const Payments = ({ id, name, phone, assessmentTax, upTax, clientType }) => {
+  console.log(assessmentTax);
   const [startMonth, setStartMonth] = useState(null);
   const [endMonth, setEndMonth] = useState(null);
   const [amount, setAmount] = useState(null);
   const [assessmentAmount, setAssessmentAmount] = useState(null);
   const [upAmount, setUpAmount] = useState(null);
   const [PaymentsType, setPaymentsType] = useState(null);
-  const totalMonth = calculateMonthDifference(startMonth,endMonth)
+  const totalMonth = calculateMonthDifference(startMonth, endMonth);
 
   const goTo = useNavigate();
 
-
-  useEffect(()=>{
+  useEffect(() => {
     if (PaymentsType === "এসেসমেন্ট") {
-      
-        setAssessmentAmount(Number(assessmentTax) * totalMonth);
-
+      setAssessmentAmount(Number(assessmentTax) * totalMonth);
     }
     if (PaymentsType === "ইউপি") {
       setUpAmount(Number(upTax) * totalMonth);
     }
-  },[PaymentsType,assessmentTax,totalMonth,upTax])
-
-
-
+  }, [PaymentsType, assessmentTax, totalMonth, upTax]);
 
   const handleTaxPayment = async (e) => {
     e.preventDefault();
@@ -41,35 +34,34 @@ console.log(assessmentTax);
     const taxesInfo = {
       name: name,
       phone: phone,
-      clientType,
+      type: clientType,
       amount,
-      assessmentAmount ,
+      assessmentAmount,
       upAmount,
       startMonth,
       endMonth,
     };
 
+    // try {
+    //   const res = await modifyData("/collection/payTax","POST",taxesInfo);
+    //   console.log(res);
+    // } catch (error) {
+    //   console.log(error);
+    // }
 
-  // try {
-  //   const res = await modifyData("/collection/payTax","POST",taxesInfo);
-  //   console.log(res);
-  // } catch (error) {
-  //   console.log(error);
-  // }
-
-  fetch(BASE_URL + "/collection/tax", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(taxesInfo),
-  })
-    .then((res) => {
-      console.log(res);
-      return res.json();
+    fetch(BASE_URL + "/collection/tax", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(taxesInfo),
     })
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
 
-    .then((data) => console.log(data));
+      .then((data) => console.log(data));
     goTo("/household");
   };
 
@@ -102,7 +94,7 @@ console.log(assessmentTax);
                   type="text"
                   placeholder="00"
                   className="w-32 py-1"
-                //   value={amount}
+                  //   value={amount}
                   disabled
                   defaultValue={assessmentAmount || upAmount}
                   onChange={(e) => setAmount(e.target.value)}

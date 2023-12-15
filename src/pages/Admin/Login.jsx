@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   // const { login ,user,setUser} = useContext(AdminContext);
-  const { login, user, setUser } = useContext(AuthProvider);
+  const { login, user, setUser, resetPassword } = useContext(AuthProvider);
   const [error, setError] = useState(false);
   const goTo = useNavigate();
   const [email, setEmail] = useState("");
@@ -55,7 +55,23 @@ const Login = () => {
       })
       .catch((error) => {
         toast.error(error);
-        console.log(error)
+        console.log(error);
+      });
+  };
+
+  const handleResetPassword = () => {
+    if (!email) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    resetPassword(email)
+      .then(() => {
+        toast.success("Password reset email sent. Check your inbox.");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.error(error);
       });
   };
 
@@ -132,6 +148,14 @@ const Login = () => {
           <button className="w-full p-2 font-medium text-white uppercase rounded bg-gradient-to-b from-gray-700 to-gray-900 md:p-4">
             Login
           </button>
+      <div className="flex flex-col items-center">
+        <button
+          onClick={handleResetPassword}
+          className="mt-2 text-sm text-blue-500 hover:underline focus:outline-none"
+        >
+          Forgot Password? Reset it here.
+        </button>
+      </div>
         </form>
       </div>
     </div>
