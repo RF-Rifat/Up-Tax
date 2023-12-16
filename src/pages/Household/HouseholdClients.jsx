@@ -4,7 +4,14 @@ import Swal from "sweetalert2";
 import PropTypes from "prop-types";
 import { AiFillDelete, AiOutlineMenu } from "react-icons/ai";
 
-const HouseholdClients = ({ client, idx, householdClients, setSearchData }) => {
+const HouseholdClients = ({
+  client,
+  idx,
+  householdClients,
+  setSearchData,
+  activePage,
+  itemsPerPage,
+}) => {
   // console.log(householdClients);
   const {
     _id,
@@ -18,7 +25,7 @@ const HouseholdClients = ({ client, idx, householdClients, setSearchData }) => {
     house_value,
     tax_based_on_assessment,
     tax_collected_by_UPO,
-  } = client ;
+  } = client;
   const handleDelete = async (id) => {
     try {
       const result = await Swal.fire({
@@ -61,7 +68,7 @@ const HouseholdClients = ({ client, idx, householdClients, setSearchData }) => {
   return (
     <tbody>
       <tr>
-        <td className="py-5">{idx + 1}</td>
+        <td className="py-5">{activePage * itemsPerPage + idx + 1}</td>
         <td>{upazila}</td>
         <td>{union}</td>
         <td>{village}</td>
@@ -73,10 +80,7 @@ const HouseholdClients = ({ client, idx, householdClients, setSearchData }) => {
         <td>{tax_based_on_assessment}</td>
         <td>{tax_collected_by_UPO}</td>
         <td className="join flex">
-          <Link
-            to={`/household-details/${_id}`}
-            className="join-item btn"
-          >
+          <Link to={`/household-details/${_id}`} className="join-item btn">
             <AiOutlineMenu className="text-green-500 font-bold  text-[18px] md:text-[30px]"></AiOutlineMenu>
           </Link>
           <button

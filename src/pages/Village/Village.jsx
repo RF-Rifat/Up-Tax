@@ -10,7 +10,6 @@ import Loading from "../shared/Loading/Loading";
 import Pagination from "../shared/Pagination/Pagination";
 import Print from "../shared/Print/Print";
 import { AuthProvider } from "../../provider/Provider";
-import TestPagination from "../shared/Pagination/TestPagination";
 import usePagination from "../../hooks/usePagination";
 import useCountData from "../../hooks/useCountData";
 

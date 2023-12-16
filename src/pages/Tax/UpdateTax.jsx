@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
-import getTaxSubmissionDate from "../shared/Tax-Payment/Data/Data";
 import pay_tax_icon from "/icons/icons/pay-tax.png";
-import { amounts } from "../shared/Tax-Payment/Data/Data";
-import { months } from "../shared/Tax-Payment/Data/Data";
-import Swal from "sweetalert2";
 
 import { Link, useNavigate, useParams } from "react-router-dom/dist";
-import usePutData from "../../hooks/usePutData";
+
 import useGetData from "../../hooks/useGetData";
 import BASE_URL from "../../api/api";
-import TaxPaymentForm from "../shared/Tax-Payment/TaxPayment";
 
 const UpdateTax = () => {
   const { id } = useParams();
@@ -21,7 +16,6 @@ const UpdateTax = () => {
     phone: data?.phone || "",
     type: data?.type || "",
     amount: data?.amount || "",
-    submissionDate: data?.submissionDate || "",
     startMonth: data?.startMonth || "",
     endMonth: data?.endMonth || "",
   });
@@ -32,7 +26,6 @@ const UpdateTax = () => {
       phone: data?.phone || "",
       type: data?.type || "",
       amount: data?.amount || "",
-      submissionDate: data?.submissionDate || "",
       startMonth: data?.startMonth || "",
       endMonth: data?.endMonth || "",
     });
@@ -111,8 +104,8 @@ const UpdateTax = () => {
                   name="type"
                   onChange={handleChange}
                 >
-                  <option value="গৃহস্থ">গৃহস্থ</option>
-                  <option value="ব্যবসা">ব্যবসা</option>
+                  <option value="household">গৃহস্থ</option>
+                  <option value="business">ব্যবসা</option>
                 </select>
               </div>
             </div>

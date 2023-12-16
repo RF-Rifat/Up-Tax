@@ -30,7 +30,7 @@ const Pagination = ({
             <option>90</option>
           </select>
           <button
-            disabled={totalPages < activePage}
+            disabled={activePage >= totalPages - 1}
             onClick={() => setActivePage(activePage + 1)}
             className="join-item btn btn-outline"
           >

@@ -42,7 +42,7 @@ const TaxRow = ({ data, idx, setAllTax }) => {
         {data?.name}
       </td>
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
-        {data?.type}
+        {data?.type == "household" ? "গৃহস্থ" : "ব্যবসা"}
       </td>
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.amount}

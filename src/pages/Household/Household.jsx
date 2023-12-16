@@ -9,8 +9,8 @@ import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
 
 const Household = () => {
-    const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
-      usePagination();
+  const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
+    usePagination();
   const [query, setQuery] = useState(null);
   const [searchData, setSearchData] = useState([]);
   const [householdClients, isLoading] =
@@ -22,12 +22,9 @@ const Household = () => {
     setSearchData(householdClients);
   }, [householdClients]);
 
-
-
   if (isLoading) {
     return <Loading></Loading>;
   }
-
   return (
     <div className="mx-2">
       <HouseholdNav setQuery={setQuery}></HouseholdNav>
@@ -56,6 +53,8 @@ const Household = () => {
               setSearchData={setSearchData}
               idx={idx}
               client={client}
+              activePage={activePage}
+              itemsPerPage={itemsPerPage}
               key={client._id}
             ></HouseholdClients>
           ))}

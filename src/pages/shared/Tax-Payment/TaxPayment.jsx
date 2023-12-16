@@ -1,7 +1,6 @@
 import { useState } from "react";
 import pay_tax_icon from "../../../../public/icons/icons/pay-tax.png";
 
-
 import { useNavigate } from "react-router-dom/dist";
 import BASE_URL from "../../../api/api";
 
@@ -9,7 +8,7 @@ const TaxPaymentForm = ({
   handleCloseTaxPay,
   head_of_household_name,
   head_of_household_mobile,
-  taxPayerInfo
+  taxPayerInfo,
 }) => {
   // const {name,phone} = taxPayerInfo;
   // state to store name,date,month
@@ -24,6 +23,10 @@ const TaxPaymentForm = ({
   const handleTaxPayment = async (e) => {
     e.preventDefault();
 
+    const currentDate = new Date();
+    const formattedDate = currentDate.toDateString();
+    console.log(formattedDate);
+
     // organizing taxpayer information to create backend obj
     const taxesInfo = {
       name: head_of_household_name,
@@ -32,6 +35,7 @@ const TaxPaymentForm = ({
       amount,
       startMonth,
       endMonth,
+      PaymentDate: formattedDate,
     };
     console.log(JSON.stringify(taxesInfo));
     // try {

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import BASE_URL from "../api/api";
 import filterData from "../utils/filterData";
-// const BASE_URL = "http://localhost:5000";
 const useGetData = (endpoint, query) => {
   const [resData, setResData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

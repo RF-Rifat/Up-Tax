@@ -2,12 +2,13 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import "./dashboard.css";
 import useCountData from "../../hooks/useCountData";
 import { Link } from "react-router-dom";
-import useGetData from "../../hooks/useGetData";
+
 
 
 const Dashboard = () => {
   const totalCount = useCountData();
-  const [adminCounts] = useGetData("/collection/users");
+
+  console.log(totalCount?.todayPayment)
 
   const TaxData = [
     {
@@ -38,8 +39,8 @@ const Dashboard = () => {
     },
 
     {
-      user: "ব্যবহারকারী/অপারেটর",
-      userData: adminCounts.length,
+      user: "আজকের আদায়",
+      userData: totalCount?.todayPayment,
     },
   ];
 

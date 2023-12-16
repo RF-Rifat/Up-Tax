@@ -1,5 +1,4 @@
 import { useState } from "react";
-import getTaxSubmissionDate from "./Data/Data";
 import pay_tax_icon from "../../../../public/icons/icons/pay-tax.png";
 import { months } from "./Data/Data";
 import { amounts } from "./Data/Data";
@@ -14,7 +13,7 @@ const TaxPaymentForm = ({ handleCloseTaxPay, taxPayerInfo }) => {
   const [endMonth, setEndMonth] = useState("March");
   const [amount, setAmount] = useState(100);
   const [type, setType] = useState("Business");
-  const submissionDate = getTaxSubmissionDate();
+
 
   const goTo = useNavigate();
 
@@ -46,7 +45,6 @@ const TaxPaymentForm = ({ handleCloseTaxPay, taxPayerInfo }) => {
     phone,
     type,
     amount,
-    submissionDate,
     monthsRange: {
       startMonth: startMonth.toLowerCase(),
       endMonth: endMonth.toLowerCase(),

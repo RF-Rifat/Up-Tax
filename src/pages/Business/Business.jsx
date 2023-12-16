@@ -12,8 +12,8 @@ import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
 
 const Business = () => {
-    const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
-      usePagination();
+  const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
+    usePagination();
   // this state for search value
   const [query, setQuery] = useState(null);
   // this state for store data
@@ -23,6 +23,8 @@ const Business = () => {
     `/collection/business?page=${activePage}&size=${itemsPerPage}`,
     query
   );
+  const [businessCount, loading] = useGetData("/pageCount");
+  console.log(businessCount?.businessCount);
   useEffect(() => {
     setSearchData(businessClients);
   }, [businessClients]);
@@ -96,7 +98,9 @@ const Business = () => {
           <tbody>
             {searchData?.map((content, idx) => (
               <tr key={idx}>
-                <th className="font-bold">{idx + 1}</th>
+                <th className="font-bold">
+                  {activePage * itemsPerPage + idx + 1}
+                </th>
                 <td>{content.upazila}</td>
                 <td>{content.union}</td>
                 <td>{content.village}</td>
@@ -128,7 +132,7 @@ const Business = () => {
       <Pagination
         itemsPerPage={itemsPerPage}
         setItemsPerPage={setItemsPerPage}
-        // totalPages={totalPages}
+        totalPages={businessCount?.businessCount}
         setActivePage={setActivePage}
         activePage={activePage}
       ></Pagination>
