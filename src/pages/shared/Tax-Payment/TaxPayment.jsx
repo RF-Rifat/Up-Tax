@@ -32,6 +32,7 @@ const TaxPaymentForm = ({
       name: head_of_household_name,
       phone: head_of_household_mobile,
       type: taxPayerInfo.type,
+      code: taxPayerInfo.code,
       amount,
       startMonth,
       endMonth,

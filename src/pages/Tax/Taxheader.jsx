@@ -12,7 +12,7 @@ const TaxHeader = ({ headers }) => {
             rowSpan={1}
             colSpan={1}
             aria-label={header}
-            style={{ width: 45, fontWeight: "bold" }}
+            style={{ width: 45, fontWeight: "bold", whiteSpace: "pre-line" }}
           >
             {header}
           </th>

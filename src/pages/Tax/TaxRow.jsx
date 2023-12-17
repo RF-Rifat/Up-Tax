@@ -56,9 +56,12 @@ const TaxRow = ({ data, idx, setAllTax }) => {
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.phone}
       </td>
+      <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
+        {data?.code}
+      </td>
 
       {/* Navigation */}
-      <td className="flex gap-3 px-2 py-1 sm:px-4 sm:py-2 items-center md:px-6 md:py-3">
+      <td className="join flex px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 justify-between">
         <Link to={`/tax-payer/${data?._id}`}>
           <BsEyeFill className="text-[20px] text-black"></BsEyeFill>
         </Link>

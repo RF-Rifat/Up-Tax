@@ -48,7 +48,7 @@ const HouseholdDetails = () => {
     tax_based_on_assessment,
     tax_collected_by_UPO,
   } = client;
- 
+
   const [isOpen, setIsOpen] = useState(false);
 
   // open modal
@@ -67,6 +67,7 @@ const HouseholdDetails = () => {
     village: village,
     phone: head_of_household_mobile,
     type: "household",
+    code: holding_number,
     // type: "গৃহস্থ",
   };
 
@@ -220,15 +221,15 @@ const HouseholdDetails = () => {
           <Link to={`/household-update/${_id}`} className="btn join-item">
             <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
           </Link>
-          <Link to="/" className="join-item btn">
+          <Link to="/household" className="join-item btn">
             back
           </Link>
-          <button
+          {/* <button
             className="btn"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
             New Payment
-          </button>
+          </button> */}
         </div>
         <Payments
           id={_id}
@@ -236,7 +237,7 @@ const HouseholdDetails = () => {
           phone={head_of_household_mobile}
           clientType={"গৃহস্থ"}
           assessmentTax={tax_based_on_assessment}
-          upTax = {tax_collected_by_UPO}
+          upTax={tax_collected_by_UPO}
         ></Payments>
         <div className={` ${isOpen ? "block" : "hidden"} `}>
           <TaxPaymentForm

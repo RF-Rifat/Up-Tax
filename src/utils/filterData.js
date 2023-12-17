@@ -16,7 +16,7 @@ const filterData = (item, query) => {
   // condition for house holing search
   const holdingMatch = holding_number?.includes(query.trim());
   const nidMatch = national_id?.includes(query.trim());
-  const wordMatch = word?.includes(query.trim());
+  const wordMatch = word?.includes(query?.trim());
   const mobileMatch = head_of_household_mobile?.includes(query.trim());
   const headHouseholdMatch = head_of_household_name?.includes(query.trim());
   const fatherOrHusbandMatch = father_or_husband_name?.includes(query.trim());

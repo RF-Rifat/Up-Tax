@@ -37,7 +37,7 @@ const Navbar = () => {
           </svg>
         </label>
       </div>
-      <Link to={"/operator"} className="flex gap-3 flex-1 px-2 mx-2">
+      <Link to={"/"} className="flex gap-3 flex-1 px-2 mx-2">
         <img
           className="w-[40px]"
           src="https://laxmipurup.uptaxs.com/public/uploaded/logo-bd.png"

@@ -37,7 +37,6 @@ const BusinessClientDetails = () => {
   //close modal
   const handleCloseTaxPay = () => {
     setIsOpen(false);
-    // console.log(isClose)
   };
 
   const taxPayerInfo = {
@@ -45,6 +44,7 @@ const BusinessClientDetails = () => {
     village: village,
     phone: phone,
     type: "business",
+    code: shop_no,
     // type: "ব্যবসা",
   };
 
@@ -91,7 +91,7 @@ const BusinessClientDetails = () => {
           <Link to={`/businessUpdate/${_id}`} className="join-item btn">
             <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
           </Link>
-          <Link to="/" className="join-item btn">
+          <Link to="/business" className="join-item btn">
             back
           </Link>
         </div>
