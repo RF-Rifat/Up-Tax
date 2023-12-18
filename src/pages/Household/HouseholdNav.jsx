@@ -1,34 +1,32 @@
 // import { useState } from "react";
 import { TiPlus } from "react-icons/ti";
 import { Link } from "react-router-dom";
-const HouseholdNav = ({ setQuery}) => {
-
-
+const HouseholdNav = ({ setQuery }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
     const word = form.get("word");
-    const name = form.get("name")
+    const name = form.get("name");
     const holding = form.get("holding");
     const nid = form.get("nid");
     const phone = form.get("phone");
 
-if(name){
- return setQuery(name)
-}
-    if(word){
-     return setQuery(word)
+    if (name) {
+      return setQuery({head_of_household_name:name});
     }
-    if(holding){
-     return setQuery(holding)
+    if (word) {
+      return setQuery({ word: word });
     }
-     if(nid){
-   return   setQuery(nid)
+    if (holding) {
+      return setQuery({ holding_number: holding });
     }
-    if(phone){
-   return   setQuery(phone)
+    if (nid) {
+      return setQuery({ national_id: nid });
     }
-   return setQuery(null)
+    if (phone) {
+      return setQuery({head_of_household_mobile:phone});
+    }
+    return setQuery("");
   };
 
   // const handlePhone = (e) => {
@@ -46,7 +44,6 @@ if(name){
   return (
     <div className="flex justify-between  border-[1px] border-green-400 bg-white items-center mt-3 rounded-lg py-5 px-5 gap-5">
       <form onSubmit={handleSubmit} className="flex gap-4 w-11/12">
-
         <input
           type="text"
           placeholder="Search by name"
@@ -82,7 +79,7 @@ if(name){
         <input
           type="submit"
           value={"search"}
-            className="btn outline-none border-none  btn-sm focus-within:outline-none bg-green-400 text-white hover:bg-green-500"
+          className="btn outline-none border-none  btn-sm focus-within:outline-none bg-green-400 text-white hover:bg-green-500"
         />
       </form>
 

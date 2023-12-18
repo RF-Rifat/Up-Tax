@@ -1,26 +1,33 @@
 import { useEffect, useState } from "react";
 
 import HouseholdNav from "./HouseholdNav";
-import useGetData from "../../hooks/useGetData";
 import HouseholdClients from "./HouseholdClients";
 import Loading from "../shared/Loading/Loading";
 
 import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
+import useGetHouseData from "../../hooks/useGetHouseData";
 
 const Household = () => {
   const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
     usePagination();
   const [query, setQuery] = useState(null);
   const [searchData, setSearchData] = useState([]);
+  const [searchField, setSearchField] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [householdClients, isLoading] =
-    useGetData(
-      `/collection/house/?page=${activePage}&size=${itemsPerPage}`,
+    useGetHouseData(
+      `/collection/house/?page=${activePage}&size=${itemsPerPage}&field=${searchField}&search=${searchValue}`,
       query
     ) || [];
   useEffect(() => {
     setSearchData(householdClients);
-  }, [householdClients]);
+
+    if (query) {
+      setSearchField(Object.keys(query)[0]);
+      setSearchValue(query[searchField]);
+    }
+  }, [householdClients, query, searchField]);
 
   if (isLoading) {
     return <Loading></Loading>;
