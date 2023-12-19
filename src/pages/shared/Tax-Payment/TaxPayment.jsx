@@ -98,7 +98,7 @@ const TaxPaymentForm = ({
                       {month}
                     </option> */}
               </div>
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
                     টাইপ
@@ -112,7 +112,7 @@ const TaxPaymentForm = ({
                   <option value="গৃহস্থ">গৃহস্থ</option>
                   <option value="ব্যবসা">ব্যবসা</option>
                 </select>
-              </div>
+              </div> */}
             </div>
 
             {/* 2cnd column */}

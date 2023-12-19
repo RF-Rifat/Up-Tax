@@ -14,7 +14,7 @@ const TaxPayerDetails = () => {
             <th>Name</th>
             <th>Phone</th>
             <th>Type</th>
-            <th>Year</th>
+            <th>Business/ Holding Num</th>
             <th>Month Range</th>
             <th>Amount</th>
             {/* <th>Total Amount</th> */}
@@ -26,7 +26,7 @@ const TaxPayerDetails = () => {
             <th>{taxDetails?.name}</th>
             <td>{taxDetails?.phone}</td>
             <td>{taxDetails?.type}</td>
-            <td>year</td>
+            <td>{taxDetails?.code}</td>
             <td>{taxDetails?.startMonth} To {taxDetails?.endMonth}</td>
             <td>{taxDetails?.amount}</td>
             {/* <td>total amount</td> */}

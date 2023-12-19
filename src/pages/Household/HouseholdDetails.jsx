@@ -70,6 +70,7 @@ const HouseholdDetails = () => {
     code: holding_number,
     // type: "গৃহস্থ",
   };
+  console.log(_id)
 
   return (
     <div className="card-body">

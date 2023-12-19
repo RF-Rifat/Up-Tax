@@ -10,16 +10,16 @@ const BusinessSearch = ({ setQuery }) => {
     const owner_name = form.get("owner_name");
     const shop_no = form.get("shop_no");
     const phone = form.get("phone");
-    console.log(phone);
+    
     if (owner_name) {
-     return setQuery(owner_name);
+     return setQuery({owner_name});
     }
     if (shop_no) {
-     return setQuery(shop_no);
+     return setQuery({shop_no});
     }
 
     if (phone) {
-     return setQuery(phone);
+     return setQuery({phone});
     }
     return setQuery(null);
   };

@@ -92,7 +92,7 @@ const UpdateTax = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
                     টাইপ
@@ -107,7 +107,7 @@ const UpdateTax = () => {
                   <option value="household">গৃহস্থ</option>
                   <option value="business">ব্যবসা</option>
                 </select>
-              </div>
+              </div> */}
             </div>
 
             {/* 2cnd column */}

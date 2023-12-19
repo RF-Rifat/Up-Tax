@@ -29,9 +29,11 @@ const DashboardRoutes = () => (
       <NavLink
         key={index}
         to={item.to}
-        className={({ isActive, isPending }) =>
-          isActive ? "active" : isPending ? "pending" : ""
-        }
+        style={({ isActive, isPending, isTransitioning }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+          };
+        }}
       >
         <article
           tabIndex={0}

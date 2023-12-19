@@ -76,7 +76,7 @@ const TaxNav = ({ taxData, setAllTax, allTax }) => {
   return (
     <div className="flex justify-between  border-[1px] border-green-400 bg-white items-center mt-3 rounded-lg py-5 px-5 gap-5 mb-5">
       <form className="flex gap-4 w-11/12">
-        <select
+        {/* <select
           name="select"
           defaultValue="amount"
           onChange={(e) => setAmount(e.target.value)}
@@ -91,7 +91,7 @@ const TaxNav = ({ taxData, setAllTax, allTax }) => {
           <option value={300}>300</option>
           <option value={350}>350</option>
           <option value="">None</option>
-        </select>
+        </select> */}
         <select
           name="type"
           defaultValue="select"
@@ -106,7 +106,7 @@ const TaxNav = ({ taxData, setAllTax, allTax }) => {
           <option value="household">House</option>
         </select>
 
-        <select
+        {/* <select
           name="starting_month"
           defaultValue="select"
           className="select select-sm select-success w-full "
@@ -137,7 +137,7 @@ const TaxNav = ({ taxData, setAllTax, allTax }) => {
               {month.value}
             </option>
           ))}
-        </select>
+        </select> */}
 
         <input
           type="text"

@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useGetData from "../../hooks/useGetData";
 import Loading from "../shared/Loading/Loading";
-import { AiFillDelete, AiFillEdit, AiOutlineMenu } from "react-icons/ai";
+import { AiFillDelete, AiOutlineMenu } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { modifyData } from "../../api/api";
 import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
+import useGetSearchData from "../../hooks/useGetSearchData";
+
 
 const Business = () => {
   const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
@@ -18,16 +20,24 @@ const Business = () => {
   const [query, setQuery] = useState(null);
   // this state for store data
   const [searchData, setSearchData] = useState([]);
+  const [searchField, setSearchField] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   // get data form api using hook
-  const [businessClients, isLoading] = useGetData(
-    `/collection/business?page=${activePage}&size=${itemsPerPage}`,
+  const [businessClients, isLoading] = useGetSearchData(
+    `/collection/business?page=${activePage}&size=${itemsPerPage}&field=${searchField}&search=${searchValue}`,
     query
   );
+
+  console.log(searchValue);
+
   const [businessCount, loading] = useGetData("/pageCount");
-  console.log(businessCount?.businessCount);
   useEffect(() => {
     setSearchData(businessClients);
-  }, [businessClients]);
+    if (query) {
+      setSearchField(Object.keys(query)[0]);
+      setSearchValue(query[searchField]);
+    }
+  }, [businessClients, query, searchField]);
 
   if (isLoading) {
     return <Loading></Loading>;

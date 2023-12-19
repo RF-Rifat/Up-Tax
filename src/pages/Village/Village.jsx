@@ -97,7 +97,7 @@ const Village = () => {
                 {villageData?.map((village, idx) => (
                   <tr key={idx}>
                     <td className="px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
-                      {idx + 1}
+                    {activePage * itemsPerPage + idx + 1}
                     </td>
                     <td className="px-2 text-[10px] md:text-xl py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
                       {village.village}

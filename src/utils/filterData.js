@@ -6,7 +6,6 @@ const filterData = (item, query) => {
     head_of_household_mobile,
     head_of_household_name,
     father_or_husband_name,
-    //  business
     owner_name,
     shop_no,
     phone,

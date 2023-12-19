@@ -268,9 +268,10 @@ if(isLoading){
             {/* row */}
             <div className="form-control">
               <label className="label">
-                <span className="font-bold"> ওয়ার্ড:</span>
+                <span className="font-bold"> ওয়ার্ড:</span> 
               </label>
-              <select
+              <input type="number" name="word" className="select font-semibold border-info text-base text-gray-500  w-full" id="" />
+              {/* <select
                 name="word"
                 type="select"
                 {...register("word")}
@@ -281,7 +282,7 @@ if(isLoading){
                 {villageData?.map((village) => (
                   <option key={village._id}>{village.word}</option>
                 ))}
-              </select>
+              </select> */}
             </div>
 
             {/* row */}

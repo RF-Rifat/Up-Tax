@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import BASE_URL from "../api/api";
-const useGetHouseData = (endpoint, query) => {
+const useGetSearchData = (endpoint, query) => {
   const [resData, setResData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -59,4 +59,4 @@ const useGetHouseData = (endpoint, query) => {
   }, [endpoint, query]);
   return [resData, isLoading, setResData];
 };
-export default useGetHouseData;
+export default useGetSearchData;

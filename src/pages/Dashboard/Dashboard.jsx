@@ -2,11 +2,17 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import "./dashboard.css";
 import useCountData from "../../hooks/useCountData";
 import { Link } from "react-router-dom";
+import Loading from "../shared/Loading/Loading";
 
 
 
 const Dashboard = () => {
-  const totalCount = useCountData();
+  const { data: totalCount, loading } = useCountData();
+
+  if (loading) {
+    return <Loading/> ;
+  }
+
 
   console.log(totalCount?.todayPayment)
 

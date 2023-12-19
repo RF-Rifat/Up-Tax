@@ -6,7 +6,8 @@ import Loading from "../shared/Loading/Loading";
 
 import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
-import useGetHouseData from "../../hooks/useGetHouseData";
+import useGetSearchData from "../../hooks/useGetSearchData";
+
 
 const Household = () => {
   const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
@@ -16,7 +17,7 @@ const Household = () => {
   const [searchField, setSearchField] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [householdClients, isLoading] =
-    useGetHouseData(
+    useGetSearchData(
       `/collection/house/?page=${activePage}&size=${itemsPerPage}&field=${searchField}&search=${searchValue}`,
       query
     ) || [];
