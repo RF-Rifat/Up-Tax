@@ -12,7 +12,6 @@ import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
 import useGetSearchData from "../../hooks/useGetSearchData";
 
-
 const Business = () => {
   const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
     usePagination();
@@ -28,7 +27,6 @@ const Business = () => {
     query
   );
 
-  console.log(searchValue);
 
   const [businessCount, loading] = useGetData("/pageCount");
   useEffect(() => {
@@ -47,6 +45,7 @@ const Business = () => {
     { label: "ক্রমিক" },
     { label: "উপজেলা" },
     { label: "ইউনিয়ন" },
+    // { label: "পিতা/স্বামীর" },
     { label: "গ্রাম" },
     { label: "ওয়ার্ড" },
     { label: "ব্যবসার নাম" },
@@ -113,6 +112,7 @@ const Business = () => {
                 </th>
                 <td>{content.upazila}</td>
                 <td>{content.union}</td>
+                {/* <td>{content.father_or_husband_name}</td> */}
                 <td>{content.village}</td>
                 <td>{content.word}</td>
                 <td>{content.business_name}</td>

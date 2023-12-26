@@ -48,13 +48,16 @@ const TaxRow = ({ data, idx, setAllTax }) => {
         {data?.amount}
       </td>
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
-        {data?.startMonth}
+        {data?.receipt}
       </td>
-      <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
+      {/* <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data.endMonth}
-      </td>
+      </td> */}
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.phone}
+      </td>
+      <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
+        {data?.PaymentDate}
       </td>
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.code}

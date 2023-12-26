@@ -4,17 +4,14 @@ import useCountData from "../../hooks/useCountData";
 import { Link } from "react-router-dom";
 import Loading from "../shared/Loading/Loading";
 
-
-
 const Dashboard = () => {
   const { data: totalCount, loading } = useCountData();
 
   if (loading) {
-    return <Loading/> ;
+    return <Loading />;
   }
 
-
-  console.log(totalCount?.todayPayment)
+  console.log(totalCount?.todayPayment);
 
   const TaxData = [
     {
@@ -83,6 +80,9 @@ const Dashboard = () => {
           );
         })}
       </div>
+
+      {/* copy right */}
+      <p className="text-center py-10">Copyright © 2024 - All right reserved by Active Power 55 Limited</p>
     </div>
   );
 };

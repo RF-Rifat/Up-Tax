@@ -14,6 +14,7 @@ const TaxPaymentForm = ({
   // state to store name,date,month
 
   const [startMonth, setStartMonth] = useState(null);
+  const [receipt, setReceipt] = useState(null);
   const [endMonth, setEndMonth] = useState(null);
   const [amount, setAmount] = useState(null);
   const [type, setType] = useState(null);
@@ -36,6 +37,7 @@ const TaxPaymentForm = ({
       amount,
       startMonth,
       endMonth,
+      receipt,
       PaymentDate: formattedDate,
     };
     console.log(JSON.stringify(taxesInfo));
@@ -77,7 +79,7 @@ const TaxPaymentForm = ({
           </h1>
           <div className="1/4 mx-auto space-y-8">
             {/* 1st colum */}
-            <div className="flex gap-3 flex-1 justify-between">
+            <div className="flex gap-6 flex-1 justify-between">
               {/* Amount */}
 
               <div className="form-control">
@@ -89,7 +91,7 @@ const TaxPaymentForm = ({
                 <input
                   type="text"
                   placeholder="00"
-                  className="w-32 py-1"
+                  className="w-32 py-1 border-2  p-2 rounded-lg mb-1"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                 />
@@ -98,27 +100,25 @@ const TaxPaymentForm = ({
                       {month}
                     </option> */}
               </div>
-              {/* <div className="form-control">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
-                    টাইপ
+                    রশিদ
                   </span>
                 </label>
-                <select
-                  className="w-32 py-1"
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
-                >
-                  <option value="গৃহস্থ">গৃহস্থ</option>
-                  <option value="ব্যবসা">ব্যবসা</option>
-                </select>
-              </div> */}
+                <input
+                  placeholder="12345"
+                  className="w-32 py-1 border-2  p-2 rounded-lg mb-1"
+                  value={receipt}
+                  onChange={(e) => setReceipt(e.target.value)}
+                />
+              </div>
             </div>
 
             {/* 2cnd column */}
-            <div className="flex gap-3">
+            <div className="">
               {/* Started month */}
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold mb-1 md:text-[14px] lg:text-[16px]">
                     শুরু মাস নির্বাচন করুন
@@ -129,10 +129,10 @@ const TaxPaymentForm = ({
                   id=""
                   onChange={(e) => setStartMonth(e.target.value)}
                 />
-              </div>
+              </div> */}
 
               {/* End Month */}
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold mb-1 md:text-[14px] lg:text-[16px]">
                     শেষ মাস নির্বাচন করুন
@@ -142,7 +142,7 @@ const TaxPaymentForm = ({
                   type="date"
                   onChange={(e) => setEndMonth(e.target.value)}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="form-control">

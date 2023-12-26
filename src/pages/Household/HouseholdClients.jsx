@@ -19,6 +19,7 @@ const HouseholdClients = ({
     union,
     village,
     word,
+    father_or_husband_name,
     head_of_household_name,
     head_of_household_mobile,
     holding_number,
@@ -26,6 +27,7 @@ const HouseholdClients = ({
     tax_based_on_assessment,
     tax_collected_by_UPO,
   } = client;
+  console.log(client);
   const handleDelete = async (id) => {
     try {
       const result = await Swal.fire({
@@ -69,9 +71,9 @@ const HouseholdClients = ({
     <tbody>
       <tr>
         <td className="py-5">{activePage * itemsPerPage + idx + 1}</td>
-        <td>{upazila}</td>
         <td>{union}</td>
         <td>{village}</td>
+        <td>{father_or_husband_name}</td>
         <td>{word}</td>
         <td>{head_of_household_name}</td>
         <td>{head_of_household_mobile}</td>

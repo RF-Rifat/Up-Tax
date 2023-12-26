@@ -8,13 +8,14 @@ import { calculateMonthDifference } from "../../../utils/calculateMonthDiff";
 
 const Payments = ({ id, name, phone, assessmentTax, upTax, clientType }) => {
   console.log(assessmentTax);
-  const [startMonth, setStartMonth] = useState(null);
-  const [endMonth, setEndMonth] = useState(null);
+  // const [startMonth, setStartMonth] = useState(null);
+  // const [endMonth, setEndMonth] = useState(null);
+  const [receipt, setReceipt] = useState(null);
   const [amount, setAmount] = useState(null);
   const [assessmentAmount, setAssessmentAmount] = useState(null);
   const [upAmount, setUpAmount] = useState(null);
   const [PaymentsType, setPaymentsType] = useState(null);
-  const totalMonth = calculateMonthDifference(startMonth, endMonth);
+  // const totalMonth = calculateMonthDifference(startMonth, endMonth);
 
   const goTo = useNavigate();
 
@@ -25,7 +26,9 @@ const Payments = ({ id, name, phone, assessmentTax, upTax, clientType }) => {
     if (PaymentsType === "ইউপি") {
       setUpAmount(Number(upTax) * totalMonth);
     }
-  }, [PaymentsType, assessmentTax, totalMonth, upTax]);
+  }, [PaymentsType, assessmentTax, upTax]);
+  const currentDate = new Date();
+  const formattedDate = currentDate.toDateString();
 
   const handleTaxPayment = async (e) => {
     e.preventDefault();
@@ -38,8 +41,10 @@ const Payments = ({ id, name, phone, assessmentTax, upTax, clientType }) => {
       amount,
       assessmentAmount,
       upAmount,
-      startMonth,
-      endMonth,
+      receipt,
+      // startMonth,
+      PaymentDate: formattedDate,
+      // endMonth,
     };
 
     // try {
@@ -116,7 +121,7 @@ const Payments = ({ id, name, phone, assessmentTax, upTax, clientType }) => {
                   <option value="ইউপি">ইউপি</option>
                 </select>
               </div>
-              {/* <div className="form-control">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
                     টাইপ
@@ -124,13 +129,13 @@ const Payments = ({ id, name, phone, assessmentTax, upTax, clientType }) => {
                 </label>
                 <select
                   className="w-32 py-1"
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
+                  value={receipt}
+                  onChange={(e) => setReceipt(e.target.value)}
                 >
                   <option value="গৃহস্থ">গৃহস্থ</option>
                   <option value="ব্যবসা">ব্যবসা</option>
                 </select>
-              </div> */}
+              </div>
             </div>
 
             {/* 2cnd column */}

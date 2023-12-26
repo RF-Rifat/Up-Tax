@@ -42,9 +42,9 @@ const Household = () => {
           <thead className="bg-green-400 text-white ">
             <tr>
               <th>ক্রমিক </th>
-              <th>উপজেলা </th>
               <th>ইউনিয়ন</th>
               <th>গ্রাম</th>
+              <th>পিতা/স্বামীর</th>
               <th>ওয়ার্ড</th>
               <th>নাম</th>
               <th>মোবাইল</th>

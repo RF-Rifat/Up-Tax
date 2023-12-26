@@ -18,7 +18,7 @@ const HouseholdUpdate = () => {
   if (loading) {
     return <Loading></Loading>;
   }
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     try {
       const res = await modifyData(`/collection/house/${id}`,"PUT",data)
       console.log(res);
@@ -346,7 +346,7 @@ const HouseholdUpdate = () => {
               <label className="label">
                 <span className="font-bold">ওয়ার্ড:</span>
               </label>
-
+ 
               <select
                 name="word"
                 type="select"
@@ -355,11 +355,21 @@ const HouseholdUpdate = () => {
                 className="select font-semibold border-info text-base text-gray-500  w-full"
               >
                 <option disabled>{word}</option>
-                {villageData?.map((village) => (
-                  <option key={village._id}>{village.word}</option>
-                ))}
+               
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+              
               </select>
-  
+   
             </div>
 
             {/* row */}

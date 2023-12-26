@@ -86,16 +86,32 @@ const NewBusiness = () => {
                     ওয়ার্ড:
                   </span>
                 </label>
-                <select
-                  className="select select-bordered"
-                  name="word"
-                  defaultValue={'Select'}
+                {/* <select
+                 
                 >
                   <option disabled>Select</option>
                   {villages?.map((village) => (
                     <option key={village._id}>{village.word}</option>
                   ))}
-                </select>
+                </select> */}
+                <select
+                className="select select-bordered"
+                name="word"
+                defaultValue={'Select'}
+              >              
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+              
+              </select>
               </div>
             </div>
 
@@ -240,11 +256,19 @@ const NewBusiness = () => {
                       ব্যবসার নাম:
                     </span>
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     className="border-2  p-2 rounded-lg mb-1"
                     name="business_name"
-                  />
+                  /> */}
+                  <select className="border-2  p-2 rounded-lg mb-1"
+                    name="business_name">
+                  <option disabled>ব্যবসার নাম:</option>
+                  <option>কৃ‌ষি</option>
+                  <option>ব‌্যবসা</option>
+                  <option>দিনমজুর</option>
+                  <option>রে‌মি‌টেন্স যোদ্ধা</option>
+                  </select>
                 </div>
                 <div className="form-control">
                   <label className="label">

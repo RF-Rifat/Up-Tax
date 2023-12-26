@@ -1,4 +1,3 @@
-
 import { AiOutlineLeft } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -9,19 +8,16 @@ import Swal from "sweetalert2";
 import { modifyData } from "../../api/api";
 import useGetData from "../../hooks/useGetData";
 const AddHousehold = () => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
-const [villageData,isLoading] = useGetData('/collection/villages')
+  const [villageData, isLoading] = useGetData("/collection/villages");
 
-if(isLoading){
-  return <Loading></Loading>
-}
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
   const onSubmit = async (data) => {
     try {
-      // modifyData is a function to do post/put 
+      // modifyData is a function to do post/put
       const res = await modifyData("/collection/house", "POST", data);
       console.log(res.acknowledged);
       if (res.acknowledged) {
@@ -39,8 +35,6 @@ if(isLoading){
     console.log(data);
   };
 
-
-
   return (
     <div className="border rounded-md mt-6">
       <div className="flex justify-between px-5 mb-6">
@@ -51,7 +45,11 @@ if(isLoading){
           <AiOutlineLeft className="text-cyan-400 text-2xl font-bold"></AiOutlineLeft>
           Go back
         </Link>
-        <h3 className="card-title d-inline-block"> <BiSolidUser className="text-cyan-400 text-2xl"></BiSolidUser> নতুন গৃহস্থ</h3>
+        <h3 className="card-title d-inline-block">
+          {" "}
+          <BiSolidUser className="text-cyan-400 text-2xl"></BiSolidUser> নতুন
+          গৃহস্থ
+        </h3>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -268,10 +266,10 @@ if(isLoading){
             {/* row */}
             <div className="form-control">
               <label className="label">
-                <span className="font-bold"> ওয়ার্ড:</span> 
+                <span className="font-bold"> ওয়ার্ড:</span>
               </label>
-              <input type="number" name="word" className="select font-semibold border-info text-base text-gray-500  w-full" id="" />
-              {/* <select
+
+              <select
                 name="word"
                 type="select"
                 {...register("word")}
@@ -279,10 +277,19 @@ if(isLoading){
                 className="select font-semibold border-info text-base text-gray-500  w-full"
               >
                 <option disabled>Select</option>
-                {villageData?.map((village) => (
-                  <option key={village._id}>{village.word}</option>
-                ))}
-              </select> */}
+
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
             </div>
 
             {/* row */}

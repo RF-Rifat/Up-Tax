@@ -16,8 +16,9 @@ const UpdateTax = () => {
     phone: data?.phone || "",
     type: data?.type || "",
     amount: data?.amount || "",
-    startMonth: data?.startMonth || "",
-    endMonth: data?.endMonth || "",
+    receipt: data?.receipt || "",
+    // startMonth: data?.startMonth || "",
+    // endMonth: data?.endMonth || "",
   });
 
   useEffect(() => {
@@ -26,8 +27,9 @@ const UpdateTax = () => {
       phone: data?.phone || "",
       type: data?.type || "",
       amount: data?.amount || "",
-      startMonth: data?.startMonth || "",
-      endMonth: data?.endMonth || "",
+      receipt: data?.receipt || "",
+      // startMonth: data?.startMonth || "",
+      // endMonth: data?.endMonth || "",
     });
   }, [data]);
 
@@ -86,44 +88,41 @@ const UpdateTax = () => {
                 </label>
                 <input
                   type="number"
-                  className="w-32 py-1"
+                  className="w-32 py-1 border-2  p-2 rounded-lg mb-1"
                   name="amount"
                   value={tax.amount}
                   onChange={handleChange}
                 />
               </div>
-              {/* <div className="form-control">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
-                    টাইপ
+                    রশিদ
                   </span>
                 </label>
-                <select
-                  className="w-32 py-1"
-                  value={tax.type}
-                  name="type"
+                <input
+                  className="w-32 py-1 border-2  p-2 rounded-lg mb-1"
+                  value={tax.receipt}
+                  name="receipt"
                   onChange={handleChange}
-                >
-                  <option value="household">গৃহস্থ</option>
-                  <option value="business">ব্যবসা</option>
-                </select>
-              </div> */}
+                />
+              </div>
             </div>
 
             {/* 2cnd column */}
-            <div className="flex gap-3">
+            <div className="">
               {/* Started month */}
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold mb-1 md:text-[14px] lg:text-[16px]">
                     শুরু মাস নির্বাচন করুন
                   </span>
                 </label>
                 <input type="date" name="startMonth" onChange={handleChange} />
-              </div>
+              </div> */}
 
               {/* End Month */}
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold mb-1 md:text-[14px] lg:text-[16px]">
                     শেষ মাস নির্বাচন করুন
@@ -131,7 +130,7 @@ const UpdateTax = () => {
                 </label>
 
                 <input type="date" name="endMonth" onChange={handleChange} />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="form-control">

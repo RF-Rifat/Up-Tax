@@ -24,13 +24,12 @@ const TaxPage = () => {
     "Name",
     "Type",
     "Amount",
-    "St Month",
-    "End Month",
+    "Receipt",
     "phone",
+    "Payment-Date",
     `business/ holding-Num`,
     "Action",
   ];
-
   return (
     <div className="overflow-x-auto">
       <div className="card-body">
