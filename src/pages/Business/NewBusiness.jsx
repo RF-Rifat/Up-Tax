@@ -6,11 +6,9 @@ import { modifyData } from "../../api/api";
 import useGetData from "../../hooks/useGetData";
 
 const NewBusiness = () => {
-  const [villages] = useGetData('/collection/villages') || []
-
+  const [villages] = useGetData("/collection/villages") || [];
 
   const goTo = useNavigate();
-
 
   const handleNewBusiness = async (e) => {
     e.preventDefault();
@@ -18,31 +16,27 @@ const NewBusiness = () => {
     const formData = new FormData(e.target);
     const formInputs = Object.fromEntries(formData);
 
-    console.log(Object.keys(formInputs).join(','));
+    console.log(Object.keys(formInputs).join(","));
     // post data to database
-   try {
-     // modifyData is a function to do post/put
-     const res = await modifyData("/collection/business", "POST",formInputs);
-     console.log(res.acknowledged);
-     if (res.acknowledged) {
-       // Showing success message
-       Swal.fire({
-         position: "top-end",
-         icon: "success",
-         title: "সফলভাবে একটি নতুন ব্যবসা নিবন্ধিত হয়েছে!",
-         showConfirmButton: false,
-         timer: 1500,
-       });
-       // Reset the form after submission
-       e.target.reset();
-     }
-   } catch (error) {
-     console.log(error);
-   }
-
-
-
-
+    try {
+      // modifyData is a function to do post/put
+      const res = await modifyData("/collection/business", "POST", formInputs);
+      console.log(res.acknowledged);
+      if (res.acknowledged) {
+        // Showing success message
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "সফলভাবে একটি নতুন ব্যবসা নিবন্ধিত হয়েছে!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        // Reset the form after submission
+        e.target.reset();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -95,10 +89,10 @@ const NewBusiness = () => {
                   ))}
                 </select> */}
                 <select
-                className="select select-bordered"
-                name="word"
-                defaultValue={'Select'}
-              >              
+                  className="select select-bordered"
+                  name="word"
+                  defaultValue={"Select"}
+                >
                   <option>01</option>
                   <option>02</option>
                   <option>03</option>
@@ -110,8 +104,7 @@ const NewBusiness = () => {
                   <option>10</option>
                   <option>11</option>
                   <option>12</option>
-              
-              </select>
+                </select>
               </div>
             </div>
 
@@ -256,20 +249,19 @@ const NewBusiness = () => {
                       ব্যবসার নাম:
                     </span>
                   </label>
-                  {/* <input
-                    type="text"
+
+                  <select
                     className="border-2  p-2 rounded-lg mb-1"
                     name="business_name"
-                  /> */}
-                  <select className="border-2  p-2 rounded-lg mb-1"
-                    name="business_name">
-                  <option disabled>ব্যবসার নাম:</option>
-                  <option>কৃ‌ষি</option>
-                  <option>ব‌্যবসা</option>
-                  <option>দিনমজুর</option>
-                  <option>রে‌মি‌টেন্স যোদ্ধা</option>
+                  >
+                    <option disabled>ব্যবসার নাম:</option>
+                    <option>কৃ‌ষি</option>
+                    <option>ব‌্যবসা</option>
+                    <option>দিনমজুর</option>
+                    <option>রে‌মি‌টেন্স যোদ্ধা</option>
                   </select>
                 </div>
+
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text font-bold mt-5 md:text-[14px] lg:text-[16px]">

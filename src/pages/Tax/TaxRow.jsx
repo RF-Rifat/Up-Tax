@@ -50,9 +50,9 @@ const TaxRow = ({ data, idx, setAllTax }) => {
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.receipt}
       </td>
-      {/* <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
-        {data.endMonth}
-      </td> */}
+      <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
+        {data?.financialYear}
+      </td>
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.phone}
       </td>

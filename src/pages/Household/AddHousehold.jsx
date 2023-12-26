@@ -324,12 +324,19 @@ const AddHousehold = () => {
                 <label className="label">
                   <span className="font-bold">পেশা:</span>
                 </label>
-                <input
+                <select
                   name="occupation"
                   type="text"
                   {...register("occupation")}
                   className="input font-semibold border-info w-full text-base text-gray-500 input-bordered"
-                />
+                >
+                  <option disabled>select</option>
+                  <option>‌কৃ‌ষি</option>
+                  <option>চাকুরী</option>
+                  <option>ব‌্যবসা</option>
+                  <option>দিনমজুর</option>
+                  <option>রে‌মি‌টেন্স যোদ্ধা</option>
+                </select>
               </div>
               {/* dormo */}
               <div className="form-control">
@@ -539,12 +546,20 @@ const AddHousehold = () => {
               <label className="label">
                 <span className="font-bold">ল্যাট্রিন:</span>
               </label>
-              <input
+              {/* <input
                 name="latrine"
                 type="text"
                 {...register("latrine")}
                 className="input font-semibold border-info text-base text-gray-500 w-full input-bordered"
-              />
+              /> */}
+
+              <select className="border-2  p-2 rounded-lg mb-1" name="latrine">
+                <option disabled>ল‌্যা‌ট্রিন:</option>
+                <option>কাঁচা </option>
+                <option>আধা পাকা</option>
+                <option>পাকা</option>
+                <option>নাই</option>
+              </select>
             </div>
             {/* row */}
             <div className="form-control">

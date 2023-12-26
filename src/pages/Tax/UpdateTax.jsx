@@ -17,6 +17,7 @@ const UpdateTax = () => {
     type: data?.type || "",
     amount: data?.amount || "",
     receipt: data?.receipt || "",
+    financialYear: data?.financialYear || "",
     // startMonth: data?.startMonth || "",
     // endMonth: data?.endMonth || "",
   });
@@ -28,6 +29,7 @@ const UpdateTax = () => {
       type: data?.type || "",
       amount: data?.amount || "",
       receipt: data?.receipt || "",
+      financialYear: data?.financialYear || "",
       // startMonth: data?.startMonth || "",
       // endMonth: data?.endMonth || "",
     });
@@ -112,14 +114,20 @@ const UpdateTax = () => {
             {/* 2cnd column */}
             <div className="">
               {/* Started month */}
-              {/* <div className="form-control">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold mb-1 md:text-[14px] lg:text-[16px]">
-                    শুরু মাস নির্বাচন করুন
+                    অর্থ বছর
                   </span>
                 </label>
-                <input type="date" name="startMonth" onChange={handleChange} />
-              </div> */}
+                <input
+                  type="text"
+                  name="financialYear"
+                  className="py-1 border-2  p-2 rounded-lg mb-1"
+                  placeholder={"2021-2022"}
+                  onChange={handleChange}
+                />
+              </div>
 
               {/* End Month */}
               {/* <div className="form-control">

@@ -88,6 +88,7 @@ const Business = () => {
     }
   };
 
+
   return (
     <div className="responsive-table mx-2 ">
       <BusinessSearch setQuery={setQuery}></BusinessSearch>

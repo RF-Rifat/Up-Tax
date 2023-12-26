@@ -34,11 +34,11 @@ const useGetData = (endpoint, query) => {
     };
 
     fetchData();
-
+    
     // fetch(BASE_URL + endpoint)
     //   .then((res) => res.json())
     //   .then((data) => {
-    //     if (query) {
+      //     if (query) {
     //       const queryData = data?.filter((item) => {
 
     //         // this is a utility function for filtering data
@@ -48,8 +48,8 @@ const useGetData = (endpoint, query) => {
     //       setIsLoading(false);
     //     }
     //     else if(!query){
-    //       setResData(data);
-    //       setIsLoading(false);
+      //       setResData(data);
+      //       setIsLoading(false);
     //     }
     //     else{
 
@@ -58,6 +58,7 @@ const useGetData = (endpoint, query) => {
     //     }
     //   });
   }, [endpoint, query]);
+
   return [resData, isLoading, setResData];
 };
 export default useGetData;

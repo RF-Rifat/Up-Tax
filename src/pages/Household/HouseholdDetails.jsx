@@ -13,7 +13,7 @@ const HouseholdDetails = () => {
     // upazila,
     // union,
     village,
-    // word,
+    word,
     head_of_household_name,
     head_of_household_mobile,
     father_or_husband_name,
@@ -108,6 +108,10 @@ const HouseholdDetails = () => {
             <tr className="hover">
               <th>বাড়ির জমির পরিমান:</th>
               <td>{land_size}</td>
+            </tr>
+            <tr className="hover">
+              <th>ওয়ার্ড:</th>
+              <td>{word}</td>
             </tr>
             <tr className="hover">
               <th>পেশা:</th>

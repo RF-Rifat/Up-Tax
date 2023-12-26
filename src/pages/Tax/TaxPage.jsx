@@ -25,11 +25,13 @@ const TaxPage = () => {
     "Type",
     "Amount",
     "Receipt",
+    "Financial-Year",
     "phone",
     "Payment-Date",
     `business/ holding-Num`,
     "Action",
   ];
+  console.log(allTax);
   return (
     <div className="overflow-x-auto">
       <div className="card-body">

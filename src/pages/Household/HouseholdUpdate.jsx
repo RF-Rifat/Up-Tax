@@ -20,9 +20,9 @@ const HouseholdUpdate = () => {
   }
   const onSubmit = async (data) => {
     try {
-      const res = await modifyData(`/collection/house/${id}`,"PUT",data)
+      const res = await modifyData(`/collection/house/${id}`, "PUT", data);
       console.log(res);
-      if(res.modifiedCount > 0){
+      if (res.modifiedCount > 0) {
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -31,13 +31,9 @@ const HouseholdUpdate = () => {
           timer: 1500,
         });
       }
-
-
     } catch (error) {
       console.log(error);
     }
-
-
   };
 
   const {
@@ -346,7 +342,7 @@ const HouseholdUpdate = () => {
               <label className="label">
                 <span className="font-bold">ওয়ার্ড:</span>
               </label>
- 
+
               <select
                 name="word"
                 type="select"
@@ -355,21 +351,19 @@ const HouseholdUpdate = () => {
                 className="select font-semibold border-info text-base text-gray-500  w-full"
               >
                 <option disabled>{word}</option>
-               
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-              
+
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
               </select>
-   
             </div>
 
             {/* row */}
@@ -409,7 +403,7 @@ const HouseholdUpdate = () => {
                 <label className="label">
                   <span className="font-bold">পেশা:</span>
                 </label>
-                <input
+                <select
                   name="occupation"
                   type="text"
                   placeholder=""
@@ -417,7 +411,14 @@ const HouseholdUpdate = () => {
                   defaultValue={occupation}
                   className="input font-semibold border-info w-full text-base text-gray-500 input-bordered"
                   required
-                />
+                >
+                  <option disabled>select</option>
+                  <option>‌কৃ‌ষি</option>
+                  <option>চাকুরী</option>
+                  <option>ব‌্যবসা</option>
+                  <option>দিনমজুর</option>
+                  <option>রে‌মি‌টেন্স যোদ্ধা</option>
+                </select>
               </div>
               {/* dormo */}
               <div className="form-control">
@@ -662,7 +663,7 @@ const HouseholdUpdate = () => {
               <label className="label">
                 <span className="font-bold">ল্যাট্রিন:</span>
               </label>
-              <input
+              <select
                 name="latrine"
                 type="text"
                 placeholder=""
@@ -670,7 +671,13 @@ const HouseholdUpdate = () => {
                 defaultValue={latrine}
                 className="input font-semibold border-info text-base text-gray-500 w-full input-bordered"
                 required
-              />
+              >
+                <option disabled>ল‌্যা‌ট্রিন:</option>
+                <option>কাঁচা </option>
+                <option>আধা পাকা</option>
+                <option>পাকা</option>
+                <option>নাই</option>
+              </select>
             </div>
             {/* row */}
             <div className="form-control">

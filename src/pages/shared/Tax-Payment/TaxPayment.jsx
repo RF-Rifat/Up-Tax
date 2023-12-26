@@ -13,9 +13,9 @@ const TaxPaymentForm = ({
   // const {name,phone} = taxPayerInfo;
   // state to store name,date,month
 
-  const [startMonth, setStartMonth] = useState(null);
+  const [financialYear, setFinancialYear] = useState(null);
   const [receipt, setReceipt] = useState(null);
-  const [endMonth, setEndMonth] = useState(null);
+  // const [endMonth, setEndMonth] = useState(null);
   const [amount, setAmount] = useState(null);
   const [type, setType] = useState(null);
 
@@ -35,8 +35,9 @@ const TaxPaymentForm = ({
       type: taxPayerInfo.type,
       code: taxPayerInfo.code,
       amount,
-      startMonth,
-      endMonth,
+      financialYear,
+      // startMonth,
+      // endMonth,
       receipt,
       PaymentDate: formattedDate,
     };
@@ -103,7 +104,7 @@ const TaxPaymentForm = ({
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
-                    রশিদ
+                    রশিদ নং 
                   </span>
                 </label>
                 <input
@@ -118,18 +119,20 @@ const TaxPaymentForm = ({
             {/* 2cnd column */}
             <div className="">
               {/* Started month */}
-              {/* <div className="form-control">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold mb-1 md:text-[14px] lg:text-[16px]">
-                    শুরু মাস নির্বাচন করুন
+                    অর্থ বছর
                   </span>
                 </label>
                 <input
-                  type="date"
+                  type="text"
                   id=""
-                  onChange={(e) => setStartMonth(e.target.value)}
+                  className="py-1 border-2  p-2 rounded-lg mb-1"
+                  placeholder={"2021-2022"}
+                  onChange={(e) => setFinancialYear(e.target.value)}
                 />
-              </div> */}
+              </div>
 
               {/* End Month */}
               {/* <div className="form-control">
