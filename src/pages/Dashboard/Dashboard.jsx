@@ -80,9 +80,6 @@ const Dashboard = () => {
           );
         })}
       </div>
-
-      {/* copy right */}
-      <p className="text-center py-10">Copyright © 2024 - All right reserved by Active Power 55 Limited</p>
     </div>
   );
 };
