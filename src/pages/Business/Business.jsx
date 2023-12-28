@@ -1,5 +1,4 @@
 import "./business.css";
-
 import BusinessSearch from "./BusinessSearch";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -27,7 +26,6 @@ const Business = () => {
     query
   );
 
-
   const [businessCount, loading] = useGetData("/pageCount");
   useEffect(() => {
     setSearchData(businessClients);
@@ -43,11 +41,11 @@ const Business = () => {
 
   const staticHeaders = [
     { label: "ক্রমিক" },
-    { label: "উপজেলা" },
     { label: "ইউনিয়ন" },
     // { label: "পিতা/স্বামীর" },
     { label: "গ্রাম" },
     { label: "ওয়ার্ড" },
+    { label: "ব্যবসার ধরণ" },
     { label: "ব্যবসার নাম" },
     { label: "মালিকের নাম" },
     { label: "মোবাইল" },
@@ -88,7 +86,6 @@ const Business = () => {
     }
   };
 
-
   return (
     <div className="responsive-table mx-2 ">
       <BusinessSearch setQuery={setQuery}></BusinessSearch>
@@ -111,11 +108,11 @@ const Business = () => {
                 <th className="font-bold">
                   {activePage * itemsPerPage + idx + 1}
                 </th>
-                <td>{content.upazila}</td>
                 <td>{content.union}</td>
                 {/* <td>{content.father_or_husband_name}</td> */}
                 <td>{content.village}</td>
                 <td>{content.word}</td>
+                <td>{content.businessType}</td>
                 <td>{content.business_name}</td>
                 <td>{content.owner_name}</td>
                 <td>{content.phone}</td>
