@@ -8,7 +8,6 @@ import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
 import useGetSearchData from "../../hooks/useGetSearchData";
 
-
 const Household = () => {
   const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
     usePagination();
@@ -33,6 +32,8 @@ const Household = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+
+  console.log(searchData.length);
   return (
     <div className="mx-2">
       <HouseholdNav setQuery={setQuery}></HouseholdNav>

@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthProvider } from "../provider/Provider";
-import Spinner from "../pages/shared/Spinner"; 
+import Spinner from "../pages/shared/Spinner";
 
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return <Spinner></Spinner>;
   }
-  if (!user) {
+  if (user) {
     return children;
   }
   return <Navigate to={"/login"}></Navigate>;

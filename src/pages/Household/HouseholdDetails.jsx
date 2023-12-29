@@ -7,6 +7,7 @@ import Payments from "../shared/Payments/Payments";
 const HouseholdDetails = () => {
   const { id } = useParams();
   const [client] = useGetData(`/collection/house/${id}`);
+ 
 
   const {
     _id,
@@ -70,7 +71,7 @@ const HouseholdDetails = () => {
     code: holding_number,
     // type: "গৃহস্থ",
   };
-  console.log(_id)
+  console.log(_id);
 
   return (
     <div className="card-body">

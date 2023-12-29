@@ -1,9 +1,10 @@
-const BASE_URL = "http://localhost:5000";
+// const BASE_URL = "http://localhost:5000";
 // const BASE_URL = "https://union-project-backend.vercel.app";
 // const BASE_URL = "https://up-taxpay-server-main.vercel.app";
 // const BASE_URL = "https://server.easyabroadbd.com";
-
 // const BASE_URL = "https://up-taxpay-server-main-copy.vercel.app";
+
+const BASE_URL = "https://uph-tax-server.vercel.app";
 export const getData = async (endpoint) => {
   return fetch(BASE_URL + endpoint)
     .then((res) => res.json())

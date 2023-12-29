@@ -6,13 +6,14 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC4LKn5LKJio714TcIBva_nEuppbUOZ0bw",
-  authDomain: "up-taxpay.firebaseapp.com",
-  projectId: "up-taxpay",
-  storageBucket: "up-taxpay.appspot.com",
-  messagingSenderId: "426045244718",
-  appId: "1:426045244718:web:6422ab2634fc83a87c66bf",
+  apiKey: "AIzaSyBlnqimLK9QRCr5LzU5f7z1qqcPkG3H4AM",
+  authDomain: "uphtax-2a0a9.firebaseapp.com",
+  projectId: "uphtax-2a0a9",
+  storageBucket: "uphtax-2a0a9.appspot.com",
+  messagingSenderId: "597355052114",
+  appId: "1:597355052114:web:d346699467b650919eb38b",
 };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 

@@ -38,11 +38,7 @@ const Navbar = () => {
         </label>
       </div>
       <Link to={"/"} className="flex gap-3 flex-1 px-2 mx-2">
-        <img
-          className="w-[40px]"
-          src="https://laxmipurup.uptaxs.com/public/uploaded/logo-bd.png"
-          alt=""
-        />
+        <img className="w-[40px]" src="/logo-bd.png" alt="" />
         <p>{settingsData[0]?.site_name}</p>
         {/* <p>{ "১ নং লক্ষীপুর ইউনিয়ন পরিষদ"}</p> */}
       </Link>
