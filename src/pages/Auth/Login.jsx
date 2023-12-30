@@ -153,14 +153,17 @@ const Login = () => {
                 <input className="scale-125" type="checkbox" required />
                 Remember Me
               </label>
-             
             </div>
             <button className="signBtn mb-3">Log in</button>
             <div className="mb-3">
-            <button className="font-bold" onClick={handleResetPassword} to={"/"}>
+              <button
+                className="font-bold"
+                onClick={handleResetPassword}
+                to={"/"}
+              >
                 Forget Password ?
               </button>
-           </div>
+            </div>
             <div className="register text-xl">
               <p>
                 Don&apos;t have a account ?{" "}

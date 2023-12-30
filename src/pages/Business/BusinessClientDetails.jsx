@@ -78,7 +78,7 @@ const BusinessClientDetails = () => {
               <td>{word}</td>
             </tr>
             <tr className="hover">
-              <th>দোকান ধরন:</th>
+              <th>ব্যবসার ধরন:</th>
               <td>{business_type}</td>
             </tr>
             <tr className="hover">
