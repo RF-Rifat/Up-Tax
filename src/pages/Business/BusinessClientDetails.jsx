@@ -15,7 +15,7 @@ const BusinessClientDetails = () => {
     _id,
     upazila,
     union,
-    business_type,
+    businessType,
     owner_name,
     business_code,
     assesment_tax,
@@ -27,6 +27,7 @@ const BusinessClientDetails = () => {
     business_capital,
     UP_collected_tax,
   } = businessClient || {};
+
 
   // modal
   // open modal
@@ -79,7 +80,7 @@ const BusinessClientDetails = () => {
             </tr>
             <tr className="hover">
               <th>ব্যবসার ধরন:</th>
-              <td>{business_type}</td>
+              <td>{businessType}</td>
             </tr>
             <tr className="hover">
               <th>মোবাইল:</th>
