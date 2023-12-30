@@ -76,14 +76,14 @@ const SignUp = () => {
       </Helmet>
 
       <div
-        className="inputContainer md:pt-10 min-h-[140svh] md:min-h-[100svh]"
+        className="inputContainer md:pt-10 min-h-[140svh] px-6 md:min-h-[100svh]"
         style={{
           backgroundImage: `url("https://images.unsplash.com/photo-1608501078713-8e445a709b39?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
         }}
       >
         <section className="flex  flex-col px-10  main">
           <form onSubmit={handleSubmit}>
-            <h1 className="font-semibold text-2xl my-2 heading">
+            <h1 className="font-semibold text-2xl my-6 heading">
               Create a new account{" "}
             </h1>
             <div className="inputBox w-[300px] md:w-[400px] lg:w-[500px]">
