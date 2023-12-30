@@ -250,16 +250,10 @@ const NewBusiness = () => {
                     </span>
                   </label>
 
-                  <select
+                  <input
                     className="border-2  p-2 rounded-lg mb-1"
                     name="business_name"
-                  >
-                    <option disabled>ব্যবসার নাম:</option>
-                    <option>কৃ‌ষি</option>
-                    <option>ব‌্যবসা</option>
-                    <option>দিনমজুর</option>
-                    <option>রে‌মি‌টেন্স যোদ্ধা</option>
-                  </select>
+                  />
                 </div>
 
                 <div className="form-control">

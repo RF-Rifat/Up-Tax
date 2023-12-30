@@ -72,7 +72,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>CINEMA | SignUp</title>
+        <title>UpHTax | SignUp</title>
       </Helmet>
 
       <div
@@ -81,7 +81,7 @@ const SignUp = () => {
           backgroundImage: `url("https://images.unsplash.com/photo-1608501078713-8e445a709b39?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
         }}
       >
-        <section className="flex flex-col px-10 py-6 mt-20 main">
+        <section className="flex flex-col px-10 py-6 md:mt-5 xl:mt-20 main">
           <form onSubmit={handleSubmit}>
             <h1 className="font-semibold text-2xl my-2 heading">
               Create a new account{" "}

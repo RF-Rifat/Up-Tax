@@ -1,37 +1,35 @@
-
 import Swal from "sweetalert2";
 import { BiSolidBusiness } from "react-icons/bi";
-import {  useParams } from "react-router-dom/dist";
+import { useParams } from "react-router-dom/dist";
 import { modifyData } from "../../api/api";
 import useGetData from "../../hooks/useGetData";
 import Loading from "../shared/Loading/Loading";
 
-
 const BusinessUpdate = () => {
-    const {id} = useParams()
+  const { id } = useParams();
   const [villages] = useGetData("/collection/villages");
-  const [client,isLoading] = useGetData(`/collection/business/${id}`) || [];
+  const [client, isLoading] = useGetData(`/collection/business/${id}`) || [];
 
-    if(isLoading){
-        return <Loading></Loading>
-    }
-const {
-  _id,
-  upazila,
-  union,
-  business_type,
-  owner_name,
-  business_code,
-  assesment_tax,
-  business_name,
-  infrastructure,
-  phone,
-  village,
-  shop_no,
-  word,
-  business_capital,
-  UP_collected_tax,
-} = client || {};
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+  const {
+    _id,
+    upazila,
+    union,
+    business_type,
+    owner_name,
+    business_code,
+    assesment_tax,
+    business_name,
+    infrastructure,
+    phone,
+    village,
+    shop_no,
+    word,
+    business_capital,
+    UP_collected_tax,
+  } = client || {};
 
   const handleNewBusiness = async (e) => {
     e.preventDefault();
@@ -42,7 +40,11 @@ const {
     // post data to database
     try {
       // modifyData is a function to do post/put
-      const res = await modifyData(`/collection/business/${id}`, "PUT", formInputs);
+      const res = await modifyData(
+        `/collection/business/${id}`,
+        "PUT",
+        formInputs
+      );
       console.log(res.acknowledged);
       if (res.acknowledged) {
         // Showing success message
@@ -102,11 +104,11 @@ const {
                     ওয়ার্ড:
                   </span>
                 </label>
-               <select
-                className="select select-bordered"
-                name="word"
-                defaultValue={'Select'}
-              >              
+                <select
+                  className="select select-bordered"
+                  name="word"
+                  defaultValue={"Select"}
+                >
                   <option>01</option>
                   <option>02</option>
                   <option>03</option>
@@ -118,8 +120,7 @@ const {
                   <option>10</option>
                   <option>11</option>
                   <option>12</option>
-              
-              </select>
+                </select>
               </div>
             </div>
 
@@ -285,14 +286,10 @@ const {
                     name="business_name"
                     defaultValue={business_name}
                   /> */}
-                  <select className="border-2  p-2 rounded-lg mb-1"
-                    name="business_name">
-                  <option disabled>ব্যবসার নাম:</option>
-                  <option>কৃ‌ষি</option>
-                  <option>ব‌্যবসা</option>
-                  <option>দিনমজুর</option>
-                  <option>রে‌মি‌টেন্স যোদ্ধা</option>
-                  </select>
+                  <input
+                    className="border-2  p-2 rounded-lg mb-1"
+                    name="business_name"
+                  />
                 </div>
                 <div className="form-control">
                   <label className="label">
