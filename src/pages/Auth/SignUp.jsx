@@ -1,15 +1,18 @@
 import React, { useContext, useState } from "react";
 import { AuthProvider } from "../../provider/Provider";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
+import "./login.css";
 
 const SignUp = () => {
   const { createUser, updateUser, signWithGooglePop } =
     useContext(AuthProvider);
   const navigate = useNavigate();
+  const [error, setError] = useState("");
   // console.log(createUser);
-  const handleFormCollectData = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -24,7 +27,7 @@ const SignUp = () => {
 
       navigate("/");
     } catch (error) {
-      console.error("Error in registration process:", error.message);
+      setError("Error in registration process:", error.message);
     }
   };
 
@@ -68,111 +71,92 @@ const SignUp = () => {
 
   return (
     <>
-      {/* component */}
-      <link
-        rel="stylesheet"
-        href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
-      />
-      <link
-        rel="stylesheet"
-        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-      />
-      <section className="bg-blueGray-100 h-screen flex items-center">
-        <div className="w-full lg:w-6/12 px-4 md:px-14 mx-auto pt-6">
-          <h1 className="text-center text-2 md:text-5xl font-bold  mb-6">
-            Register Form
-          </h1>
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-            <div className="rounded-t mb-0 px-6 py-6 bg-gray-200">
-              <form onSubmit={handleFormCollectData}>
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    htmlFor="username"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Name"
-                  />
-                </div>
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Email"
-                  />
-                </div>
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Password"
-                  />
-                </div>
-
-                <div>
-                  <label className="inline-flex items-center cursor-pointer">
-                    <input
-                      id="customCheckLogin"
-                      type="checkbox"
-                      className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
-                    />
-                    <span className="ml-2 text-sm font-semibold text-blueGray-600">
-                      Remember me
-                    </span>
-                  </label>
-                </div>
-                <div className="text-center mt-6">
-                  <button
-                    className="bg-gray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-4 w-full ease-linear transition-all duration-150"
-                    type="submit"
-                  >
-                    {" "}
-                    Sign In{" "}
-                  </button>
-                </div>
-              </form>
-              <div className="text-center mb-3">
-                <h6 className="text-blueGray-600 text-xl font-bold">
-                  Sign in with Google
-                </h6>
-              </div>
-              <div className="btn-wrapper text-center">
-                <button
-                  onClick={handleGoogleLogIn}
-                  className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal btn w-3/4 rounded-md  outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center  text-xs ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  <img
-                    alt="..."
-                    className="w-5 mr-1"
-                    src="https://demos.creative-tim.com/notus-js/assets/img/google.svg"
-                  />
-                  Google{" "}
-                </button>
-              </div>
+      <Helmet>
+        <title>CINEMA | SignUp</title>
+      </Helmet>
+      <div className="bg-transparent absolute w-full text-blue-600 px-6 lg:px-20"></div>
+      <div
+        className="inputContainer min-h-[100svh]"
+        style={{
+          backgroundImage: `url("https://images.unsplash.com/photo-1608501078713-8e445a709b39?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
+        }}
+      >
+        <section className="flex flex-col px-10 py-6 mt-20">
+          <form onSubmit={handleSubmit}>
+            <h1 className="font-semibold text-2xl my-2">
+              Create a new account{" "}
+            </h1>
+            <div className="inputBox w-[300px] md:w-[400px] lg:w-[500px]">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="text" name="name" required />
+              <label>Name</label>
             </div>
+            <div className="inputBox w-[300px] md:w-[400px] lg:w-[500px]">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="email" name="email" required />
+              <label>Email</label>
+            </div>
+            <div className="inputBox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="password" name="password" required />
+              <label>Password</label>
+            </div>
+            <div className="forget flex flex-wrap py-2 text-lg">
+              <label>
+                <input className="scale-125" type="checkbox" />
+                Remember Me
+              </label>
+              <Link to={"/"}>Forget Password</Link>
+            </div>
+            <button>Log in</button>
+            <div className="register text-lg">
+              <p>
+                Already have an account
+                <Link className="ml-4" to={"/login"}>
+                  login
+                </Link>
+              </p>
+            </div>
+            <div className="text-red-500 text-xl">{error}</div>
+          </form>
+          <div className="flex flex-wrap">
+            <button
+              onClick={handleGoogleLogIn}
+              aria-label="Continue with google"
+              role="button"
+              className=" focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border border-gray-700 flex items-center mt-2 justify-center"
+            >
+              <svg
+                width={19}
+                height={20}
+                viewBox="0 0 19 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.9892 10.1871C18.9892 9.36767 18.9246 8.76973 18.7847 8.14966H9.68848V11.848H15.0277C14.9201 12.767 14.3388 14.1512 13.047 15.0812L13.0289 15.205L15.905 17.4969L16.1042 17.5173C17.9342 15.7789 18.9892 13.221 18.9892 10.1871Z"
+                  fill="#4285F4"
+                />
+                <path
+                  d="M9.68813 19.9314C12.3039 19.9314 14.4999 19.0455 16.1039 17.5174L13.0467 15.0813C12.2286 15.6682 11.1306 16.0779 9.68813 16.0779C7.12612 16.0779 4.95165 14.3395 4.17651 11.9366L4.06289 11.9465L1.07231 14.3273L1.0332 14.4391C2.62638 17.6946 5.89889 19.9314 9.68813 19.9314Z"
+                  fill="#34A853"
+                />
+                <path
+                  d="M4.17667 11.9366C3.97215 11.3165 3.85378 10.6521 3.85378 9.96562C3.85378 9.27905 3.97215 8.6147 4.16591 7.99463L4.1605 7.86257L1.13246 5.44363L1.03339 5.49211C0.37677 6.84302 0 8.36005 0 9.96562C0 11.5712 0.37677 13.0881 1.03339 14.4391L4.17667 11.9366Z"
+                  fill="#FBBC05"
+                />
+                <path
+                  d="M9.68807 3.85336C11.5073 3.85336 12.7344 4.66168 13.4342 5.33718L16.1684 2.59107C14.4892 0.985496 12.3039 0 9.68807 0C5.89885 0 2.62637 2.23672 1.0332 5.49214L4.16573 7.99466C4.95162 5.59183 7.12608 3.85336 9.68807 3.85336Z"
+                  fill="#EB4335"
+                />
+              </svg>
+              <p className="text-base font-medium ml-4 text-gray-700">
+                Continue with Google
+              </p>
+            </button>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 };
