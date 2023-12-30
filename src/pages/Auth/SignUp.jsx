@@ -72,18 +72,18 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>UpHTax | SignUp</title>
+        <title>CINEMA | SignUp</title>
       </Helmet>
-      <div className="bg-transparent absolute w-full text-blue-600 px-6 lg:px-20"></div>
+
       <div
-        className="inputContainer min-h-[100svh]"
+        className="inputContainer md:pt-10 min-h-[140svh] md:min-h-[100svh]"
         style={{
           backgroundImage: `url("https://images.unsplash.com/photo-1608501078713-8e445a709b39?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
         }}
       >
-        <section className="flex flex-col px-10 py-6 mt-20">
+        <section className="flex flex-col px-10 py-6 mt-20 main">
           <form onSubmit={handleSubmit}>
-            <h1 className="font-semibold text-2xl my-2">
+            <h1 className="font-semibold text-2xl my-2 heading">
               Create a new account{" "}
             </h1>
             <div className="inputBox w-[300px] md:w-[400px] lg:w-[500px]">
@@ -108,7 +108,7 @@ const SignUp = () => {
               </label>
               <Link to={"/"}>Forget Password</Link>
             </div>
-            <button>Log in</button>
+            <button className="signBtn">Log in</button>
             <div className="register text-lg">
               <p>
                 Already have an account
@@ -124,7 +124,7 @@ const SignUp = () => {
               onClick={handleGoogleLogIn}
               aria-label="Continue with google"
               role="button"
-              className=" focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border border-gray-700 flex items-center mt-2 justify-center"
+              className="signBtn focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border border-gray-700 flex items-center mt-2 justify-center"
             >
               <svg
                 width={19}
