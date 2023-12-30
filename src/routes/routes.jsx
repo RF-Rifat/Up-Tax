@@ -1,7 +1,7 @@
 //testing
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Login from "../pages/Admin/Login";
+
 import MainDashboard from "../components/layouts/MainDashboard";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Setting from "../pages/Setting/Setting";
@@ -26,7 +26,8 @@ import TaxPayerDetails from "../pages/Tax/TaxPayerDetails";
 import UpdateTax from "../pages/Tax/UpdateTax";
 import PrivateRoute from "./PrivateRoute";
 import ActiveRoute from "./ActiveRoute";
-import SignUp from "../pages/Admin/SignUp";
+import SignUp from "../pages/Auth/SignUp";
+import Login from "../pages/Auth/Login";
 
 const routes = createBrowserRouter([
   {
