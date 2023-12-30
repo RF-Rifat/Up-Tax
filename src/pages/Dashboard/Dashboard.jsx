@@ -27,23 +27,28 @@ const Dashboard = () => {
     {
       user: "গৃহস্থ কর",
       userData: totalCount?.totalHomeAssessmentTax,
+      path: "tax",
     },
     {
       user: "ব্যবসা কর",
       userData: totalCount?.totalBusinessAssessmentTax,
+      path: "tax",
     },
     {
       user: "গৃহস্থ কর আদায়",
       userData: totalCount?.totalHomePaidTax,
+      path: "tax",
     },
     {
       user: "ব্যবসা কর আদায়",
       userData: totalCount?.totalBusinessPaidTax,
+      path: "tax",
     },
 
     {
       user: "আজকের আদায়",
       userData: totalCount?.todayPayment,
+      path: "tax",
     },
   ];
 
@@ -69,12 +74,12 @@ const Dashboard = () => {
                   {user.user}
                 </h2>
                 <p className=" text-[19px]">{user.userData}</p>
-                <div className=" flex gap-2  items-center">
-                  <Link to={user?.path} className=" text-[16px]">
+                <Link to={user?.path} className=" flex gap-2  items-center">
+                  <div className=" text-[16px]">
                     বিস্তারিত
-                  </Link>
+                  </div>
                   <BsFillArrowRightCircleFill className="text-[16px]"></BsFillArrowRightCircleFill>
-                </div>
+                </Link>
               </div>
             </div>
           );
