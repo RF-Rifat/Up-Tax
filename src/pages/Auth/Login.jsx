@@ -14,13 +14,15 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const goTo = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [adminsData, isLoading] = useGetData("/collection/users");
   if (isLoading) {
     return <Loading></Loading>;
   }
   const handleSubmit = (event) => {
+    const email = event.target.email.value;
+    const password = event.target.password.value;
     event.preventDefault();
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters");
@@ -64,6 +66,8 @@ const Login = () => {
   };
 
   const handleResetPassword = () => {
+    const email = event.target.email.value;
+
     if (!email) {
       toast.error("Please enter your email address");
       return;
