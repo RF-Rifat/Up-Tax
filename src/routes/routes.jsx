@@ -209,6 +209,10 @@ const routes = createBrowserRouter([
   {
     path: '/signUp',
     element: <SignUp></SignUp>
+  },
+  {
+    path: '/admin',
+    element:<Operator></Operator>
   }
 ]);
 export default routes;

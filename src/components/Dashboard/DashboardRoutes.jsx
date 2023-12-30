@@ -15,7 +15,8 @@ const data = [
   { to: "/business", icon: business, text: "ব্যবসা" },
 
   { to: "/tax", icon: tax, text: "কর আদায়" },
-  // { to: "/operator", icon: user, text: "ব্যবহারকারী/অপারেটর" },
+
+  { to: "/admin", icon: user, text: "অপারেটর" },
 ];
 
 const DashboardRoutes = () => (
