@@ -154,6 +154,15 @@ const Login = () => {
               </label>
             </div>
             <button className="signBtn mb-3">Log in</button>
+            <div className="mb-3">
+              <button
+                className="font-bold"
+                onClick={handleResetPassword}
+                to={"/"}
+              >
+                Forget Password ?
+              </button>
+            </div>
             <div className="register text-xl">
               <p>
                 Don&apos;t have a account ?{" "}

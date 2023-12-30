@@ -25,7 +25,7 @@ const Dashboard = () => {
       path: "/business",
     },
     {
-      user: "গৃহ্য কর",
+      user: "গৃহস্থ কর",
       userData: totalCount?.totalHomeAssessmentTax,
     },
     {
