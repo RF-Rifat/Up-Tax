@@ -8,7 +8,10 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   // const { login ,user,setUser} = useContext(AdminContext);
-  const { login, user, setUser, resetPassword } = useContext(AuthProvider);
+  const { login, user, setUser, resetPassword, signWithGooglePop } =
+    useContext(AuthProvider);
+
+  const navigate = useNavigate();
   const [error, setError] = useState(false);
   const goTo = useNavigate();
   const [email, setEmail] = useState("");
@@ -75,7 +78,18 @@ const Login = () => {
         console.error(error);
       });
   };
-
+  const handleGoogleLogIn = () => {
+    signWithGooglePop()
+      .then((result) => {
+        toast.success("login Registration Successful!");
+        console.log(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Failed");
+        console.error(error);
+      });
+  };
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   setError(false);
@@ -140,9 +154,7 @@ const Login = () => {
                 <input className="scale-125" type="checkbox" required />
                 Remember Me
               </label>
-              <button onClick={handleResetPassword} to={"/"}>
-                Forget Password
-              </button>
+              <button onClick={handleResetPassword}>Forget Password</button>
             </div>
             <button className="signBtn">Log in</button>
             <div className="register text-xl">
@@ -157,7 +169,7 @@ const Login = () => {
           </form>
           <div className="flex flex-wrap">
             <button
-              // onClick={}
+              onClick={handleGoogleLogIn}
               aria-label="Continue with google"
               role="button"
               className="signBtn focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border border-gray-700 flex items-center mt-2 justify-center"
