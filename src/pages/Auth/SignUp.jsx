@@ -124,7 +124,7 @@ const SignUp = () => {
               onClick={handleGoogleLogIn}
               aria-label="Continue with google"
               role="button"
-              className="signBtn focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border border-gray-700 flex items-center mt-2 justify-center"
+              className="signBtn focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border border-gray-700 flex items-center mt-2 justify-center mb-4"
             >
               <svg
                 width={19}
