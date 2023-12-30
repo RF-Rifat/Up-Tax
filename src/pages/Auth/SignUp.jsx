@@ -81,7 +81,11 @@ const SignUp = () => {
           backgroundImage: `url("https://images.unsplash.com/photo-1608501078713-8e445a709b39?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
         }}
       >
+<<<<<<< HEAD
         <section className="flex flex-col px-10 py-6 md:mt-5 xl:mt-20 main">
+=======
+        <section className="flex  flex-col px-10  main">
+>>>>>>> ffb595274e45964bf526bb41a13d97aa889a8c26
           <form onSubmit={handleSubmit}>
             <h1 className="font-semibold text-2xl my-2 heading">
               Create a new account{" "}
@@ -108,10 +112,10 @@ const SignUp = () => {
               </label>
               <Link to={"/"}>Forget Password</Link>
             </div>
-            <button className="signBtn">Log in</button>
+            <button className="signBtn mb-3">Register</button>
             <div className="register text-lg">
               <p>
-                Already have an account
+                Already have an account ?
                 <Link className="ml-4" to={"/login"}>
                   login
                 </Link>
