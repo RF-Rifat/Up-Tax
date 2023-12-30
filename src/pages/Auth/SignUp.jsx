@@ -72,7 +72,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>CINEMA | SignUp</title>
+        <title>UpHTax | SignUp</title>
       </Helmet>
       <div className="bg-transparent absolute w-full text-blue-600 px-6 lg:px-20"></div>
       <div
