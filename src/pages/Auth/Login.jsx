@@ -111,7 +111,7 @@ const Login = () => {
       <Helmet>
         <title>UpHTax | Login</title>
       </Helmet>
-      <div className="inputContainer pt-24 md:pt-10 min-h-[140svh] md:min-h-[100svh]">
+      <div className="inputContainer  min-h-[140svh] md:min-h-[100svh]">
         <section className="flex flex-col px-10 py-6 mt-10 main">
           <form onSubmit={handleSubmit}>
             <h1 className="heading text-2xl font-semibold my-2">Login</h1>
@@ -135,19 +135,22 @@ const Login = () => {
               />
               <label>Password</label>
             </div>
-            <div className="forget flex flex-wrap text-xl">
+            <div className="forget  text-xl">
               <label>
                 <input className="scale-125" type="checkbox" required />
                 Remember Me
               </label>
-              <button onClick={handleResetPassword} to={"/"}>
-                Forget Password
-              </button>
+             
             </div>
-            <button className="signBtn">Log in</button>
+            <button className="signBtn mb-3">Log in</button>
+            <div className="mb-3">
+            <button className="font-bold" onClick={handleResetPassword} to={"/"}>
+                Forget Password ?
+              </button>
+           </div>
             <div className="register text-xl">
               <p>
-                Don&apos;t have a account{" "}
+                Don&apos;t have a account ?{" "}
                 <Link to={"/signUp"} className="ml-5">
                   Register
                 </Link>
