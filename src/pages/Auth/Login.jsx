@@ -146,7 +146,7 @@ const Login = () => {
             <p className="font-bold text-red-600">Password dose not match</p>
           )}
           <button className="w-full p-2 mb-3 font-medium text-white uppercase rounded bg-gradient-to-b from-gray-700 to-gray-900 md:p-4">
-            Sign Up
+            Log In
           </button>
 
           <div className="text-center mb-3">

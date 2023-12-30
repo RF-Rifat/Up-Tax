@@ -72,7 +72,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>CINEMA | SignUp</title>
+        <title>UpHTax | SignUp</title>
       </Helmet>
 
       <div
@@ -108,7 +108,7 @@ const SignUp = () => {
               </label>
               <Link to={"/"}>Forget Password</Link>
             </div>
-            <button className="signBtn">Log in</button>
+            <button className="signBtn">Register</button>
             <div className="register text-lg">
               <p>
                 Already have an account
