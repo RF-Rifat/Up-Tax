@@ -26,6 +26,7 @@ import TaxPayerDetails from "../pages/Tax/TaxPayerDetails";
 import UpdateTax from "../pages/Tax/UpdateTax";
 import PrivateRoute from "./PrivateRoute";
 import ActiveRoute from "./ActiveRoute";
+import SignUp from "../pages/Admin/SignUp";
 
 const routes = createBrowserRouter([
   {
@@ -204,5 +205,9 @@ const routes = createBrowserRouter([
       </ActiveRoute>
     ),
   },
+  {
+    path: '/signUp',
+    element: <SignUp></SignUp>
+  }
 ]);
 export default routes;

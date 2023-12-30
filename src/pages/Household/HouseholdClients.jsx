@@ -27,7 +27,7 @@ const HouseholdClients = ({
     tax_based_on_assessment,
     tax_collected_by_UPO,
   } = client;
-  console.log(client);
+
   const handleDelete = async (id) => {
     try {
       const result = await Swal.fire({

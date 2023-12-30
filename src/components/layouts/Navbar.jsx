@@ -9,6 +9,8 @@ const Navbar = () => {
 
   const goto = useNavigate();
 
+  console.log(user);
+
   const handleLogout = () => {
     logOut();
     goto("/login");
@@ -48,7 +50,11 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://laxmipurup.uptaxs.com/public//upload/profiles/6Lj22iGX8Y-1648323906.png"
+                src={
+                  user?.photoURL
+                    ? user?.photoURL
+                    : "https://laxmipurup.uptaxs.com/public//upload/profiles/6Lj22iGX8Y-1648323906.png"
+                }
               />
             </div>
           </label>
@@ -67,12 +73,16 @@ const Navbar = () => {
               <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
                 <img
                   className="object-cover object-center h-32"
-                  src="https://laxmipurup.uptaxs.com/public//upload/profiles/6Lj22iGX8Y-1648323906.png"
+                  src={
+                    user?.photoURL
+                      ? user?.photoURL
+                      : "https://laxmipurup.uptaxs.com/public//upload/profiles/6Lj22iGX8Y-1648323906.png"
+                  }
                   alt="Woman looking front"
                 />
               </div>
               <div className="text-center mt-2">
-                <h2 className="font-semibold">Admin</h2>
+                <h2 className="font-semibold">{user?.displayName}</h2>
                 <p className="text-gray-500 mt-2"></p>
               </div>
 

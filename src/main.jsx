@@ -12,8 +12,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
       <Provider>
         <RouterProvider router={routes}></RouterProvider>
+        <Toaster />
       </Provider>
     </React.StrictMode>
-    <Toaster />
   </div>
 );
