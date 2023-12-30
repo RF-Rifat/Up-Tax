@@ -15,7 +15,7 @@ const BusinessClientDetails = () => {
     _id,
     upazila,
     union,
-    business_type,
+    businessType,
     owner_name,
     business_code,
     assesment_tax,
@@ -28,7 +28,7 @@ const BusinessClientDetails = () => {
     UP_collected_tax,
   } = businessClient || {};
 
-  console.log(businessClient);
+
   // modal
   // open modal
   const handleOpenTaxPay = () => {
@@ -79,8 +79,8 @@ const BusinessClientDetails = () => {
               <td>{word}</td>
             </tr>
             <tr className="hover">
-              <th>দোকান নং:</th>
-              <td>{business_code}</td>
+              <th>ব্যবসার ধরন:</th>
+              <td>{businessType}</td>
             </tr>
             <tr className="hover">
               <th>মোবাইল:</th>

@@ -8,7 +8,10 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   // const { login ,user,setUser} = useContext(AdminContext);
-  const { login, user, setUser, resetPassword } = useContext(AuthProvider);
+  const { login, user, setUser, resetPassword, signWithGooglePop } =
+    useContext(AuthProvider);
+
+  const navigate = useNavigate();
   const [error, setError] = useState(false);
   const goTo = useNavigate();
   const [email, setEmail] = useState("");
@@ -18,6 +21,8 @@ const Login = () => {
     return <Loading></Loading>;
   }
   const handleSubmit = (event) => {
+    // const email = event.target.email.value;
+    // const password = event.target.password.value;
     event.preventDefault();
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters");
@@ -59,8 +64,8 @@ const Login = () => {
         console.log(error);
       });
   };
-
-  const handleResetPassword = () => {
+  console.log(email,password)
+  const handleResetPassword = (event) => {
     if (!email) {
       toast.error("Please enter your email address");
       return;
@@ -72,10 +77,20 @@ const Login = () => {
       })
       .catch((error) => {
         toast.error(error.message);
+      });
+  };
+  const handleGoogleLogIn = () => {
+    signWithGooglePop()
+      .then((result) => {
+        toast.success("login Registration Successful!");
+        console.log(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Failed");
         console.error(error);
       });
   };
-
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   setError(false);
@@ -140,14 +155,21 @@ const Login = () => {
                 <input className="scale-125" type="checkbox" required />
                 Remember Me
               </label>
-             
             </div>
             <button className="signBtn mb-3">Log in</button>
             <div className="mb-3">
+<<<<<<< HEAD
             <button className="font-bold text-purple-800 underline" onClick={handleResetPassword} to={"/"}>
+=======
+              <button
+                className="font-bold"
+                onClick={handleResetPassword}
+                to={"/"}
+              >
+>>>>>>> ee4c89cb5986382aa90ddc36372e498053cd0a84
                 Forget Password ?
               </button>
-           </div>
+            </div>
             <div className="register text-xl">
               <p>
                 Don&apos;t have a account ?{" "}
@@ -160,7 +182,7 @@ const Login = () => {
           </form>
           <div className="flex flex-wrap">
             <button
-              // onClick={}
+              onClick={handleGoogleLogIn}
               aria-label="Continue with google"
               role="button"
               className="signBtn focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border border-gray-700 flex items-center mt-2 justify-center"
