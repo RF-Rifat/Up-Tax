@@ -21,8 +21,6 @@ const Login = () => {
     return <Loading></Loading>;
   }
   const handleSubmit = (event) => {
-    // const email = event.target.email.value;
-    // const password = event.target.password.value;
     event.preventDefault();
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters");
@@ -64,13 +62,11 @@ const Login = () => {
         console.log(error);
       });
   };
-  console.log(email,password)
-  const handleResetPassword = (event) => {
+  const handleResetPassword = () => {
     if (!email) {
       toast.error("Please enter your email address");
       return;
     }
-
     resetPassword(email)
       .then(() => {
         toast.success("Password reset email sent. Check your inbox.");
@@ -134,8 +130,9 @@ const Login = () => {
               <ion-icon name="mail-outline"></ion-icon>
               <input
                 type="email"
+                id="email"
+                onChange={(e) => setEmail(e.target.value)}
                 name="email"
-                onClick={(e) => setEmail(e.target.value)}
                 required
               />
               <label>Email</label>
@@ -157,15 +154,6 @@ const Login = () => {
               </label>
             </div>
             <button className="signBtn mb-3">Log in</button>
-            <div className="mb-3">
-              <button
-                className="font-bold"
-                onClick={handleResetPassword}
-                to={"/"}
-              >
-                Forget Password ?
-              </button>
-            </div>
             <div className="register text-xl">
               <p>
                 Don&apos;t have a account ?{" "}
@@ -176,6 +164,11 @@ const Login = () => {
               {error && <div className=" text-red-600 text-xl">{error}</div>}
             </div>
           </form>
+          <div className="mb-3">
+            <button className="font-bold" onClick={handleResetPassword}>
+              Forget Password ?
+            </button>
+          </div>
           <div className="flex flex-wrap">
             <button
               onClick={handleGoogleLogIn}
