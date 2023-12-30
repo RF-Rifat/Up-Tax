@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   const TaxData = [
     {
-      user: "সকল গৃহস্ত",
+      user: "সকল গৃহস্থ",
       userData: totalCount?.house,
       path: "/household",
     },

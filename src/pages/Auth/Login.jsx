@@ -158,15 +158,11 @@ const Login = () => {
             </div>
             <button className="signBtn mb-3">Log in</button>
             <div className="mb-3">
-<<<<<<< HEAD
-            <button className="font-bold text-purple-800 underline" onClick={handleResetPassword} to={"/"}>
-=======
               <button
                 className="font-bold"
                 onClick={handleResetPassword}
                 to={"/"}
               >
->>>>>>> ee4c89cb5986382aa90ddc36372e498053cd0a84
                 Forget Password ?
               </button>
             </div>
