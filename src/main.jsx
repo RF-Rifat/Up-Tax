@@ -9,7 +9,7 @@ import { HelmetProvider } from "react-helmet-async";
 // check git branch
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <div className="max-w-[1500px] mx-auto">
+  
     <React.StrictMode>
     <HelmetProvider>
       <Provider>
@@ -18,5 +18,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Provider>
         </HelmetProvider>
     </React.StrictMode>
-  </div>
+  
 );
