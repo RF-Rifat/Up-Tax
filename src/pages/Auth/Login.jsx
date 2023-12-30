@@ -148,34 +148,34 @@ const Login = () => {
           <button className="w-full p-2 mb-3 font-medium text-white uppercase rounded bg-gradient-to-b from-gray-700 to-gray-900 md:p-4">
             Login
           </button>
-       
-          <div className="text-center mb-3">
-                <h6 className="text-blueGray-600 text-xl font-bold">
-                  Sign in with Google
-                </h6>
-              </div>
-            <div className="btn-wrapper text-center">
-                <button
-                  className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal btn w-3/4 rounded-md  outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center  text-xs ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  <img
-                    alt="..."
-                    className="w-5 mr-1"
-                    src="https://demos.creative-tim.com/notus-js/assets/img/google.svg"
-                  />
-                  Google{" "}
-                </button>
-            </div>
 
-      <div className="flex flex-col items-center">
-        <button
-          onClick={handleResetPassword}
-          className="mt-2 text-sm text-blue-500 hover:underline focus:outline-none"
-        >
-          Forgot Password? Reset it here.
-        </button>
-      </div>
+          <div className="text-center mb-3">
+            <h6 className="text-blueGray-600 text-xl font-bold">
+              Sign in with Google
+            </h6>
+          </div>
+          <div className="btn-wrapper text-center">
+            <button
+              className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal btn w-3/4 rounded-md  outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center  text-xs ease-linear transition-all duration-150"
+              type="button"
+            >
+              <img
+                alt="..."
+                className="w-5 mr-1"
+                src="https://demos.creative-tim.com/notus-js/assets/img/google.svg"
+              />
+              Google{" "}
+            </button>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <button
+              onClick={handleResetPassword}
+              className="mt-2 text-sm text-blue-500 hover:underline focus:outline-none"
+            >
+              Forgot Password? Reset it here.
+            </button>
+          </div>
         </form>
       </div>
     </div>
