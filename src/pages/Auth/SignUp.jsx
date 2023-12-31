@@ -109,18 +109,18 @@ const SignUp = () => {
               <Link to={"/"}>Forget Password</Link>
             </div>
             <button className="signBtn mb-3">Register</button>
-            <div className="register text-lg">
+            {/* <div className="register text-lg">
               <p>
                 Already have an account ?
                 <Link className="ml-4" to={"/login"}>
                   login
                 </Link>
               </p>
-            </div>
+            </div> */}
             <div className="text-red-500 text-xl">{error}</div>
           </form>
           <div className="flex flex-wrap">
-            <button
+            {/* <button
               onClick={handleGoogleLogIn}
               aria-label="Continue with google"
               role="button"
@@ -153,7 +153,7 @@ const SignUp = () => {
               <p className="text-base font-medium ml-4 text-gray-700">
                 Continue with Google
               </p>
-            </button>
+            </button> */}
           </div>
         </section>
       </div>

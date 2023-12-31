@@ -20,6 +20,7 @@ let data = [
   { to: "/tax", icon: tax, text: "কর আদায়" },
 
   { to: "/operator", icon: user, text: "অপারেটর" },
+  { to: "/signUp", icon: user, text: "রেজিস্ট্রেশন" },
 ];
 
 const DashboardRoutes = () => {
@@ -31,7 +32,8 @@ const DashboardRoutes = () => {
         (item) =>
           item.to !== "/setting" &&
           item.to !== "/operator" &&
-          item.to !== "/village"
+          item.to !== "/village" &&
+          item.to !== "/signUp"
       );
 
   return (
