@@ -9,14 +9,12 @@ import { HelmetProvider } from "react-helmet-async";
 // check git branch
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  
-    <React.StrictMode>
+  <React.StrictMode>
     <HelmetProvider>
       <Provider>
         <RouterProvider router={routes}></RouterProvider>
         <Toaster />
-        </Provider>
-        </HelmetProvider>
-    </React.StrictMode>
-  
+      </Provider>
+    </HelmetProvider>
+  </React.StrictMode>
 );
