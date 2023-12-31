@@ -230,6 +230,11 @@ const HouseholdDetails = () => {
               <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
             </Link>
           )}
+          {isAdmin && (
+            <Link to={`/household-update/${_id}`} className="btn join-item">
+              <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
+            </Link>
+          )}
           <Link to="/household" className="join-item btn">
             back
           </Link>
