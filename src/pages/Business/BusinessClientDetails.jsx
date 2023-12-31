@@ -7,7 +7,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { AdminDataContext } from "../Admin/AdminProvider";
 
 const BusinessClientDetails = () => {
-  const { isAdmin } = useContext(AdminDataContext);
+  const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
   
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
@@ -104,7 +104,7 @@ const BusinessClientDetails = () => {
           <Link onClick={handleOpenTaxPay} className="join-item btn">
             pay
           </Link>
-         {isAdmin && <Link to={`/businessUpdate/${_id}`} className="join-item btn">
+         {isSuperAdmin && <Link to={`/businessUpdate/${_id}`} className="join-item btn">
             <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
           </Link>}
           <Link to="/business" className="join-item btn">

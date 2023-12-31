@@ -128,7 +128,7 @@ const Business = () => {
                       <AiOutlineMenu className="text-green-500 text-[18px] md:text-[30px]"></AiOutlineMenu>
                     </button>
                   </Link>
-                  {isAdmin && <button
+                  {isSuperAdmin && <button
                     onClick={() => handleBusinessDelete(content._id)}
                     className=" join-item btn"
                   >
