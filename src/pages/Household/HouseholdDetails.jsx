@@ -8,7 +8,7 @@ import { AdminDataContext } from "../Admin/AdminProvider";
 const HouseholdDetails = () => {
   const { id } = useParams();
   const [client] = useGetData(`/collection/house/${id}`);
-  const { isAdmin } = useContext(AdminDataContext);
+  const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
 
   const {
     _id,
@@ -225,7 +225,7 @@ const HouseholdDetails = () => {
           <Link onClick={handleOpenTaxPay} className="join-item btn">
             Pay
           </Link>
-          {isAdmin && (
+          {isSuperAdmin && (
             <Link to={`/household-update/${_id}`} className="btn join-item">
               <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
             </Link>
