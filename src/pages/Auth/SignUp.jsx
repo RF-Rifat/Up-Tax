@@ -78,7 +78,7 @@ const SignUp = () => {
       <div
         className="inputContainer md:pt-10 min-h-[140svh] px-6 md:min-h-[100svh]"
         style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1608501078713-8e445a709b39?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
+          backgroundImage: `url("https://images.unsplash.com/photo-1497601089782-06319e8be3a0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
         }}
       >
         <section className="flex  flex-col px-10  main">
