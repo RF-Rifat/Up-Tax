@@ -1,7 +1,10 @@
 // import { useState } from "react";
+import { useContext } from "react";
 import { TiPlus } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import { AdminDataContext } from "../Admin/AdminProvider";
 const HouseholdNav = ({ setQuery }) => {
+  const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
@@ -12,7 +15,7 @@ const HouseholdNav = ({ setQuery }) => {
     const phone = form.get("phone");
 
     if (name) {
-      return setQuery({head_of_household_name:name});
+      return setQuery({ head_of_household_name: name });
     }
     if (word) {
       return setQuery({ word: word });
@@ -24,7 +27,7 @@ const HouseholdNav = ({ setQuery }) => {
       return setQuery({ national_id: nid });
     }
     if (phone) {
-      return setQuery({head_of_household_mobile:phone});
+      return setQuery({ head_of_household_mobile: phone });
     }
     return setQuery("");
   };
@@ -83,13 +86,24 @@ const HouseholdNav = ({ setQuery }) => {
         />
       </form>
 
-      <Link
-        to="/add-household"
-        className="btn outline-none border-none  btn-sm focus-within:outline-none bg-green-400 text-white hover:bg-green-500"
-      >
-        <TiPlus></TiPlus>
-        নতুন গৃহস্থ
-      </Link>
+      {isAdmin && (
+        <Link
+          to="/add-household"
+          className="btn outline-none border-none  btn-sm focus-within:outline-none bg-green-400 text-white hover:bg-green-500"
+        >
+          <TiPlus></TiPlus>
+          নতুন গৃহস্থ
+        </Link>
+      )}
+      {isSuperAdmin && (
+        <Link
+          to="/add-household"
+          className="btn outline-none border-none  btn-sm focus-within:outline-none bg-green-400 text-white hover:bg-green-500"
+        >
+          <TiPlus></TiPlus>
+          নতুন গৃহস্থ
+        </Link>
+      )}
     </div>
   );
 };
