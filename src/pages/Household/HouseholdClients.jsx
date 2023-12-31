@@ -14,7 +14,7 @@ const HouseholdClients = ({
   activePage,
   itemsPerPage,
 }) => {
-  const { isAdmin } = useContext(AdminDataContext);
+  const { isSuperAdmin } = useContext(AdminDataContext);
 
   // console.log(householdClients);
   const {
@@ -89,7 +89,7 @@ const HouseholdClients = ({
           <Link to={`/household-details/${_id}`} className="join-item btn">
             <AiOutlineMenu className="text-green-500 font-bold  text-[18px] md:text-[30px]"></AiOutlineMenu>
           </Link>
-          {isAdmin && (
+          {isSuperAdmin && (
             <button
               onClick={() => handleDelete(_id)}
               className="join-item btn btn-circle"

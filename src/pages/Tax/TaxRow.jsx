@@ -7,7 +7,7 @@ import { BsEyeFill } from "react-icons/bs";
 import { AdminDataContext } from "../Admin/AdminProvider";
 
 const TaxRow = ({ data, idx, setAllTax }) => {
-  const { isAdmin } = useContext(AdminDataContext);
+  const { isSuperAdmin } = useContext(AdminDataContext);
   const handleDelete = () => {
     // Delete pop-up
     Swal.fire({
@@ -66,21 +66,21 @@ const TaxRow = ({ data, idx, setAllTax }) => {
       </td>
 
       {/* Navigation */}
-      <td className="join flex px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 justify-between">
-        <Link to={`/tax-payer/${data?._id}`}>
+      <td className="join flex">
+        <Link to={`/tax-payer/${data?._id}`} className="join-item btn">
           <BsEyeFill className="text-[20px] text-black"></BsEyeFill>
         </Link>
-        {isAdmin && (
-          <Link to={`/update-tax/${data?._id}`}>
-            <button className="px-1 text-white md:px-3">
+        {isSuperAdmin && (
+          <Link to={`/update-tax/${data?._id}`} className="join-item btn">
+            <button className="text-white">
               <AiFillEdit className="text-green-500 text-[15px] md:text-2xl"></AiFillEdit>
             </button>
           </Link>
         )}
-        {isAdmin && (
+        {isSuperAdmin && (
           <button
             onClick={() => handleDelete()}
-            className="px-1 text-white md:px-3"
+            className="text-white join-item btn"
           >
             <AiFillDelete className="text-[#ff5959] text-[15px] md:text-2xl"></AiFillDelete>
           </button>

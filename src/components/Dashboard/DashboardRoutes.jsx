@@ -9,6 +9,7 @@ import user from "../../../public/icons/user.png";
 import { useContext } from "react";
 import { AdminDataContext } from "../../pages/Admin/AdminProvider";
 import filterData from "../../utils/filterData";
+import { BsSendCheckFill } from "react-icons/bs";
 
 let data = [
   { to: "/", icon: dashboard, text: "ড্যাশবোর্ড" },
@@ -24,9 +25,9 @@ let data = [
 ];
 
 const DashboardRoutes = () => {
-  const { isAdmin } = useContext(AdminDataContext);
+  const { isSuperAdmin } = useContext(AdminDataContext);
 
-  const filteredData = isAdmin
+  const filteredData = isSuperAdmin
     ? data
     : data.filter(
         (item) =>
@@ -40,7 +41,15 @@ const DashboardRoutes = () => {
     <ul className="sticky top-0 z-50 bg-white">
       <header className="flex-none flex h-16 border-t  items-center">
         <h1 id="page-caption" className="font-semibold mx-2 text-4xl">
-          Dashboard
+          <a
+            href="mailto:uphtax55@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex gap-2"
+          >
+            <BsSendCheckFill /> Mail
+            {/* You can replace FiMail with your desired mail icon */}
+          </a>
         </h1>
       </header>
       {filteredData.map((item, index) => (

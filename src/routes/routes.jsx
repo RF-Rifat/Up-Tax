@@ -28,7 +28,8 @@ import PrivateRoute from "./PrivateRoute";
 import ActiveRoute from "./ActiveRoute";
 import SignUp from "../pages/Auth/SignUp";
 import Login from "../pages/Auth/Login";
-import AdminRoute from "./AdminRoute";
+import SuperAdminRoute from "./SuperAdminRoute";
+
 
 const routes = createBrowserRouter([
   {
@@ -50,17 +51,17 @@ const routes = createBrowserRouter([
       {
         path: "/setting",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <Setting></Setting>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
         path: "/village",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <Village></Village>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
@@ -90,33 +91,33 @@ const routes = createBrowserRouter([
       {
         path: "/operator",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <Operator></Operator>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
         path: "/edit-admin/:id",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <EditAdmin />
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
         path: "/add-admin",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <AddAdmin />
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
         path: "/edit-village/:id",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <EditVillage></EditVillage>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
@@ -138,9 +139,9 @@ const routes = createBrowserRouter([
       {
         path: "/update-tax/:id",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <UpdateTax />
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
@@ -154,10 +155,10 @@ const routes = createBrowserRouter([
       {
         path: "/household-update/:id",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             {" "}
             <HouseholdUpdate></HouseholdUpdate>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
@@ -180,17 +181,17 @@ const routes = createBrowserRouter([
       {
         path: "/addNew-village",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <NewVillage></NewVillage>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
         path: "/businessUpdate/:id",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <BusinessUpdate></BusinessUpdate>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       {
@@ -204,17 +205,17 @@ const routes = createBrowserRouter([
       {
         path: "/signUp",
         element: (
-          <AdminRoute>
+          <SuperAdminRoute>
             <SignUp></SignUp>
-          </AdminRoute>
+          </SuperAdminRoute>
         ),
       },
       // {
       //   path: "/operator",
       //   element: (
-      //     <AdminRoute>
+      //     <SuperAdminRoute>
       //       <Operator></Operator>
-      //     </AdminRoute>
+      //     </SuperAdminRoute>
       //   ),
       // },
     ],
