@@ -81,7 +81,7 @@ const Navbar = () => {
               </div>
               <div className="text-center mt-2">
                 <h2 className="font-bold text-xl">{user?.displayName}</h2>
-                <p className="text-gray-500 mt-2"></p>
+                <p className="text-gray-700 font-semibold mt-2">{user?.email}</p>
               </div>
 
               <div className="p-4 border-t mx-8 mt-2 flex gap-3">
