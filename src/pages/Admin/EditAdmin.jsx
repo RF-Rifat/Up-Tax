@@ -12,7 +12,7 @@ const EditAdmin = () => {
   const navigate = useNavigate();
 
   useState(() => {
-    fetch(BASE_URL + `/collection/user/${id}`)
+    fetch(BASE_URL + `/collection/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data);
@@ -21,6 +21,7 @@ const EditAdmin = () => {
         });
       });
   }, [id]);
+  const { Type, Role, Name, Email, Phone, Password, Status } = admin || {};
 
   //Village correction form handler
   const handleAdminSubmit = (e) => {
@@ -32,7 +33,7 @@ const EditAdmin = () => {
     const { _id, ...newData } = fieldsData;
 
     // console.log(newData);
-    fetch(BASE_URL + `/collection/user/${_id}`, {
+    fetch(BASE_URL + `/collection/users/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -64,31 +65,37 @@ const EditAdmin = () => {
       name: "Type",
       type: "text",
       placeHolder: "Type",
+      defaultValue: Type,
     },
     {
       name: "Role",
       type: "text",
       placeHolder: "Role",
+      defaultValue: Role,
     },
     {
       name: "Name",
       type: "text",
       placeHolder: "Name",
+      defaultValue: Name,
     },
     {
       name: "Email",
       type: "email",
       placeHolder: "Email",
+      defaultValue: Email,
     },
     {
       name: "Phone",
       type: "text",
       placeHolder: "Phone",
+      defaultValue: Phone,
     },
     {
       name: "Password",
       type: "text",
       placeHolder: "Password",
+      defaultValue: Password,
     },
   ];
 
@@ -100,7 +107,7 @@ const EditAdmin = () => {
       >
         <h1 className="pb-2 text-2xl font-bold md:text-4xl">Edit User</h1>
 
-        {fields.map(({ name, type, placeHolder }) => (
+        {fields.map(({ name, type, placeHolder, defaultValue }) => (
           <div key={name} className="form-control">
             <label className="label">
               <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
@@ -111,6 +118,7 @@ const EditAdmin = () => {
               value={fieldsData[name]}
               onChange={handleFormValueChange}
               type={type}
+              defaultValue={defaultValue}
               name={name}
               placeholder={placeHolder}
               className="p-2 border-b focus-within:outline-none bordered"

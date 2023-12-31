@@ -197,9 +197,9 @@ const routes = createBrowserRouter([
         element: <TaxPayerDetails></TaxPayerDetails>,
       },
       {
-        path: '/admin',
-        element:<Operator></Operator>
-      }
+        path: "/operator",
+        element: <Operator></Operator>,
+      },
     ],
   },
   {
@@ -211,9 +211,8 @@ const routes = createBrowserRouter([
     ),
   },
   {
-    path: '/signUp',
-    element: <SignUp></SignUp>
+    path: "/signUp",
+    element: <SignUp></SignUp>,
   },
-  
 ]);
 export default routes;
