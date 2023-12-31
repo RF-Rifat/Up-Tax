@@ -8,11 +8,12 @@ const EditAdmin = () => {
   const goTo = useNavigate();
   const { id } = useParams();
   const [admin, setAdmin] = useState({});
+  const [role, setRole] = useState("");
   const [fieldsData, setFieldsData] = useState({});
   const navigate = useNavigate();
 
   useState(() => {
-    fetch(BASE_URL + `/collection/user/${id}`)
+    fetch(BASE_URL + `/collection/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data);
@@ -21,6 +22,7 @@ const EditAdmin = () => {
         });
       });
   }, [id]);
+  const { Type, Role, Name, Email, Phone, Password, Status } = admin || {};
 
   //Village correction form handler
   const handleAdminSubmit = (e) => {
@@ -32,7 +34,7 @@ const EditAdmin = () => {
     const { _id, ...newData } = fieldsData;
 
     // console.log(newData);
-    fetch(BASE_URL + `/collection/user/${_id}`, {
+    fetch(BASE_URL + `/collection/users/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -52,6 +54,7 @@ const EditAdmin = () => {
 
   const handleFormValueChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value);
 
     setFieldsData((prev) => ({
       ...prev,
@@ -64,32 +67,38 @@ const EditAdmin = () => {
       name: "Type",
       type: "text",
       placeHolder: "Type",
+      defaultValue: Type,
     },
-    {
-      name: "Role",
-      type: "text",
-      placeHolder: "Role",
-    },
+    // {
+    //   name: "Role",
+    //   type: "text",
+    //   placeHolder: "Role",
+    //   defaultValue: Role,
+    // },
     {
       name: "Name",
       type: "text",
       placeHolder: "Name",
+      defaultValue: Name,
     },
     {
       name: "Email",
       type: "email",
       placeHolder: "Email",
+      defaultValue: Email,
     },
     {
       name: "Phone",
       type: "text",
       placeHolder: "Phone",
+      defaultValue: Phone,
     },
-    {
-      name: "Password",
-      type: "text",
-      placeHolder: "Password",
-    },
+    // {
+    //   name: "Password",
+    //   type: "text",
+    //   placeHolder: "Password",
+    //   defaultValue: Password,
+    // },
   ];
 
   return (
@@ -100,7 +109,7 @@ const EditAdmin = () => {
       >
         <h1 className="pb-2 text-2xl font-bold md:text-4xl">Edit User</h1>
 
-        {fields.map(({ name, type, placeHolder }) => (
+        {fields.map(({ name, type, placeHolder, defaultValue }) => (
           <div key={name} className="form-control">
             <label className="label">
               <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
@@ -111,6 +120,7 @@ const EditAdmin = () => {
               value={fieldsData[name]}
               onChange={handleFormValueChange}
               type={type}
+              defaultValue={defaultValue}
               name={name}
               placeholder={placeHolder}
               className="p-2 border-b focus-within:outline-none bordered"
@@ -119,6 +129,23 @@ const EditAdmin = () => {
           </div>
         ))}
         <label className="label">
+          <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
+            Role
+          </span>
+        </label>
+        <select
+          value={fieldsData["Role"]}
+          onChange={handleFormValueChange}
+          name="Role"
+          type="select"
+          className="w-full text-base font-semibold text-gray-500 select border-info"
+        >
+          <option disabled>Select</option>
+          <option value="Admin">Admin</option>
+          <option value="Super-Admin">Super-Admin</option>
+          <option value="User">User</option>
+        </select>
+        {/* <label className="label">
           <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
             Status
           </span>
@@ -133,7 +160,7 @@ const EditAdmin = () => {
           <option disabled>Select</option>
           <option value="Active">Active</option>
           <option value="In Active">In Active</option>
-        </select>
+        </select> */}
 
         <div className="mt-6 form-control">
           <button

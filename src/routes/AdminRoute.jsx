@@ -1,20 +1,21 @@
-// import { useContext } from "react";
-// import { AdminContext } from "../provider/AdminProvider";
-// import { Navigate } from "react-router-dom";
-// import Loading from "../pages/shared/Loading/Loading";
-// import useGetData from "../hooks/useGetData";
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import Loading from "../pages/shared/Loading/Loading";
+import useGetData from "../hooks/useGetData";
+import { AuthProvider } from "../provider/Provider";
+import AdminProvider, { AdminDataContext } from "../pages/Admin/AdminProvider";
 
-// const AdminRoute = ({ children }) => {
-//   // const { user, isLoading } = useContext(AdminContext);
-//   const [adminData,isLoading] = useGetData('/collection/users')
+const AdminRoute = ({ children }) => {
+  const { isAdmin } = useContext(AdminDataContext);
 
-//   if (isLoading) {
-//     return <Loading></Loading>;
-//   } 
-//   if (adminData) {
-//     return children
-//   }
-//   <Navigate to="/login"></Navigate>;
-// };
+  console.log(isAdmin);
+  if (!isAdmin) {
+    return <Navigate to="/"></Navigate>;
+  }
+  if (isAdmin) {
+    return children;
+  }
+  <Navigate to="/login"></Navigate>;
+};
 
-// export default AdminRoute;
+export default AdminRoute;

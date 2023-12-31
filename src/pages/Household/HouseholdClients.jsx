@@ -3,6 +3,8 @@ import { modifyData } from "../../api/api";
 import Swal from "sweetalert2";
 import PropTypes from "prop-types";
 import { AiFillDelete, AiOutlineMenu } from "react-icons/ai";
+import { useContext } from "react";
+import { AdminDataContext } from "../Admin/AdminProvider";
 
 const HouseholdClients = ({
   client,
@@ -12,6 +14,8 @@ const HouseholdClients = ({
   activePage,
   itemsPerPage,
 }) => {
+  const { isAdmin } = useContext(AdminDataContext);
+
   // console.log(householdClients);
   const {
     _id,
@@ -85,12 +89,14 @@ const HouseholdClients = ({
           <Link to={`/household-details/${_id}`} className="join-item btn">
             <AiOutlineMenu className="text-green-500 font-bold  text-[18px] md:text-[30px]"></AiOutlineMenu>
           </Link>
-          <button
-            onClick={() => handleDelete(_id)}
-            className="join-item btn btn-circle"
-          >
-            <AiFillDelete className="text-primaryClr text-[18px] md:text-[27px]"></AiFillDelete>
-          </button>
+          {isAdmin && (
+            <button
+              onClick={() => handleDelete(_id)}
+              className="join-item btn btn-circle"
+            >
+              <AiFillDelete className="text-primaryClr text-[18px] md:text-[27px]"></AiFillDelete>
+            </button>
+          )}
         </td>
       </tr>
     </tbody>

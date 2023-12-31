@@ -49,9 +49,9 @@ const AdminTableRow = ({ data, idx, setAdminsData }) => {
       <td className="px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.Phone}
       </td>
-      <td className="px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
+      {/* <td className="px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.Status}
-      </td>
+      </td> */}
       <td className="flex gap-3 px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         <Link to={`/edit-admin/${data?._id}`}>
           <button className="px-1 text-white md:px-3">

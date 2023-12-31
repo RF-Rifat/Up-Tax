@@ -20,6 +20,7 @@ const Login = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  console.log();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password.length < 6) {
@@ -75,18 +76,18 @@ const Login = () => {
         toast.error(error.message);
       });
   };
-  const handleGoogleLogIn = () => {
-    signWithGooglePop()
-      .then((result) => {
-        toast.success("login Registration Successful!");
-        console.log(result.user);
-        navigate("/");
-      })
-      .catch((error) => {
-        toast.error("Failed");
-        console.error(error);
-      });
-  };
+  // const handleGoogleLogIn = () => {
+  //   signWithGooglePop()
+  //     .then((result) => {
+  //       toast.success("login Registration Successful!");
+  //       console.log(result.user);
+  //       navigate("/");
+  //     })
+  //     .catch((error) => {
+  //       toast.error("Failed");
+  //       console.error(error);
+  //     });
+  // };
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   setError(false);
@@ -142,7 +143,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                onClick={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <label>Password</label>
@@ -154,7 +155,7 @@ const Login = () => {
               </label>
             </div>
             <button className="signBtn mb-3">Log in</button>
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <button
                 className="font-bold"
                 onClick={handleResetPassword}
@@ -162,13 +163,13 @@ const Login = () => {
               >
                 Forget Password ?
               </button>
-            </div>
+            </div> */}
             <div className="register text-xl">
               <p>
                 Don&apos;t have a account ?{" "}
-                <Link to={"/signUp"} className="ml-5">
+                {/* <Link to={"/signUp"} className="ml-5">
                   Register
-                </Link>
+                </Link> */}
               </p>
               {error && <div className=" text-red-600 text-xl">{error}</div>}
             </div>
@@ -179,7 +180,7 @@ const Login = () => {
             </button>
           </div>
           <div className="flex flex-wrap">
-            <button
+            {/* <button
               onClick={handleGoogleLogIn}
               aria-label="Continue with google"
               role="button"
@@ -212,7 +213,7 @@ const Login = () => {
               <p className="text-base font-medium ml-4 text-gray-700">
                 Continue with Google
               </p>
-            </button>
+            </button> */}
           </div>
         </section>
       </div>

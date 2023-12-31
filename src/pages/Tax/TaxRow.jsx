@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import BASE_URL from "../../api/api";
 import { BsEyeFill } from "react-icons/bs";
+import { AdminDataContext } from "../Admin/AdminProvider";
 
 const TaxRow = ({ data, idx, setAllTax }) => {
+  const { isAdmin } = useContext(AdminDataContext);
   const handleDelete = () => {
     // Delete pop-up
     Swal.fire({
@@ -68,17 +70,21 @@ const TaxRow = ({ data, idx, setAllTax }) => {
         <Link to={`/tax-payer/${data?._id}`}>
           <BsEyeFill className="text-[20px] text-black"></BsEyeFill>
         </Link>
-        <Link to={`/update-tax/${data?._id}`}>
-          <button className="px-1 text-white md:px-3">
-            <AiFillEdit className="text-green-500 text-[15px] md:text-2xl"></AiFillEdit>
+        {isAdmin && (
+          <Link to={`/update-tax/${data?._id}`}>
+            <button className="px-1 text-white md:px-3">
+              <AiFillEdit className="text-green-500 text-[15px] md:text-2xl"></AiFillEdit>
+            </button>
+          </Link>
+        )}
+        {isAdmin && (
+          <button
+            onClick={() => handleDelete()}
+            className="px-1 text-white md:px-3"
+          >
+            <AiFillDelete className="text-[#ff5959] text-[15px] md:text-2xl"></AiFillDelete>
           </button>
-        </Link>
-        <button
-          onClick={() => handleDelete()}
-          className="px-1 text-white md:px-3"
-        >
-          <AiFillDelete className="text-[#ff5959] text-[15px] md:text-2xl"></AiFillDelete>
-        </button>
+        )}
       </td>
     </tr>
   );

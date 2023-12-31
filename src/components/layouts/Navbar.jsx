@@ -9,8 +9,6 @@ const Navbar = () => {
 
   const goto = useNavigate();
 
-  console.log(user);
-
   const handleLogout = () => {
     logOut();
     goto("/login");

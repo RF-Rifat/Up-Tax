@@ -33,7 +33,6 @@ const Household = () => {
     return <Loading></Loading>;
   }
 
-  console.log(searchData.length);
   return (
     <div className="mx-2">
       <HouseholdNav setQuery={setQuery}></HouseholdNav>

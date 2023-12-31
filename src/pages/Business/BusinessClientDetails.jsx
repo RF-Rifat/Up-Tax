@@ -2,10 +2,13 @@ import { useParams } from "react-router";
 import useGetData from "../../hooks/useGetData";
 import { Link } from "react-router-dom";
 import TaxPaymentForm from "../shared/Tax-Payment/TaxPayment";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
+import { AdminDataContext } from "../Admin/AdminProvider";
 
 const BusinessClientDetails = () => {
+  const { isAdmin } = useContext(AdminDataContext);
+  
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const [businessClient] = useGetData(`/collection/business/${id}`);
@@ -101,9 +104,9 @@ const BusinessClientDetails = () => {
           <Link onClick={handleOpenTaxPay} className="join-item btn">
             pay
           </Link>
-          <Link to={`/businessUpdate/${_id}`} className="join-item btn">
+         {isAdmin && <Link to={`/businessUpdate/${_id}`} className="join-item btn">
             <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
-          </Link>
+          </Link>}
           <Link to="/business" className="join-item btn">
             back
           </Link>

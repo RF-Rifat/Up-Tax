@@ -35,6 +35,7 @@ const AddAdmin = () => {
 
   const handleFormValueChange = (e) => {
     const { name, value } = e.target;
+    console.log(name,value)
 
     setFieldsData((prev) => ({
       ...prev,
@@ -48,11 +49,11 @@ const AddAdmin = () => {
       type: "text",
       placeHolder: "Type",
     },
-    {
-      name: "Role",
-      type: "text",
-      placeHolder: "Role",
-    },
+    // {
+    //   name: "Role",
+    //   type: "text",
+    //   placeHolder: "Role",
+    // },
     {
       name: "Name",
       type: "text",
@@ -103,6 +104,24 @@ const AddAdmin = () => {
         ))}
         <label className="label">
           <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
+            Role
+          </span>
+        </label>
+        <select
+          value={fieldsData["Role"]}
+          onChange={handleFormValueChange}
+          name="Role"
+          type="text"
+          className="w-full text-base font-semibold text-gray-500 select border-info"
+        >
+          <option disabled>Select</option>
+          <option value="Admin">Admin</option>
+          <option value="Super-Admin">Super-Admin</option>
+          <option value="User">User</option>
+        </select>
+
+        {/* <label className="label">
+          <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
             Status
           </span>
         </label>
@@ -117,7 +136,7 @@ const AddAdmin = () => {
           <option disabled>Select</option>
           <option value="Active">Active</option>
           <option value="In Active">In Active</option>
-        </select>
+        </select> */}
 
         <div className="mt-6 form-control">
           <button
