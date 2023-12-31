@@ -107,6 +107,9 @@ const BusinessClientDetails = () => {
          {isSuperAdmin && <Link to={`/businessUpdate/${_id}`} className="join-item btn">
             <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
           </Link>}
+         {isAdmin && <Link to={`/businessUpdate/${_id}`} className="join-item btn">
+            <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
+          </Link>}
           <Link to="/business" className="join-item btn">
             back
           </Link>
