@@ -143,6 +143,7 @@ const EditAdmin = () => {
           <option disabled>Select</option>
           <option value="Admin">Admin</option>
           <option value="Super-Admin">Super-Admin</option>
+          <option value="User">User</option>
         </select>
         {/* <label className="label">
           <span className="label-text font-bold md:text-[14px] lg:text-[16px]">

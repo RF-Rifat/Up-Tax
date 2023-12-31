@@ -1,7 +1,7 @@
 import "./business.css";
 import BusinessSearch from "./BusinessSearch";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useGetData from "../../hooks/useGetData";
 import Loading from "../shared/Loading/Loading";
 import { AiFillDelete, AiOutlineMenu } from "react-icons/ai";
@@ -10,8 +10,11 @@ import { modifyData } from "../../api/api";
 import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
 import useGetSearchData from "../../hooks/useGetSearchData";
+import { AdminDataContext } from "../Admin/AdminProvider";
 
 const Business = () => {
+  const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
+  console.log(isSuperAdmin);
   const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
     usePagination();
   // this state for search value
@@ -125,12 +128,12 @@ const Business = () => {
                       <AiOutlineMenu className="text-green-500 text-[18px] md:text-[30px]"></AiOutlineMenu>
                     </button>
                   </Link>
-                  <button
+                  {isAdmin && <button
                     onClick={() => handleBusinessDelete(content._id)}
                     className=" join-item btn"
                   >
                     <AiFillDelete className="text-primaryClr text-[18px] md:text-[27px]"></AiFillDelete>
-                  </button>
+                  </button>}
                 </td>
               </tr>
             ))}

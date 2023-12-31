@@ -50,17 +50,17 @@ const routes = createBrowserRouter([
       {
         path: "/setting",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <Setting></Setting>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "/village",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <Village></Village>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -75,9 +75,7 @@ const routes = createBrowserRouter([
         path: "/business",
         element: (
           <PrivateRoute>
-            <AdminRoute>
-              <Business></Business>
-            </AdminRoute>
+            <Business></Business>
           </PrivateRoute>
         ),
       },
@@ -92,33 +90,33 @@ const routes = createBrowserRouter([
       {
         path: "/operator",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <Operator></Operator>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "/edit-admin/:id",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <EditAdmin />
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "/add-admin",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <AddAdmin />
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "/edit-village/:id",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <EditVillage></EditVillage>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -140,9 +138,9 @@ const routes = createBrowserRouter([
       {
         path: "/update-tax/:id",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <UpdateTax />
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -156,10 +154,10 @@ const routes = createBrowserRouter([
       {
         path: "/household-update/:id",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             {" "}
             <HouseholdUpdate></HouseholdUpdate>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -182,14 +180,18 @@ const routes = createBrowserRouter([
       {
         path: "/addNew-village",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <NewVillage></NewVillage>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "/businessUpdate/:id",
-        element: <BusinessUpdate></BusinessUpdate>,
+        element: (
+          <AdminRoute>
+            <BusinessUpdate></BusinessUpdate>
+          </AdminRoute>
+        ),
       },
       {
         path: "/tax",
@@ -199,10 +201,14 @@ const routes = createBrowserRouter([
         path: "/tax-payer/:id",
         element: <TaxPayerDetails></TaxPayerDetails>,
       },
-      {
-        path: "/operator",
-        element: <Operator></Operator>,
-      },
+      // {
+      //   path: "/operator",
+      //   element: (
+      //     <AdminRoute>
+      //       <Operator></Operator>
+      //     </AdminRoute>
+      //   ),
+      // },
     ],
   },
   {

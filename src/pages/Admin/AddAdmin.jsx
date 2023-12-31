@@ -12,6 +12,8 @@ const AddAdmin = () => {
 
   //Village correction form handler
   const handleAdminSubmit = (e) => {
+    e.preventDefault();
+
     // console.log(newData);
     fetch(BASE_URL + `/collection/users`, {
       method: "POST",
@@ -33,7 +35,7 @@ const AddAdmin = () => {
 
   const handleFormValueChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    console.log(name,value)
 
     setFieldsData((prev) => ({
       ...prev,
@@ -115,6 +117,7 @@ const AddAdmin = () => {
           <option disabled>Select</option>
           <option value="Admin">Admin</option>
           <option value="Super-Admin">Super-Admin</option>
+          <option value="User">User</option>
         </select>
 
         {/* <label className="label">

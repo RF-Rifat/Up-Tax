@@ -4,13 +4,11 @@ import useCountData from "../../hooks/useCountData";
 import { Link } from "react-router-dom";
 import Loading from "../shared/Loading/Loading";
 import { Helmet } from "react-helmet-async";
-import { useContext } from "react";
-import AdminProvider, { AdminDataContext } from "../Admin/AdminProvider";
+
 
 const Dashboard = () => {
   const { data: totalCount, loading } = useCountData();
-  const { isAdmin } = useContext(AdminDataContext);
-  console.log(isAdmin);
+  
   if (loading) {
     return <Loading />;
   }
@@ -56,6 +54,7 @@ const Dashboard = () => {
     },
   ];
 
+  
   return (
     <>
       <Helmet>
