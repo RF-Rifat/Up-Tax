@@ -66,8 +66,8 @@ const TaxRow = ({ data, idx, setAllTax }) => {
       </td>
 
       {/* Navigation */}
-      <td className="join flex px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 justify-between">
-        <Link to={`/tax-payer/${data?._id}`}>
+      <td className="">
+        <Link className=" flex items-center justify-center" to={`/tax-payer/${data?._id}`}>
           <BsEyeFill className="text-[20px] text-black"></BsEyeFill>
         </Link>
         {isAdmin && (
