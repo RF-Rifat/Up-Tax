@@ -28,6 +28,7 @@ import PrivateRoute from "./PrivateRoute";
 import ActiveRoute from "./ActiveRoute";
 import SignUp from "../pages/Auth/SignUp";
 import Login from "../pages/Auth/Login";
+import AdminRoute from "./AdminRoute";
 
 const routes = createBrowserRouter([
   {
@@ -74,7 +75,9 @@ const routes = createBrowserRouter([
         path: "/business",
         element: (
           <PrivateRoute>
-            <Business></Business>
+            <AdminRoute>
+              <Business></Business>
+            </AdminRoute>
           </PrivateRoute>
         ),
       },

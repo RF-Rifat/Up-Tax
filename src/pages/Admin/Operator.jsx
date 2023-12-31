@@ -46,7 +46,7 @@ const Operator = () => {
     "Name",
     "Email",
     "Phone",
-    "Status",
+    // "Status",
     "Action",
   ];
 

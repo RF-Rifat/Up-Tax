@@ -8,6 +8,7 @@ const EditAdmin = () => {
   const goTo = useNavigate();
   const { id } = useParams();
   const [admin, setAdmin] = useState({});
+  const [role, setRole] = useState("");
   const [fieldsData, setFieldsData] = useState({});
   const navigate = useNavigate();
 
@@ -53,6 +54,7 @@ const EditAdmin = () => {
 
   const handleFormValueChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value);
 
     setFieldsData((prev) => ({
       ...prev,
@@ -67,12 +69,12 @@ const EditAdmin = () => {
       placeHolder: "Type",
       defaultValue: Type,
     },
-    {
-      name: "Role",
-      type: "text",
-      placeHolder: "Role",
-      defaultValue: Role,
-    },
+    // {
+    //   name: "Role",
+    //   type: "text",
+    //   placeHolder: "Role",
+    //   defaultValue: Role,
+    // },
     {
       name: "Name",
       type: "text",
@@ -91,12 +93,12 @@ const EditAdmin = () => {
       placeHolder: "Phone",
       defaultValue: Phone,
     },
-    {
-      name: "Password",
-      type: "text",
-      placeHolder: "Password",
-      defaultValue: Password,
-    },
+    // {
+    //   name: "Password",
+    //   type: "text",
+    //   placeHolder: "Password",
+    //   defaultValue: Password,
+    // },
   ];
 
   return (
@@ -128,6 +130,22 @@ const EditAdmin = () => {
         ))}
         <label className="label">
           <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
+            Role
+          </span>
+        </label>
+        <select
+          value={fieldsData["Role"]}
+          onChange={handleFormValueChange}
+          name="Role"
+          type="select"
+          className="w-full text-base font-semibold text-gray-500 select border-info"
+        >
+          <option disabled>Select</option>
+          <option value="Admin">Admin</option>
+          <option value="Super-Admin">Super-Admin</option>
+        </select>
+        {/* <label className="label">
+          <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
             Status
           </span>
         </label>
@@ -141,7 +159,7 @@ const EditAdmin = () => {
           <option disabled>Select</option>
           <option value="Active">Active</option>
           <option value="In Active">In Active</option>
-        </select>
+        </select> */}
 
         <div className="mt-6 form-control">
           <button

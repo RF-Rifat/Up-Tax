@@ -20,6 +20,7 @@ const Login = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  console.log();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password.length < 6) {
@@ -142,7 +143,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                onClick={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <label>Password</label>
