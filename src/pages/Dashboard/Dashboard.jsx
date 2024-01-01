@@ -12,8 +12,6 @@ const Dashboard = () => {
     return <Loading />;
   }
 
-  console.log(totalCount?.todayPayment);
-
   const TaxData = [
     {
       user: "সকল গৃহস্থ",

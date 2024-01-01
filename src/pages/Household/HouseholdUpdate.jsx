@@ -753,12 +753,13 @@ const HouseholdUpdate = () => {
                 name="tax_based_on_assessment"
                 type="text"
                 placeholder=""
-                {...register(tax_based_on_assessment)}
-                defaultValue={tax_based_on_assessment}
+                {...register("tax_based_on_assessment")}
+                defaultValue={tax_based_on_assessment || ""}
                 className="input font-semibold border-info text-base text-gray-500 w-full input-bordered"
                 required
               />
             </div>
+
             {/* left row */}
             <div className="flex items-center">
               <label className="label">

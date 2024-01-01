@@ -40,7 +40,7 @@ const DashboardRoutes = () => {
   return (
     <ul className="sticky top-0 z-50 bg-white">
       <header className="flex-none flex h-16 border-t  items-center">
-        <h1 id="page-caption" className="font-semibold mx-2 text-4xl">
+        <h1 id="page-caption" className="font-semibold mx-2 text-4xl px-4 py-6">
           <a
             href="mailto:uphtax55@gmail.com"
             target="_blank"
@@ -48,7 +48,6 @@ const DashboardRoutes = () => {
             className="flex gap-2"
           >
             <BsSendCheckFill /> Mail
-            {/* You can replace FiMail with your desired mail icon */}
           </a>
         </h1>
       </header>
@@ -64,7 +63,7 @@ const DashboardRoutes = () => {
         >
           <article
             tabIndex={0}
-            className="cursor-pointer  items-center rounded-md p-3 bg-[#ffffff] flex text-gray-700 mb-2 hover:border-l-green-400 hover:border-2 border-2 border-transparent mx-2 focus:outline-none hover:bg-[#65c50a] hover:text-white transition-all"
+            className="cursor-pointer items-center rounded-md p-3 bg-[#ffffff] flex text-gray-700 mb-2 hover:border-l-green-400 hover:border-2 border-2 border-transparent mx-2 focus:outline-none hover:bg-[#3498db] hover:text-white transition-all"
           >
             <span className="flex-none pt-1 pr-2">
               <img

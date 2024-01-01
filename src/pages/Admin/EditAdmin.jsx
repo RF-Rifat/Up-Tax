@@ -49,6 +49,7 @@ const EditAdmin = () => {
           title: "Updated Successfully",
         });
         navigate("/operator");
+        location.reload();
       });
   };
 
