@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 import Loading from "../shared/Loading/Loading";
 import { Helmet } from "react-helmet-async";
 
-
 const Dashboard = () => {
   const { data: totalCount, loading } = useCountData();
-  
+
   if (loading) {
     return <Loading />;
   }
@@ -29,22 +28,20 @@ const Dashboard = () => {
     {
       user: "গৃহস্থ কর",
       userData: totalCount?.totalHomeAssessmentTax,
-      path: "tax",
+      // path: "tax",
     },
     {
       user: "ব্যবসা কর",
       userData: totalCount?.totalBusinessAssessmentTax,
-      path: "tax",
+      // path: "tax",
     },
     {
       user: "গৃহস্থ কর আদায়",
       userData: totalCount?.totalHomePaidTax,
-      path: "tax",
     },
     {
       user: "ব্যবসা কর আদায়",
       userData: totalCount?.totalBusinessPaidTax,
-      path: "tax",
     },
 
     {
@@ -54,7 +51,6 @@ const Dashboard = () => {
     },
   ];
 
-  
   return (
     <>
       <Helmet>

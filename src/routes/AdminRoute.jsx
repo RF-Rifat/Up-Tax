@@ -5,17 +5,21 @@ import useGetData from "../hooks/useGetData";
 import { AuthProvider } from "../provider/Provider";
 import { AdminDataContext } from "../pages/Admin/AdminProvider";
 
-const SuperAdminRoute = ({ children }) => {
-  const { isSuperAdmin } = useContext(AdminDataContext);
+const AdminRoute = ({ children }) => {
+  const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
 
-  console.log(isSuperAdmin);
+  console.log(isAdmin, isSuperAdmin);
   if (!isSuperAdmin) {
-    return <Navigate to="/"></Navigate>;
+    if (!isAdmin) {
+      return <Navigate to="/"></Navigate>;
+    }
   }
   if (isSuperAdmin) {
+    return children;
+  } else if (isAdmin) {
     return children;
   }
   <Navigate to="/login"></Navigate>;
 };
 
-export default SuperAdminRoute;
+export default AdminRoute;

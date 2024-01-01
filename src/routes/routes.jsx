@@ -29,7 +29,7 @@ import ActiveRoute from "./ActiveRoute";
 import SignUp from "../pages/Auth/SignUp";
 import Login from "../pages/Auth/Login";
 import SuperAdminRoute from "./SuperAdminRoute";
-
+import AdminRoute from "./AdminRoute";
 
 const routes = createBrowserRouter([
   {
@@ -123,9 +123,9 @@ const routes = createBrowserRouter([
       {
         path: "/add-household",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <AddHousehold></AddHousehold>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -139,9 +139,9 @@ const routes = createBrowserRouter([
       {
         path: "/update-tax/:id",
         element: (
-          <SuperAdminRoute>
+          <AdminRoute>
             <UpdateTax />
-          </SuperAdminRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -155,18 +155,18 @@ const routes = createBrowserRouter([
       {
         path: "/household-update/:id",
         element: (
-          <SuperAdminRoute>
+          <AdminRoute>
             {" "}
             <HouseholdUpdate></HouseholdUpdate>
-          </SuperAdminRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "/new-business",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <NewBusiness></NewBusiness>
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -189,9 +189,9 @@ const routes = createBrowserRouter([
       {
         path: "/businessUpdate/:id",
         element: (
-          <SuperAdminRoute>
+          <AdminRoute>
             <BusinessUpdate></BusinessUpdate>
-          </SuperAdminRoute>
+          </AdminRoute>
         ),
       },
       {
