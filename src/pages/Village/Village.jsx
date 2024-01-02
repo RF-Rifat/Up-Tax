@@ -12,6 +12,7 @@ import Print from "../shared/Print/Print";
 import { AuthProvider } from "../../provider/Provider";
 import usePagination from "../../hooks/usePagination";
 import useCountData from "../../hooks/useCountData";
+import { Helmet } from "react-helmet-async";
 
 // import { useState } from "react";
 const Village = () => {
@@ -74,6 +75,10 @@ const Village = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>UpHTax | Villages</title>
+      </Helmet>
     <div className="overflow-x-auto">
       <div className="card-body">
         <div className="join my-5 flex items-center justify-center">
@@ -137,7 +142,7 @@ const Village = () => {
         setActivePage={setActivePage}
         activePage={activePage}
       ></Pagination>
-    </div>
+    </div></>
   );
 };
 

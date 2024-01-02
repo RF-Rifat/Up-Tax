@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useGetData from "../../hooks/useGetData";
 import BASE_URL from "../../api/api";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Setting = () => {
   const [settingsData] = useGetData("/collection/settings");
@@ -54,7 +55,7 @@ const Setting = () => {
             text: "Settings updated successfully.",
           }).then(() => {
             console.log("Settings updated successfully");
-            location.reload()
+            location.reload();
           });
         } else {
           Swal.fire({
@@ -75,125 +76,130 @@ const Setting = () => {
   };
 
   return (
-    <div className="flex items-center justify-center mt-10 lg:mt-16">
-      <div className="max-w-lg p-6 rounded-lg bg-white shadow-2xl">
-        <h3 className="text-4xl font-semibold text-center w-full">
-          General Setting
-        </h3>
-        <form onSubmit={handleSubmit} className="mt-4">
-          <div className="grid grid-cols-1 gap-4">
-            <div className="flex gap-2">
-              <div>
-                <label
-                  htmlFor="site_name"
-                  className="text-lg font-semibold text-gray-800 mr-2"
-                >
-                  Site Name:
-                </label>
-                <input
-                  type="text"
-                  name="site_name"
-                  id="site_name"
-                  value={formData.site_name}
-                  onChange={handleChange}
-                  className="input input-primary"
-                />
+    <>
+      <Helmet>
+        <title>UpHTax | Settings</title>
+      </Helmet>
+      <div className="flex items-center justify-center mt-10 lg:mt-16">
+        <div className="max-w-lg p-6 rounded-lg bg-white shadow-2xl">
+          <h3 className="text-4xl font-semibold text-center w-full">
+            General Setting
+          </h3>
+          <form onSubmit={handleSubmit} className="mt-4">
+            <div className="grid grid-cols-1 gap-4">
+              <div className="flex gap-2">
+                <div>
+                  <label
+                    htmlFor="site_name"
+                    className="text-lg font-semibold text-gray-800 mr-2"
+                  >
+                    Site Name:
+                  </label>
+                  <input
+                    type="text"
+                    name="site_name"
+                    id="site_name"
+                    value={formData.site_name}
+                    onChange={handleChange}
+                    className="input input-primary"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="contact_no"
+                    className="text-lg font-semibold text-gray-800 mr-2"
+                  >
+                    Contact No:
+                  </label>
+                  <input
+                    type="text"
+                    name="contact_no"
+                    id="contact_no"
+                    value={formData.contact_no}
+                    onChange={handleChange}
+                    className="input input-primary"
+                  />
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="contact_no"
-                  className="text-lg font-semibold text-gray-800 mr-2"
-                >
-                  Contact No:
-                </label>
-                <input
-                  type="text"
-                  name="contact_no"
-                  id="contact_no"
-                  value={formData.contact_no}
-                  onChange={handleChange}
-                  className="input input-primary"
-                />
-              </div>
-            </div>
 
-            <div className="flex gap-2">
-              <div>
-                <label
-                  htmlFor="state"
-                  className="text-lg font-semibold text-gray-800 mr-2"
-                >
-                  Upazila Name:
-                </label>
-                <input
-                  type="text"
-                  name="upazila"
-                  id="state"
-                  value={formData.upazila}
-                  onChange={handleChange}
-                  className="input input-primary"
-                />
+              <div className="flex gap-2">
+                <div>
+                  <label
+                    htmlFor="state"
+                    className="text-lg font-semibold text-gray-800 mr-2"
+                  >
+                    Upazila Name:
+                  </label>
+                  <input
+                    type="text"
+                    name="upazila"
+                    id="state"
+                    value={formData.upazila}
+                    onChange={handleChange}
+                    className="input input-primary"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="postal_code"
+                    className="text-lg font-semibold text-gray-800 mr-2"
+                  >
+                    Union Name:
+                  </label>
+                  <input
+                    type="text"
+                    name="union"
+                    id="postal_code"
+                    value={formData.union}
+                    onChange={handleChange}
+                    className="input input-primary"
+                  />
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="postal_code"
-                  className="text-lg font-semibold text-gray-800 mr-2"
-                >
-                  Union Name:
-                </label>
-                <input
-                  type="text"
-                  name="union"
-                  id="postal_code"
-                  value={formData.union}
-                  onChange={handleChange}
-                  className="input input-primary"
-                />
-              </div>
-            </div>
 
-            <div className="flex flex-col space-y-2">
-              <label
-                htmlFor="description"
-                className="text-lg font-semibold text-gray-800 mr-2"
-              >
-                Description:
-              </label>
-              <textarea
-                name="description"
-                id="description"
-                value={formData.description}
-                onChange={handleChange}
-                className="input input-primary"
-              />
+              <div className="flex flex-col space-y-2">
+                <label
+                  htmlFor="description"
+                  className="text-lg font-semibold text-gray-800 mr-2"
+                >
+                  Description:
+                </label>
+                <textarea
+                  name="description"
+                  id="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  className="input input-primary"
+                />
+              </div>
+              <div className="flex flex-col space-y-2">
+                <label
+                  htmlFor="address"
+                  className="text-lg font-semibold text-gray-800 mr-2"
+                >
+                  Address:
+                </label>
+                <textarea
+                  name="address"
+                  id="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  className="input input-primary"
+                />
+              </div>
             </div>
-            <div className="flex flex-col space-y-2">
-              <label
-                htmlFor="address"
-                className="text-lg font-semibold text-gray-800 mr-2"
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="btn btn-primary w-full hover:bg-primary-dark"
               >
-                Address:
-              </label>
-              <textarea
-                name="address"
-                id="address"
-                value={formData.address}
-                onChange={handleChange}
-                className="input input-primary"
-              />
+                Save
+              </button>
             </div>
-          </div>
-          <div className="mt-6">
-            <button
-              type="submit"
-              className="btn btn-primary w-full hover:bg-primary-dark"
-            >
-              Save
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

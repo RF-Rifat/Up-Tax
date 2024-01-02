@@ -10,6 +10,7 @@ import { TiPlus } from "react-icons/ti";
 import useGetData from "../../hooks/useGetData";
 import Loading from "../shared/Loading/Loading";
 import Print from "../shared/Print/Print";
+import { Helmet } from "react-helmet-async";
 // import { useState } from "react";
 const Operator = () => {
   const adminData = [
@@ -41,7 +42,7 @@ const Operator = () => {
 
   const headers = [
     "SL. No.",
-    "Type",
+    // "Type",
     "Role",
     "Name",
     "Email",
@@ -51,38 +52,43 @@ const Operator = () => {
   ];
 
   return (
-    <div className="overflow-x-auto">
-      <div className="card-body" ref={tableref}>
-        <div className="table-responsive">
-          <Link
-            to="/add-admin"
-            className="mb-6 text-white bg-green-400 border-none outline-none btn btn-sm focus-within:outline-none hover:bg-green-500"
-          >
-            <TiPlus></TiPlus>
-            Add Admin
-          </Link>
-          <div>
-            {/* Village data start here */}
-            <table className="table table-sm table-bordered no-footer">
-              <AdminTableHeading headers={headers} />
-              <tbody>
-                {adminsData?.map((data, idx) => (
-                  <AdminTableRow
-                    data={data}
-                    idx={idx}
-                    key={idx}
-                    setAdminsData={setAdminsData}
-                  />
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="text-center mt-8">
-            <Print tableRef={tableref}></Print>
+    <>
+      <Helmet>
+        <title>UpHTax | Users</title>
+      </Helmet>
+      <div className="overflow-x-auto">
+        <div className="card-body" ref={tableref}>
+          <div className="table-responsive">
+            <Link
+              to="/add-admin"
+              className="mb-6 text-white bg-green-400 border-none outline-none btn btn-sm focus-within:outline-none hover:bg-green-500"
+            >
+              <TiPlus></TiPlus>
+              Add Admin
+            </Link>
+            <div>
+              {/* Village data start here */}
+              <table className="table table-sm table-bordered no-footer">
+                <AdminTableHeading headers={headers} />
+                <tbody>
+                  {adminsData?.map((data, idx) => (
+                    <AdminTableRow
+                      data={data}
+                      idx={idx}
+                      key={idx}
+                      setAdminsData={setAdminsData}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="text-center mt-8">
+              <Print tableRef={tableref}></Print>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

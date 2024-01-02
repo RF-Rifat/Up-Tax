@@ -30,6 +30,7 @@ import SignUp from "../pages/Auth/SignUp";
 import Login from "../pages/Auth/Login";
 import SuperAdminRoute from "./SuperAdminRoute";
 import AdminRoute from "./AdminRoute";
+import Error from "./Error";
 
 const routes = createBrowserRouter([
   {
@@ -210,14 +211,6 @@ const routes = createBrowserRouter([
           </SuperAdminRoute>
         ),
       },
-      // {
-      //   path: "/operator",
-      //   element: (
-      //     <SuperAdminRoute>
-      //       <Operator></Operator>
-      //     </SuperAdminRoute>
-      //   ),
-      // },
     ],
   },
   {
@@ -227,6 +220,10 @@ const routes = createBrowserRouter([
         <Login></Login>
       </ActiveRoute>
     ),
+  },
+  {
+    path: "*",
+    element: <Error></Error>,
   },
 ]);
 export default routes;

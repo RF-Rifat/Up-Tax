@@ -11,6 +11,7 @@ import Pagination from "../shared/Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
 import useGetSearchData from "../../hooks/useGetSearchData";
 import { AdminDataContext } from "../Admin/AdminProvider";
+import { Helmet } from "react-helmet-async";
 
 const Business = () => {
   const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
@@ -90,64 +91,71 @@ const Business = () => {
   };
 
   return (
-    <div className="responsive-table mx-2 ">
-      <BusinessSearch setQuery={setQuery}></BusinessSearch>
+    <>
+      <Helmet>
+        <title>UpHTax | Business</title>
+      </Helmet>
+      <div className="responsive-table mx-2 ">
+        <BusinessSearch setQuery={setQuery}></BusinessSearch>
 
-      <div className="">
-        <table className="table mt-3">
-          {/* head */}
-          <thead className="bg-green-400 text-white">
-            <tr>
-              {staticHeaders?.map((header, idx) => (
-                <th key={idx} className="font-bold text-[14px]">
-                  {header.label}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {searchData?.map((content, idx) => (
-              <tr key={idx}>
-                <th className="font-bold">
-                  {activePage * itemsPerPage + idx + 1}
-                </th>
-                <td>{content.union}</td>
-                {/* <td>{content.father_or_husband_name}</td> */}
-                <td>{content.village}</td>
-                <td>{content.word}</td>
-                <td>{content.businessType}</td>
-                <td>{content.business_name}</td>
-                <td>{content.owner_name}</td>
-                <td>{content.phone}</td>
-                <td>{content.shop_no}</td>
-                <td>{content.assesment_tax}</td>
-                <td>{content.UP_collected_tax}</td>
-                <td className="flex join">
-                  <Link to={`/businessClientsDetails/${content._id}`}>
-                    <button className=" join-item btn">
-                      <AiOutlineMenu className="text-green-500 text-[18px] md:text-[30px]"></AiOutlineMenu>
-                    </button>
-                  </Link>
-                  {isSuperAdmin && <button
-                    onClick={() => handleBusinessDelete(content._id)}
-                    className=" join-item btn"
-                  >
-                    <AiFillDelete className="text-primaryClr text-[18px] md:text-[27px]"></AiFillDelete>
-                  </button>}
-                </td>
+        <div className="">
+          <table className="table mt-3">
+            {/* head */}
+            <thead className="bg-green-400 text-white">
+              <tr>
+                {staticHeaders?.map((header, idx) => (
+                  <th key={idx} className="font-bold text-[14px]">
+                    {header.label}
+                  </th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {searchData?.map((content, idx) => (
+                <tr key={idx}>
+                  <th className="font-bold">
+                    {activePage * itemsPerPage + idx + 1}
+                  </th>
+                  <td>{content.union}</td>
+                  {/* <td>{content.father_or_husband_name}</td> */}
+                  <td>{content.village}</td>
+                  <td>{content.word}</td>
+                  <td>{content.businessType}</td>
+                  <td>{content.business_name}</td>
+                  <td>{content.owner_name}</td>
+                  <td>{content.phone}</td>
+                  <td>{content.shop_no}</td>
+                  <td>{content.assesment_tax}</td>
+                  <td>{content.UP_collected_tax}</td>
+                  <td className="flex join">
+                    <Link to={`/businessClientsDetails/${content._id}`}>
+                      <button className=" join-item btn">
+                        <AiOutlineMenu className="text-green-500 text-[18px] md:text-[30px]"></AiOutlineMenu>
+                      </button>
+                    </Link>
+                    {isSuperAdmin && (
+                      <button
+                        onClick={() => handleBusinessDelete(content._id)}
+                        className=" join-item btn"
+                      >
+                        <AiFillDelete className="text-primaryClr text-[18px] md:text-[27px]"></AiFillDelete>
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          setItemsPerPage={setItemsPerPage}
+          totalPages={businessCount?.businessCount}
+          setActivePage={setActivePage}
+          activePage={activePage}
+        ></Pagination>
       </div>
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        setItemsPerPage={setItemsPerPage}
-        totalPages={businessCount?.businessCount}
-        setActivePage={setActivePage}
-        activePage={activePage}
-      ></Pagination>
-    </div>
+    </>
   );
 };
 

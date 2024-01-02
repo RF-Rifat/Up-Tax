@@ -44,11 +44,11 @@ const AddAdmin = () => {
   };
 
   const fields = [
-    {
-      name: "Type",
-      type: "text",
-      placeHolder: "Type",
-    },
+    // {
+    //   name: "Type",
+    //   type: "text",
+    //   placeHolder: "Type",
+    // },
     // {
     //   name: "Role",
     //   type: "text",
@@ -69,11 +69,11 @@ const AddAdmin = () => {
       type: "text",
       placeHolder: "Phone",
     },
-    {
-      name: "Password",
-      type: "text",
-      placeHolder: "Password",
-    },
+    // {
+    //   name: "Password",
+    //   type: "text",
+    //   placeHolder: "Password",
+    // },
   ];
 
   return (

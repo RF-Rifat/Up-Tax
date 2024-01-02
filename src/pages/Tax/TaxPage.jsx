@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from "react";
 import Loading from "../shared/Loading/Loading";
 import Print from "../shared/Print/Print";
 import useGetData from "../../hooks/useGetData";
+import { Helmet } from "react-helmet-async";
 
 const TaxPage = () => {
-  
   const [allTax, setAllTax] = useState([]);
 
   const [taxData, loading] = useGetData("/collection/tax");
@@ -32,39 +32,44 @@ const TaxPage = () => {
     `business/ holding-Num`,
     "Action",
   ];
-  console.log(allTax);
+
   return (
-    <div className="overflow-x-auto">
-      <div className="card-body">
-        <div className="table-responsive">
-          <TaxNav taxData={taxData} allTax={allTax} setAllTax={setAllTax} />
+    <>
+      <Helmet>
+        <title>UpHTax | Tax</title>
+      </Helmet>
+      <div className="overflow-x-auto">
+        <div className="card-body">
+          <div className="table-responsive">
+            <TaxNav taxData={taxData} allTax={allTax} setAllTax={setAllTax} />
 
-          <div>
-            {/* Village data start here */}
-            <table
-              ref={tableref}
-              className="table table-sm table-bordered no-footer"
-            >
-              <TaxHeader headers={headers} />
+            <div>
+              {/* Village data start here */}
+              <table
+                ref={tableref}
+                className="table table-sm table-bordered no-footer"
+              >
+                <TaxHeader headers={headers} />
 
-              <tbody>
-                {allTax?.map((data, idx) => (
-                  <TaxRow
-                    data={data}
-                    idx={idx}
-                    key={idx}
-                    setAllTax={setAllTax}
-                  />
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="text-center mt-7">
-            <Print tableRef={tableref}></Print>
+                <tbody>
+                  {allTax?.map((data, idx) => (
+                    <TaxRow
+                      data={data}
+                      idx={idx}
+                      key={idx}
+                      setAllTax={setAllTax}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="text-center mt-7">
+              <Print tableRef={tableref}></Print>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

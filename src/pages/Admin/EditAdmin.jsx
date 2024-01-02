@@ -64,12 +64,12 @@ const EditAdmin = () => {
   };
 
   const fields = [
-    {
-      name: "Type",
-      type: "text",
-      placeHolder: "Type",
-      defaultValue: Type,
-    },
+    // {
+    //   name: "Type",
+    //   type: "text",
+    //   placeHolder: "Type",
+    //   defaultValue: Type,
+    // },
     // {
     //   name: "Role",
     //   type: "text",
