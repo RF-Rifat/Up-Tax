@@ -44,7 +44,7 @@ const Household = () => {
         {/* household clients table */}
         <div className="overflow-x-auto">
           <table className="table table-xs mt-3">
-            <thead className="bg-green-400 text-white ">
+            <thead className="bg-green-400 text-white">
               <tr>
                 <th>ক্রমিক </th>
                 <th>ইউনিয়ন</th>

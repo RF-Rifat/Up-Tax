@@ -6,7 +6,7 @@ import BASE_URL from "../../api/api";
 import { BsEyeFill } from "react-icons/bs";
 import { AdminDataContext } from "../Admin/AdminProvider";
 
-const TaxRow = ({ data, idx, setAllTax }) => {
+const TaxRow = ({ data, idx, setAllTax, activePage, itemsPerPage }) => {
   const { isSuperAdmin } = useContext(AdminDataContext);
   const handleDelete = () => {
     // Delete pop-up
@@ -36,10 +36,13 @@ const TaxRow = ({ data, idx, setAllTax }) => {
       }
     });
   };
+  const serialNumber = (activePage - 1) * itemsPerPage + idx + 1;
 
   return (
     <tr>
-      <td className="px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">{idx + 1}</td>
+      <td className="px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
+        {serialNumber}
+      </td>
       <td className="px-2 text-[10px] md:text-[16px] py-1 sm:px-4 sm:py-2 md:px-6 md:py-3">
         {data?.name}
       </td>

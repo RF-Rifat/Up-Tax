@@ -1,23 +1,50 @@
-import PrintButton from "../Village/Print";
-import TaxHeader from "./Taxheader";
+import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { range } from "lodash";
+import useGetData from "../../hooks/useGetData";
+import TaxHeader from "./TaxHeader";
 import TaxRow from "./TaxRow";
 import TaxNav from "./TaxNav";
-import { useEffect, useRef, useState } from "react";
-
 import Loading from "../shared/Loading/Loading";
 import Print from "../shared/Print/Print";
-import useGetData from "../../hooks/useGetData";
-import { Helmet } from "react-helmet-async";
 
 const TaxPage = () => {
   const [allTax, setAllTax] = useState([]);
-
   const [taxData, loading] = useGetData("/collection/tax");
+  const [taxCount] = useGetData("/pageCount");
+
   useEffect(() => {
     setAllTax(taxData);
   }, [taxData]);
 
-  const [type, setType] = useState("household");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentTaxData = allTax.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(taxCount.taxCount / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleItemsPerPageChange = (e) => {
+    setItemsPerPage(parseInt(e.target.value, 10));
+    setCurrentPage(1);
+  };
+
   const tableref = useRef(null);
 
   const headers = [
@@ -43,29 +70,77 @@ const TaxPage = () => {
           <div className="table-responsive">
             <TaxNav taxData={taxData} allTax={allTax} setAllTax={setAllTax} />
 
-            <div>
-              {/* Village data start here */}
-              <table
-                ref={tableref}
-                className="table table-sm table-bordered no-footer"
-              >
-                <TaxHeader headers={headers} />
+            {loading ? (
+              <Loading />
+            ) : (
+              <>
+                <table
+                  ref={tableref}
+                  className="table table-sm table-bordered no-footer"
+                >
+                  <TaxHeader headers={headers} />
 
-                <tbody>
-                  {allTax?.map((data, idx) => (
-                    <TaxRow
-                      data={data}
-                      idx={idx}
-                      key={idx}
-                      setAllTax={setAllTax}
-                    />
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="text-center mt-7">
-              <Print tableRef={tableref}></Print>
-            </div>
+                  <tbody>
+                    {currentTaxData?.map((data, idx) => (
+                      <TaxRow
+                        activePage={currentPage}
+                        itemsPerPage={itemsPerPage}
+                        data={data}
+                        idx={idx}
+                        key={idx}
+                        setAllTax={setAllTax}
+                      />
+                    ))}
+                  </tbody>
+                </table>
+
+                <div className="text-center mt-7">
+                  <div className="flex items-center justify-center join btn-group space-x-2 my-3">
+                    <button
+                      className="px-3 py-1 mx-1 bg-gray-300 btn join-item"
+                      onClick={handlePrevPage}
+                    >
+                      Prev
+                    </button>
+                    <select
+                      className="p-1 border rounded join-item btn"
+                      onChange={handleItemsPerPageChange}
+                      value={itemsPerPage}
+                    >
+                      {[10, 20, 50, 100].map((value) => (
+                        <option key={value} value={value}>
+                          {value}
+                        </option>
+                      ))}
+                    </select>
+                    <button
+                      className="px-3 py-1 mx-1 bg-gray-300 btn join-item"
+                      onClick={handleNextPage}
+                    >
+                      Next
+                    </button>
+                    <div className="flex">
+                      {range(1, Math.ceil(taxCount.taxCount / itemsPerPage) + 1).map(
+                        (pageNumber) => (
+                          <button
+                            key={pageNumber}
+                            className={`px-3 py-1 ${
+                              currentPage === pageNumber
+                                ? "bg-blue-500 text-white"
+                                : "bg-gray-300"
+                            } btn`}
+                            onClick={() => paginate(pageNumber)}
+                          >
+                            {pageNumber}
+                          </button>
+                        )
+                      )}
+                    </div>
+                  </div>
+                  <Print tableRef={tableref}></Print>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
