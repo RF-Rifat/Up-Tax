@@ -60,7 +60,6 @@ const TaxPage = () => {
     "Action",
   ];
 
-
   return (
     <>
       <Helmet>
@@ -108,7 +107,7 @@ const TaxPage = () => {
                       onChange={handleItemsPerPageChange}
                       value={itemsPerPage}
                     >
-                      {[10, 20, 50, 100,500,1000].map((value) => (
+                      {[10, 20, 50, 100, 500, 1000].map((value) => (
                         <option key={value} value={value}>
                           {value}
                         </option>
@@ -122,19 +121,54 @@ const TaxPage = () => {
                     </button>
                     <div className="flex">
                       {range(1, Math.ceil(taxCount.taxCount / itemsPerPage) + 1).map(
-                        (pageNumber) => (
-                          <button
-                            key={pageNumber}
-                            className={`px-3 py-1 ${
-                              currentPage === pageNumber
-                                ? "bg-blue-500 text-white"
-                                : "bg-gray-300"
-                            } btn`}
-                            onClick={() => paginate(pageNumber)}
-                          >
-                            {pageNumber}
-                          </button>
-                        )
+                        (pageNumber) => {
+                          if (
+                            pageNumber === 1 ||
+                            pageNumber === currentPage ||
+                            pageNumber === Math.ceil(taxCount.taxCount / itemsPerPage)
+                          ) {
+                            return (
+                              <button
+                                key={pageNumber}
+                                className={`px-3 py-1 ${
+                                  currentPage === pageNumber
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-gray-300"
+                                } btn`}
+                                onClick={() => paginate(pageNumber)}
+                              >
+                                {pageNumber}
+                              </button>
+                            );
+                          } else if (
+                            pageNumber > currentPage - 3 &&
+                            pageNumber < currentPage + 3
+                          ) {
+                            return (
+                              <button
+                                key={pageNumber}
+                                className={`px-3 py-1 ${
+                                  currentPage === pageNumber
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-gray-300"
+                                } btn`}
+                                onClick={() => paginate(pageNumber)}
+                              >
+                                {pageNumber}
+                              </button>
+                            );
+                          } else if (
+                            pageNumber === currentPage - 3 ||
+                            pageNumber === currentPage + 3
+                          ) {
+                            return (
+                              <span key={pageNumber} className="px-3 py-1 bg-gray-300 btn">
+                                ...
+                              </span>
+                            );
+                          }
+                          return null;
+                        }
                       )}
                     </div>
                   </div>
