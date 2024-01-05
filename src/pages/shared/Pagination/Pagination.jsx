@@ -21,13 +21,14 @@ const Pagination = ({
             className="select select-bordered border-gray-800 join-item"
           >
             <option disabled>Per page</option>
-            <option>2</option>
-            <option>5</option>
             <option>10</option>
             <option>20</option>
-            <option>40</option>
-            <option>60</option>
-            <option>90</option>
+            <option>50</option>
+            <option>100</option>
+            <option>200</option>
+            <option>500</option>
+            <option>1000</option>
+            <option>2000</option>
           </select>
           <button
             disabled={activePage >= totalPages - 1}

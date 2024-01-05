@@ -60,6 +60,7 @@ const TaxPage = () => {
     "Action",
   ];
 
+
   return (
     <>
       <Helmet>
@@ -107,7 +108,7 @@ const TaxPage = () => {
                       onChange={handleItemsPerPageChange}
                       value={itemsPerPage}
                     >
-                      {[10, 20, 50, 100].map((value) => (
+                      {[10, 20, 50, 100,500,1000].map((value) => (
                         <option key={value} value={value}>
                           {value}
                         </option>

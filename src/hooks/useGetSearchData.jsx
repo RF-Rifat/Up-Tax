@@ -13,16 +13,6 @@ const useGetSearchData = (endpoint, query) => {
         }
 
         const data = await response.json();
-        // if (query) {
-        //   const queryData = data?.filter((item) => {
-        //     // this utility function for check filter condition
-        //     return filterData(item, query);
-        //   });
-
-        //   setResData(queryData);
-        // } else {
-        //   setResData(data);
-        // }
         setResData(data);
 
         setIsLoading(false);
@@ -34,28 +24,6 @@ const useGetSearchData = (endpoint, query) => {
 
     fetchData();
 
-    // fetch(BASE_URL + endpoint)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (query) {
-    //       const queryData = data?.filter((item) => {
-
-    //         // this is a utility function for filtering data
-    //        return filterData(item,query)
-    //       })
-    //       setResData(queryData);
-    //       setIsLoading(false);
-    //     }
-    //     else if(!query){
-    //       setResData(data);
-    //       setIsLoading(false);
-    //     }
-    //     else{
-
-    //       setResData(data);
-    //       setIsLoading(false);
-    //     }
-    //   });
   }, [endpoint, query]);
   return [resData, isLoading, setResData];
 };

@@ -15,7 +15,6 @@ import { Helmet } from "react-helmet-async";
 
 const Business = () => {
   const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
-  console.log(isSuperAdmin);
   const { itemsPerPage, setItemsPerPage, activePage, setActivePage } =
     usePagination();
   // this state for search value

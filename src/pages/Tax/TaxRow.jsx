@@ -36,6 +36,7 @@ const TaxRow = ({ data, idx, setAllTax, activePage, itemsPerPage }) => {
       }
     });
   };
+ 
   const serialNumber = (activePage - 1) * itemsPerPage + idx + 1;
 
   return (
