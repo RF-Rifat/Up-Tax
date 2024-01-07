@@ -51,6 +51,7 @@ const HouseholdDetails = () => {
     tax_collected_by_UPO,
   } = client;
 
+  console.log(client.PaymentDate);
   const [isOpen, setIsOpen] = useState(false);
 
   // open modal
@@ -72,7 +73,6 @@ const HouseholdDetails = () => {
     code: holding_number,
     // type: "গৃহস্থ",
   };
-  console.log(_id);
 
   return (
     <div className="card-body">
@@ -255,6 +255,7 @@ const HouseholdDetails = () => {
         ></Payments>
         <div className={` ${isOpen ? "block" : "hidden"} `}>
           <TaxPaymentForm
+            uniqId={_id}
             handleCloseTaxPay={handleCloseTaxPay}
             taxPayerInfo={taxPayerInfo}
             head_of_household_name={head_of_household_name}

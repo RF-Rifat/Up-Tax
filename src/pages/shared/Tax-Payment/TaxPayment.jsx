@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom/dist";
 import BASE_URL from "../../../api/api";
 
 const TaxPaymentForm = ({
+  uniqId,
   handleCloseTaxPay,
   head_of_household_name,
   head_of_household_mobile,
   taxPayerInfo,
 }) => {
+  console.log(uniqId);
   // const {name,phone} = taxPayerInfo;
   // state to store name,date,month
 
@@ -26,10 +28,10 @@ const TaxPaymentForm = ({
 
     const currentDate = new Date();
     const formattedDate = currentDate.toDateString();
-    console.log(formattedDate);
 
     // organizing taxpayer information to create backend obj
     const taxesInfo = {
+      uniqId,
       name: head_of_household_name,
       phone: head_of_household_mobile,
       type: taxPayerInfo.type,
@@ -41,7 +43,6 @@ const TaxPaymentForm = ({
       receipt,
       PaymentDate: formattedDate,
     };
-    console.log(JSON.stringify(taxesInfo));
     // try {
     //   const res = await modifyData("/collection/payTax","POST",taxesInfo);
     //   console.log(res);
@@ -104,7 +105,7 @@ const TaxPaymentForm = ({
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold md:text-[14px] lg:text-[16px]">
-                    রশিদ নং 
+                    রশিদ নং
                   </span>
                 </label>
                 <input

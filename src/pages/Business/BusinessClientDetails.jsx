@@ -104,12 +104,16 @@ const BusinessClientDetails = () => {
           <Link onClick={handleOpenTaxPay} className="join-item btn">
             pay
           </Link>
-         {isSuperAdmin && <Link to={`/businessUpdate/${_id}`} className="join-item btn">
-            <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
-          </Link>}
-         {isAdmin && <Link to={`/businessUpdate/${_id}`} className="join-item btn">
-            <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
-          </Link>}
+          {isSuperAdmin && (
+            <Link to={`/businessUpdate/${_id}`} className="join-item btn">
+              <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
+            </Link>
+          )}
+          {isAdmin && (
+            <Link to={`/businessUpdate/${_id}`} className="join-item btn">
+              <AiFillEdit className="text-green-500 text-[18px] md:text-[30px]"></AiFillEdit>
+            </Link>
+          )}
           <Link to="/business" className="join-item btn">
             back
           </Link>
@@ -117,6 +121,7 @@ const BusinessClientDetails = () => {
 
         <div className={` ${isOpen ? "block" : "hidden"} `}>
           <TaxPaymentForm
+            uniqId={_id}
             handleCloseTaxPay={handleCloseTaxPay}
             taxPayerInfo={taxPayerInfo}
             head_of_household_name={owner_name}

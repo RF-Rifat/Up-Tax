@@ -12,7 +12,6 @@ const TaxPage = () => {
   const [allTax, setAllTax] = useState([]);
   const [taxData, loading] = useGetData("/collection/tax");
   const [taxCount] = useGetData("/pageCount");
-
   useEffect(() => {
     setAllTax(taxData);
   }, [taxData]);
@@ -120,56 +119,61 @@ const TaxPage = () => {
                       Next
                     </button>
                     <div className="flex">
-                      {range(1, Math.ceil(taxCount.taxCount / itemsPerPage) + 1).map(
-                        (pageNumber) => {
-                          if (
-                            pageNumber === 1 ||
-                            pageNumber === currentPage ||
-                            pageNumber === Math.ceil(taxCount.taxCount / itemsPerPage)
-                          ) {
-                            return (
-                              <button
-                                key={pageNumber}
-                                className={`px-3 py-1 ${
-                                  currentPage === pageNumber
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-gray-300"
-                                } btn`}
-                                onClick={() => paginate(pageNumber)}
-                              >
-                                {pageNumber}
-                              </button>
-                            );
-                          } else if (
-                            pageNumber > currentPage - 3 &&
-                            pageNumber < currentPage + 3
-                          ) {
-                            return (
-                              <button
-                                key={pageNumber}
-                                className={`px-3 py-1 ${
-                                  currentPage === pageNumber
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-gray-300"
-                                } btn`}
-                                onClick={() => paginate(pageNumber)}
-                              >
-                                {pageNumber}
-                              </button>
-                            );
-                          } else if (
-                            pageNumber === currentPage - 3 ||
-                            pageNumber === currentPage + 3
-                          ) {
-                            return (
-                              <span key={pageNumber} className="px-3 py-1 bg-gray-300 btn">
-                                ...
-                              </span>
-                            );
-                          }
-                          return null;
+                      {range(
+                        1,
+                        Math.ceil(taxCount.taxCount / itemsPerPage) + 1
+                      ).map((pageNumber) => {
+                        if (
+                          pageNumber === 1 ||
+                          pageNumber === currentPage ||
+                          pageNumber ===
+                            Math.ceil(taxCount.taxCount / itemsPerPage)
+                        ) {
+                          return (
+                            <button
+                              key={pageNumber}
+                              className={`px-3 py-1 ${
+                                currentPage === pageNumber
+                                  ? "bg-blue-500 text-white"
+                                  : "bg-gray-300"
+                              } btn`}
+                              onClick={() => paginate(pageNumber)}
+                            >
+                              {pageNumber}
+                            </button>
+                          );
+                        } else if (
+                          pageNumber > currentPage - 3 &&
+                          pageNumber < currentPage + 3
+                        ) {
+                          return (
+                            <button
+                              key={pageNumber}
+                              className={`px-3 py-1 ${
+                                currentPage === pageNumber
+                                  ? "bg-blue-500 text-white"
+                                  : "bg-gray-300"
+                              } btn`}
+                              onClick={() => paginate(pageNumber)}
+                            >
+                              {pageNumber}
+                            </button>
+                          );
+                        } else if (
+                          pageNumber === currentPage - 3 ||
+                          pageNumber === currentPage + 3
+                        ) {
+                          return (
+                            <span
+                              key={pageNumber}
+                              className="px-3 py-1 bg-gray-300 btn"
+                            >
+                              ...
+                            </span>
+                          );
                         }
-                      )}
+                        return null;
+                      })}
                     </div>
                   </div>
                   <Print tableRef={tableref}></Print>
