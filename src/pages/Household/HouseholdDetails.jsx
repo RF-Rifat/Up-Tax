@@ -49,9 +49,13 @@ const HouseholdDetails = () => {
     house_value,
     tax_based_on_assessment,
     tax_collected_by_UPO,
+    PaymentDate,
+    receipt,
+    financialYear,
+    amount,
   } = client;
 
-  console.log(client.PaymentDate);
+  console.log(client)
   const [isOpen, setIsOpen] = useState(false);
 
   // open modal
@@ -218,6 +222,23 @@ const HouseholdDetails = () => {
             <tr className="hover">
               <th>ইউপি কর্তৃক ধার্য্য কৃত কর:</th>
               <td>{tax_collected_by_UPO}</td>
+            </tr>
+            {/* কর আদায়ের তথ্য */}
+            <tr className="hover">
+              <th>কর আদায়ের তারিখ:</th>
+              <td>{PaymentDate}</td>
+            </tr>
+            <tr className="hover">
+              <th>কর আদায়ের অর্থ বছর:</th>
+              <td>{financialYear}</td>
+            </tr>
+            <tr className="hover">
+              <th>রশিদ নং:</th>
+              <td>{receipt}</td>
+            </tr>
+            <tr className="hover">
+              <th>আদায়কৃত কর:</th>
+              <td>{amount}</td>
             </tr>
           </tbody>
         </table>

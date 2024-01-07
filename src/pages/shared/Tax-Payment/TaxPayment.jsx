@@ -11,7 +11,6 @@ const TaxPaymentForm = ({
   head_of_household_mobile,
   taxPayerInfo,
 }) => {
-  console.log(uniqId);
   // const {name,phone} = taxPayerInfo;
   // state to store name,date,month
 
@@ -68,10 +67,10 @@ const TaxPaymentForm = ({
 
   return (
     <>
-      <div className="hero min-h-[110vh] fixed -top-20 left-0 right-0 w-full z-40 bg-[#00000049] mt-8">
+      <div className="hero min-h-[110vh] fixed -top-20 mx-auto left-0 right-0 w-full z-40 bg-[#00000049] mt-8">
         <form
           onSubmit={handleTaxPayment}
-          className="card-body w-[90%] lg:w-1/2 relative bg-white left-20 top-9"
+          className="card-body w-[70%] md:w-1/2 lg:w-1/3 relative bg-white left-20 top-9 mx-auto "
         >
           <div className=" bg-[#ffffff] border overflow-hidden border-5 rounded-full absolute p-2 -top-8 left-[45%]">
             <img className="" src={pay_tax_icon} alt="" />
