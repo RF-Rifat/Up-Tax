@@ -1,19 +1,5 @@
 const TaxNav = ({ taxData, setAllTax, allTax }) => {
-  const banglaMonthsInEnglish = [
-    { label: "January", value: "জানুয়ারি" },
-    { label: "February", value: "ফেব্রুয়ারি" },
-    { label: "March", value: "মার্চ" },
-    { label: "April", value: "এপ্রিল" },
-    { label: "May", value: "মে" },
-    { label: "June", value: "জুন" },
-    { label: "July", value: "জুলাই" },
-    { label: "August", value: "আগস্ট" },
-    { label: "September", value: "সেপ্টেম্বর" },
-    { label: "October", value: "অক্টোবর" },
-    { label: "November", value: "নভেম্বর" },
-    { label: "December", value: "ডিসেম্বর" },
-    { label: "", value: "none" },
-  ];
+  
 
   const handleType = (e) => {
     const type = e.target.value;
@@ -23,33 +9,33 @@ const TaxNav = ({ taxData, setAllTax, allTax }) => {
     setAllTax(taxData.filter((data) => data.type.includes(type)));
   };
 
-  const handleMonth = (e) => {
-    const month = e.target.value;
+  // const handleMonth = (e) => {
+  //   const month = e.target.value;
 
-    if (month === "all") {
-      return setAllTax(taxData);
-    }
+  //   if (month === "all") {
+  //     return setAllTax(taxData);
+  //   }
 
-    setAllTax(
-      taxData.filter(
-        (data) => data.startMonth.toLowerCase() === month.toLowerCase()
-      )
-    );
-  };
+  //   setAllTax(
+  //     taxData.filter(
+  //       (data) => data.startMonth.toLowerCase() === month.toLowerCase()
+  //     )
+  //   );
+  // };
 
-  const handleEndMonth = (e) => {
-    const month = e.target.value;
+  // const handleEndMonth = (e) => {
+  //   const month = e.target.value;
 
-    if (month === "all") {
-      return setAllTax(taxData);
-    }
+  //   if (month === "all") {
+  //     return setAllTax(taxData);
+  //   }
 
-    setAllTax(
-      taxData.filter(
-        (data) => data.endMonth.toLowerCase() === month.toLowerCase()
-      )
-    );
-  };
+  //   setAllTax(
+  //     taxData.filter(
+  //       (data) => data.endMonth.toLowerCase() === month.toLowerCase()
+  //     )
+  //   );
+  // };
 
   const handleName = (e) => {
     const name = e.target.value;
@@ -64,13 +50,13 @@ const TaxNav = ({ taxData, setAllTax, allTax }) => {
     );
   };
 
-  const handleAmount = (e) => {
-    const amount = e.target.value;
+  const handleCode = (e) => {
+    const code = e.target.value;
 
-    if (!amount || amount < 0) {
+    if (!code || code < 0) {
       return setAllTax(taxData);
     }
-    setAllTax(taxData.filter((data) => +data.amount <= amount));
+    setAllTax(taxData.filter((data) => +data.code == code));
   };
 
   return (
@@ -147,11 +133,11 @@ const TaxNav = ({ taxData, setAllTax, allTax }) => {
           className="input input-bordered input-success w-full max-w-xs input-sm"
         />
         <input
-          type="number"
-          placeholder="Search by amount"
-          name="amount"
+          type="text"
+          placeholder="Search by business/holding-Num"
+          name="code"
           className="input input-bordered input-success w-full max-w-xs input-sm"
-          onChange={handleAmount}
+          onChange={handleCode}
         />
       </form>
     </div>
