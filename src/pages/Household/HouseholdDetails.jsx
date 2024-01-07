@@ -225,6 +225,13 @@ const HouseholdDetails = () => {
             </tr>
             {/* কর আদায়ের তথ্য */}
             <tr className="hover">
+              <td colSpan="2">
+                <h2 className="bg-green-500 text-white text-xl px-2 py-2 w-full text-center">
+                  কর আদায়ের তথ্য
+                </h2>
+              </td>
+            </tr>
+            <tr className="hover">
               <th>কর আদায়ের তারিখ:</th>
               <td>{PaymentDate}</td>
             </tr>

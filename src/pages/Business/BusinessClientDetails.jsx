@@ -8,7 +8,7 @@ import { AdminDataContext } from "../Admin/AdminProvider";
 
 const BusinessClientDetails = () => {
   const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
-  
+
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const [businessClient] = useGetData(`/collection/business/${id}`);
@@ -29,8 +29,11 @@ const BusinessClientDetails = () => {
     word,
     business_capital,
     UP_collected_tax,
+    PaymentDate,
+    receipt,
+    financialYear,
+    amount,
   } = businessClient || {};
-
 
   // modal
   // open modal
@@ -55,7 +58,7 @@ const BusinessClientDetails = () => {
   return (
     <div className="card-body">
       <div className="overflow-x-auto">
-        <h2 className="bg-green-500 text-white text-xl px-2 py-2 w-full">
+        <h2 className="bg-green-500 text-white text-center text-xl px-2 py-2 w-full">
           {" "}
           ব্যবসা বিবরন
         </h2>
@@ -96,6 +99,32 @@ const BusinessClientDetails = () => {
             <tr className="hover">
               <th>ইউপি কর্তৃক ধার্য্য কৃত কর:</th>
               <td>{UP_collected_tax}</td>
+            </tr>
+
+            {/* কর আদায়ের তথ্য  */}
+
+            <tr className="hover">
+              <td colSpan="2">
+                <h2 className="bg-green-500 text-white text-xl px-2 py-2 w-full text-center">
+                  কর আদায়ের তথ্য
+                </h2>
+              </td>
+            </tr>
+            <tr className="hover">
+              <th>কর আদায়ের তারিখ:</th>
+              <td>{PaymentDate}</td>
+            </tr>
+            <tr className="hover">
+              <th>কর আদায়ের অর্থ বছর:</th>
+              <td>{financialYear}</td>
+            </tr>
+            <tr className="hover">
+              <th>রশিদ নং:</th>
+              <td>{receipt}</td>
+            </tr>
+            <tr className="hover">
+              <th>আদায়কৃত কর:</th>
+              <td>{amount}</td>
             </tr>
           </tbody>
         </table>
