@@ -127,7 +127,7 @@ const Business = () => {
                   <td>{content.assesment_tax}</td>
                   <td>{content.UP_collected_tax}</td>
                   <td className="flex join">
-                    <Link to={`/businessClientsDetails/${content._id}`}>
+                    <Link to={`/business-details/${content._id}`}>
                       <button className=" join-item btn">
                         <AiOutlineMenu className="text-green-500 text-[18px] md:text-[30px]"></AiOutlineMenu>
                       </button>

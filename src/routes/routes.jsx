@@ -171,7 +171,7 @@ const routes = createBrowserRouter([
         ),
       },
       {
-        path: "/businessClientsDetails/:id",
+        path: "/business-Details/:id",
         element: (
           <PrivateRoute>
             <BusinessClientDetails></BusinessClientDetails>

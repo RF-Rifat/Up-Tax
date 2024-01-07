@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useGetData from "../../hooks/useGetData";
 
 const TaxPayerDetails = () => {
@@ -53,6 +53,15 @@ const TaxPayerDetails = () => {
           {/* You can add more rows if needed */}
         </tbody>
       </table>
+
+      <div className="w-full mx-auto mt-6">
+        <Link
+          className="btn btn-success text-white"
+          to={`/${taxDetails?.type}-details/${taxDetails?.uniqId}`}
+        >
+          See Details
+        </Link>
+      </div>
     </div>
   );
 };
