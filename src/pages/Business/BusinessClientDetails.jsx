@@ -132,26 +132,6 @@ const BusinessClientDetails = () => {
             ))}
           </tbody>
         </table>
-        {/* <table className="table w-full border border-collapse">
-          <thead className="bg-green-500 text-center text-white">
-            <tr>
-              <th>Amount</th>
-              <th>Financial Year</th>
-              <th>Receipt</th>
-              <th>Payment Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {taxInfo?.map((item) => (
-              <tr key={item._id}>
-                <td>{item.amount}</td>
-                <td>{item.financialYear}</td>
-                <td>{item.receipt}</td>
-                <td>{item.PaymentDate}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
 
         <div className="mt-5 flex join items-center justify-center">
           <Link onClick={handleOpenTaxPay} className="join-item btn">
@@ -175,6 +155,7 @@ const BusinessClientDetails = () => {
         <div className={` ${isOpen ? "block" : "hidden"} `}>
           <TaxPaymentForm
             uniqId={_id}
+            phone={phone}
             handleCloseTaxPay={handleCloseTaxPay}
             taxPayerInfo={taxPayerInfo}
             head_of_household_name={owner_name}

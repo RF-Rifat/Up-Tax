@@ -10,6 +10,7 @@ const TaxPaymentForm = ({
   head_of_household_name,
   head_of_household_mobile,
   taxPayerInfo,
+  phone,
 }) => {
   // const {name,phone} = taxPayerInfo;
   // state to store name,date,month
@@ -42,12 +43,6 @@ const TaxPaymentForm = ({
       receipt,
       PaymentDate: formattedDate,
     };
-    // try {
-    //   const res = await modifyData("/collection/payTax","POST",taxesInfo);
-    //   console.log(res);
-    // } catch (error) {
-    //   console.log(error);
-    // }
 
     fetch(BASE_URL + "/collection/tax", {
       method: "POST",
@@ -133,19 +128,6 @@ const TaxPaymentForm = ({
                   onChange={(e) => setFinancialYear(e.target.value)}
                 />
               </div>
-
-              {/* End Month */}
-              {/* <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-bold mb-1 md:text-[14px] lg:text-[16px]">
-                    শেষ মাস নির্বাচন করুন
-                  </span>
-                </label>
-                <input
-                  type="date"
-                  onChange={(e) => setEndMonth(e.target.value)}
-                />
-              </div> */}
             </div>
           </div>
           <div className="form-control">

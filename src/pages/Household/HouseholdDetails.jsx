@@ -52,7 +52,7 @@ const HouseholdDetails = () => {
     taxInfo,
   } = client;
 
-  console.log(taxInfo);
+  console.log(client);
   const [isOpen, setIsOpen] = useState(false);
 
   // open modal
@@ -274,17 +274,18 @@ const HouseholdDetails = () => {
             New Payment
           </button> */}
         </div>
-        <Payments
+        {/* <Payments
           id={_id}
           name={head_of_household_name}
           phone={head_of_household_mobile}
           clientType={"গৃহস্থ"}
           assessmentTax={tax_based_on_assessment}
           upTax={tax_collected_by_UPO}
-        ></Payments>
+        ></Payments> */}
         <div className={` ${isOpen ? "block" : "hidden"} `}>
           <TaxPaymentForm
             uniqId={_id}
+            phone={head_of_household_mobile}
             handleCloseTaxPay={handleCloseTaxPay}
             taxPayerInfo={taxPayerInfo}
             head_of_household_name={head_of_household_name}
