@@ -35,6 +35,8 @@ const BusinessClientDetails = () => {
     amount,
   } = businessClient || {};
 
+
+  console.log(businessClient)
   // modal
   // open modal
   const handleOpenTaxPay = () => {
