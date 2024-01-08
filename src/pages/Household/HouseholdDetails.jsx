@@ -49,13 +49,10 @@ const HouseholdDetails = () => {
     house_value,
     tax_based_on_assessment,
     tax_collected_by_UPO,
-    PaymentDate,
-    receipt,
-    financialYear,
-    amount,
+    taxInfo,
   } = client;
 
-  console.log(client)
+  console.log(taxInfo);
   const [isOpen, setIsOpen] = useState(false);
 
   // open modal
@@ -224,29 +221,33 @@ const HouseholdDetails = () => {
               <td>{tax_collected_by_UPO}</td>
             </tr>
             {/* কর আদায়ের তথ্য */}
-            <tr className="hover">
-              <td colSpan="2">
-                <h2 className="bg-green-500 text-white text-xl px-2 py-2 w-full text-center">
-                  কর আদায়ের তথ্য
-                </h2>
-              </td>
-            </tr>
-            <tr className="hover">
-              <th>কর আদায়ের তারিখ:</th>
-              <td>{PaymentDate}</td>
-            </tr>
-            <tr className="hover">
-              <th>কর আদায়ের অর্থ বছর:</th>
-              <td>{financialYear}</td>
-            </tr>
-            <tr className="hover">
-              <th>রশিদ নং:</th>
-              <td>{receipt}</td>
-            </tr>
-            <tr className="hover">
-              <th>আদায়কৃত কর:</th>
-              <td>{amount}</td>
-            </tr>
+            {taxInfo?.map((item) => (
+              <>
+                <tr className="hover">
+                  <td colSpan="2">
+                    <h2 className="bg-green-500 text-white text-xl px-2 py-2 w-full text-center">
+                      {item.financialYear} অর্থ বছর এর কর আদায়ের তথ্য
+                    </h2>
+                  </td>
+                </tr>
+                <tr className="hover">
+                  <th>কর আদায়ের তারিখ:</th>
+                  <td>{item.PaymentDate}</td>
+                </tr>
+                <tr className="hover">
+                  <th>কর আদায়ের অর্থ বছর:</th>
+                  <td>{item.financialYear}</td>
+                </tr>
+                <tr className="hover">
+                  <th>রশিদ নং:</th>
+                  <td>{item.receipt}</td>
+                </tr>
+                <tr className="hover">
+                  <th>আদায়কৃত কর:</th>
+                  <td>{item.amount}</td>
+                </tr>
+              </>
+            ))}
           </tbody>
         </table>
         <div className=" join flex items-center mt-5 gap-5 justify-center">

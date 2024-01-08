@@ -29,14 +29,9 @@ const BusinessClientDetails = () => {
     word,
     business_capital,
     UP_collected_tax,
-    PaymentDate,
-    receipt,
-    financialYear,
-    amount,
+    taxInfo,
   } = businessClient || {};
 
-
-  console.log(businessClient)
   // modal
   // open modal
   const handleOpenTaxPay = () => {
@@ -95,6 +90,10 @@ const BusinessClientDetails = () => {
               <td>{phone}</td>
             </tr>
             <tr className="hover">
+              <th>ব্যবসার মূলধন:</th>
+              <td>{business_capital}</td>
+            </tr>
+            <tr className="hover">
               <th>এসেসমেন্ট অনুযায়ী কর:</th>
               <td>{assesment_tax}</td>
             </tr>
@@ -104,32 +103,55 @@ const BusinessClientDetails = () => {
             </tr>
 
             {/* কর আদায়ের তথ্য  */}
-
-            <tr className="hover">
-              <td colSpan="2">
-                <h2 className="bg-green-500 text-white text-xl px-2 py-2 w-full text-center">
-                  কর আদায়ের তথ্য
-                </h2>
-              </td>
-            </tr>
-            <tr className="hover">
-              <th>কর আদায়ের তারিখ:</th>
-              <td>{PaymentDate}</td>
-            </tr>
-            <tr className="hover">
-              <th>কর আদায়ের অর্থ বছর:</th>
-              <td>{financialYear}</td>
-            </tr>
-            <tr className="hover">
-              <th>রশিদ নং:</th>
-              <td>{receipt}</td>
-            </tr>
-            <tr className="hover">
-              <th>আদায়কৃত কর:</th>
-              <td>{amount}</td>
-            </tr>
+            {taxInfo?.map((item) => (
+              <>
+                <tr className="hover">
+                  <td colSpan="2">
+                    <h2 className="bg-green-500 text-white text-xl px-2 py-2 w-full text-center">
+                      {item.financialYear} অর্থ বছর এর কর আদায়ের তথ্য
+                    </h2>
+                  </td>
+                </tr>
+                <tr className="hover">
+                  <th>কর আদায়ের তারিখ:</th>
+                  <td>{item.PaymentDate}</td>
+                </tr>
+                <tr className="hover">
+                  <th>কর আদায়ের অর্থ বছর:</th>
+                  <td>{item.financialYear}</td>
+                </tr>
+                <tr className="hover">
+                  <th>রশিদ নং:</th>
+                  <td>{item.receipt}</td>
+                </tr>
+                <tr className="hover">
+                  <th>আদায়কৃত কর:</th>
+                  <td>{item.amount}</td>
+                </tr>
+              </>
+            ))}
           </tbody>
         </table>
+        {/* <table className="table w-full border border-collapse">
+          <thead className="bg-green-500 text-center text-white">
+            <tr>
+              <th>Amount</th>
+              <th>Financial Year</th>
+              <th>Receipt</th>
+              <th>Payment Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {taxInfo?.map((item) => (
+              <tr key={item._id}>
+                <td>{item.amount}</td>
+                <td>{item.financialYear}</td>
+                <td>{item.receipt}</td>
+                <td>{item.PaymentDate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table> */}
 
         <div className="mt-5 flex join items-center justify-center">
           <Link onClick={handleOpenTaxPay} className="join-item btn">

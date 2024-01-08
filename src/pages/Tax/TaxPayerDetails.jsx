@@ -4,7 +4,6 @@ import useGetData from "../../hooks/useGetData";
 const TaxPayerDetails = () => {
   const { id } = useParams();
   const [taxDetails] = useGetData(`/collection/tax/${id}`);
-  console.log(taxDetails);
   return (
     <div className="overflow-x-auto m-3">
       <table className="table w-full border border-collapse">

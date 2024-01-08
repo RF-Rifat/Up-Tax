@@ -38,8 +38,10 @@ const Pagination = ({
             Next
           </button>
         </div>
+        <div className="join-item">Page {activePage + 1}</div>
       </div>
     </div>
   );
 };
+
 export default Pagination;
