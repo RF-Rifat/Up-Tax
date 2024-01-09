@@ -78,7 +78,7 @@ const SignUp = () => {
       <div
         className="inputContainer md:pt-10 min-h-[140svh] px-6 md:min-h-[100svh]"
         style={{
-          backgroundImage: `url("/signup-page-img.jpg")`,
+          backgroundImage: `url("https://github.com/RF-Rifat/Up-Tax/blob/main/public/signup-page-img.jpg?raw=true")`,
         }}
       >
         <section className="flex  flex-col px-10  main">
@@ -93,12 +93,22 @@ const SignUp = () => {
             </div>
             <div className="inputBox w-[300px] md:w-[400px] lg:w-[500px]">
               <ion-icon name="mail-outline"></ion-icon>
-              <input type="email" name="email" placeholder="abc@gmail.com" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="abc@gmail.com"
+                required
+              />
               <label>Email</label>
             </div>
             <div className="inputBox">
               <ion-icon name="lock-closed-outline"></ion-icon>
-              <input type="password" name="password" placeholder="*****" required />
+              <input
+                type="password"
+                name="password"
+                placeholder="*****"
+                required
+              />
               <label>Password</label>
             </div>
             <div className="forget flex flex-wrap py-2 text-lg">
