@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import "./login.css";
 const Login = () => {
-  // const { login ,user,setUser} = useContext(AdminContext);
   const { login, user, setUser, resetPassword, signWithGooglePop } =
     useContext(AuthProvider);
 
@@ -76,54 +75,16 @@ const Login = () => {
         toast.error(error.message);
       });
   };
-  // const handleGoogleLogIn = () => {
-  //   signWithGooglePop()
-  //     .then((result) => {
-  //       toast.success("login Registration Successful!");
-  //       console.log(result.user);
-  //       navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       toast.error("Failed");
-  //       console.error(error);
-  //     });
-  // };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setError(false);
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-
-  //   adminsData.forEach((data) => {
-  //     const matchEmail = data?.Email === email;
-  //     const matchPass = data?.Password === Number(password);
-
-  //     console.log(matchEmail);
-  //     console.log(matchPass);
-
-  //     if (matchEmail && matchPass) {
-  //       console.log("correct");
-  //       goTo("/");
-  //     } else {
-  //       console.log("wrong");
-  //       setError(true);
-  //     }
-  //   });
-
-  //   // const status = login(email, +password);
-  //   // if (user) {
-  //   //   goTo("/");
-  //   // } else {
-  //   //   setError(true);
-  //   // }
-  // };
 
   return (
     <>
       <Helmet>
         <title>UpHTax | Login</title>
       </Helmet>
-      <div className="inputContainer  min-h-[140svh] md:min-h-[100svh]">
+      <div
+        className="inputContainer  min-h-[140svh] md:min-h-[100svh]"
+        loading="lazy"
+      >
         <section className="flex flex-col px-10 py-6 mt-10 main">
           <form onSubmit={handleSubmit}>
             <h1 className="heading text-2xl font-semibold my-2">Login</h1>
@@ -132,11 +93,12 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
+                placeholder="abc@gmail.com"
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
                 required
               />
-              <label style={{ marginTop: "-45px" }}>Email</label>
+              <label>Email</label>
             </div>
 
             <div className="inputBox">
@@ -144,10 +106,11 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
+                placeholder="*****"
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <label style={{ marginTop: "-45px" }}>Password</label>
+              <label>Password</label>
             </div>
             <div className="forget  text-xl">
               <label>
@@ -163,7 +126,10 @@ const Login = () => {
             </div>
           </form>
           <div className="mb-3">
-            <button className="font-bold" onClick={handleResetPassword}>
+            <button
+              className="font-bold text-cyan-500"
+              onClick={handleResetPassword}
+            >
               Forget Password ?
             </button>
           </div>
