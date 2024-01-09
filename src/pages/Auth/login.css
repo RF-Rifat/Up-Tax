@@ -31,16 +31,16 @@
   border-bottom: 2px solid #fff;
 }
 
-.inputBox label {
+/* .inputBox label {
   position: absolute;
   top: 50%;
   left: 5px;
   transform: translateY(-50%);
-  color: cyan;
+  color: white;
   font-size: 1.2rem;
   pointer-events: none;
   transition: all 0.5s ease-in-out;
-}
+} */
 /* input:focus ~ label,
 input:valid ~ label {
   top: -5px;

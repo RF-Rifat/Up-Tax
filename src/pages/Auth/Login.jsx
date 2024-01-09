@@ -93,12 +93,12 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="abc@gmail.com"
+                placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
                 required
               />
-              <label>Email</label>
+              {/* <label>Email</label> */}
             </div>
 
             <div className="inputBox">
@@ -106,11 +106,11 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                placeholder="*****"
+                placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <label>Password</label>
+              {/* <label>Password</label> */}
             </div>
             <div className="forget  text-xl">
               <label>
