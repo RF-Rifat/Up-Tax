@@ -121,7 +121,7 @@ const Login = () => {
             <button className="signBtn mb-3">Log in</button>
 
             <div className="register text-xl">
-              <p>Don&apos;t have a account ? </p>
+              <p>Only valid user can Login</p>
               {error && <div className=" text-red-600 text-xl">{error}</div>}
             </div>
           </form>
