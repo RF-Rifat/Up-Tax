@@ -32,7 +32,7 @@ const NewBusiness = () => {
           timer: 1500,
         });
         // Reset the form after submission
-        e.target.reset();
+        // e.target.reset();
       }
     } catch (error) {
       console.log(error);
@@ -80,14 +80,7 @@ const NewBusiness = () => {
                     ওয়ার্ড:
                   </span>
                 </label>
-                {/* <select
-                 
-                >
-                  <option disabled>Select</option>
-                  {villages?.map((village) => (
-                    <option key={village._id}>{village.word}</option>
-                  ))}
-                </select> */}
+                
                 <select
                   className="select select-bordered"
                   name="word"

@@ -59,14 +59,6 @@ const HouseholdClients = ({
         }
       }
 
-      // const res = await modifyData(`/collection/house/${id}`, "DELETE");
-      // console.log(res);
-      // if (res.deletedCount > 0) {
-      //   alert("deleted successful");
-      //  const remaining =  householdClients?.filter(item => item._id !== id)
-      //  setSearchData(remaining)
-      // }
-      // deletedCount
     } catch (error) {
       console.log(error);
     }
@@ -76,10 +68,10 @@ const HouseholdClients = ({
       <tr>
         <td className="py-5">{activePage * itemsPerPage + idx + 1}</td>
         <td>{union}</td>
-        <td>{village}</td>
-        <td>{father_or_husband_name}</td>
         <td>{word}</td>
+        <td>{village}</td>
         <td>{head_of_household_name}</td>
+        <td>{father_or_husband_name}</td>
         <td>{head_of_household_mobile}</td>
         <td>{holding_number} </td>
         <td>{house_value}</td>
