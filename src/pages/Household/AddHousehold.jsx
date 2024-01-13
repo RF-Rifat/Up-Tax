@@ -8,19 +8,20 @@ import Swal from "sweetalert2";
 import { modifyData } from "../../api/api";
 import useGetData from "../../hooks/useGetData";
 const AddHousehold = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const [villageData, isLoading] = useGetData("/collection/villages");
 
   if (isLoading) {
     return <Loading></Loading>;
   }
-  const onSubmit = async (data) => {
+  const onFromSubmit = async (e) => {
     try {
       // modifyData is a function to do post/put
-      const res = await modifyData("/collection/house", "POST", data);
+      const res = await modifyData("/collection/house", "POST", e);
       console.log(res.acknowledged);
       if (res.acknowledged) {
+        reset();
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -32,7 +33,7 @@ const AddHousehold = () => {
     } catch (error) {
       console.log(error);
     }
-    console.log(data);
+    console.log(e);
   };
 
   return (
@@ -51,7 +52,7 @@ const AddHousehold = () => {
           গৃহস্থ
         </h3>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onFromSubmit)}>
         <div className="grid mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/*  column */}
 
@@ -92,7 +93,7 @@ const AddHousehold = () => {
             {/* row */}
             <div className="form-control">
               <label className="label">
-                <span className="font-bold">থানা প্রধানের নাম:</span>
+                <span className="font-bold">খানা প্রধানের নাম:</span>
               </label>
               <input
                 name="head_of_household_name"

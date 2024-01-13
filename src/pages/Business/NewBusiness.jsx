@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Swal from "sweetalert2";
 import { BiSolidBusiness } from "react-icons/bi";
 import { useNavigate } from "react-router-dom/dist";
@@ -7,8 +6,6 @@ import useGetData from "../../hooks/useGetData";
 
 const NewBusiness = () => {
   const [villages] = useGetData("/collection/villages") || [];
-
-  const goTo = useNavigate();
 
   const handleNewBusiness = async (e) => {
     e.preventDefault();
@@ -32,7 +29,7 @@ const NewBusiness = () => {
           timer: 1500,
         });
         // Reset the form after submission
-        // e.target.reset();
+        e.target.reset();
       }
     } catch (error) {
       console.log(error);
@@ -80,7 +77,7 @@ const NewBusiness = () => {
                     ওয়ার্ড:
                   </span>
                 </label>
-                
+
                 <select
                   className="select select-bordered"
                   name="word"
@@ -265,7 +262,7 @@ const NewBusiness = () => {
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text font-bold mt-5 md:text-[14px] lg:text-[16px]">
-                      দোকান নং:
+                      ব্যবসা নং:
                     </span>
                   </label>
                   <input
