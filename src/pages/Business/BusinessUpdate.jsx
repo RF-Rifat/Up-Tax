@@ -308,7 +308,7 @@ const BusinessUpdate = () => {
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text font-bold mt-5 md:text-[14px] lg:text-[16px]">
-                      দোকান নং:
+                      ব্যবসা নং:
                     </span>
                   </label>
                   <input

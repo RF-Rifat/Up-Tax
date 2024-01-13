@@ -132,13 +132,13 @@ const HouseholdUpdate = () => {
             {/* left row */}
             <div className="form-control">
               <label className="label">
-                <span className="font-bold">থানা প্রধানের নাম:</span>
+                <span className="font-bold">খানা প্রধানের নাম:</span>
               </label>
               <input
                 name="head_of_household_name"
                 type="text"
                 {...register("head_of_household_name")}
-                placeholder="থানা প্রধানের নাম:"
+                placeholder="খানা প্রধানের নাম:"
                 defaultValue={head_of_household_name}
                 className="input font-semibold border-info text-base text-gray-500  w-full input-bordered"
                 required
