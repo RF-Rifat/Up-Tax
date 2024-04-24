@@ -19,7 +19,6 @@ const Login = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  console.log();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password.length < 6) {
@@ -54,12 +53,10 @@ const Login = () => {
             </div>
           </div>
         ));
-        console.log(result.user);
         event.target.reset();
       })
       .catch((error) => {
         toast.error(error);
-        console.log(error);
       });
   };
   const handleResetPassword = () => {

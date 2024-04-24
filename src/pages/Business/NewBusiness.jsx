@@ -12,8 +12,6 @@ const NewBusiness = () => {
 
     const formData = new FormData(e.target);
     const formInputs = Object.fromEntries(formData);
-
-    console.log(Object.keys(formInputs).join(","));
     // post data to database
     try {
       // modifyData is a function to do post/put

@@ -12,8 +12,6 @@ const BusinessClientDetails = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const [businessClient] = useGetData(`/collection/business/${id}`);
-
-  console.log(Object.keys(businessClient).join(","));
   const {
     _id,
     upazila,
@@ -36,7 +34,6 @@ const BusinessClientDetails = () => {
   // open modal
   const handleOpenTaxPay = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
   //close modal
   const handleCloseTaxPay = () => {

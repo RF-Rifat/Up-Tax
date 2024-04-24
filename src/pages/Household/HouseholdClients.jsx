@@ -15,8 +15,6 @@ const HouseholdClients = ({
   itemsPerPage,
 }) => {
   const { isSuperAdmin } = useContext(AdminDataContext);
-
-  // console.log(householdClients);
   const {
     _id,
     upazila,

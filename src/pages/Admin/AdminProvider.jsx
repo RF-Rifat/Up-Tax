@@ -9,11 +9,9 @@ const AdminProvider = ({ children }) => {
   const { user, loading } = useContext(AuthProvider);
 
   const filteredAdmin = adminData.filter((item) => item.Role === "Admin");
-  console.log(filteredAdmin);
   const filteredSuperAdmin = adminData.filter(
     (item) => item?.Role === "Super-Admin"
   );
-  console.log(filteredSuperAdmin);
 
   const isAdmin = filteredAdmin?.some((admin) => admin?.Email === user?.email);
   const isSuperAdmin = filteredSuperAdmin?.some(
@@ -23,8 +21,6 @@ const AdminProvider = ({ children }) => {
     isAdmin,
     isSuperAdmin,
   };
-  console.log(isAdmin);
-  console.log(isSuperAdmin);
   return (
     <AdminDataContext.Provider value={adminValues}>
       {children}

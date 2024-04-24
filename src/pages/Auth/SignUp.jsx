@@ -11,7 +11,6 @@ const SignUp = () => {
     useContext(AuthProvider);
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  // console.log(createUser);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;

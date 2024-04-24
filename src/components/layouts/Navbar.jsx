@@ -48,11 +48,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src={
-                  user?.photoURL
-                    ? user?.photoURL
-                    : "https://laxmipurup.uptaxs.com/public//upload/profiles/6Lj22iGX8Y-1648323906.png"
-                }
+                src={user?.photoURL ? user?.photoURL : "/user.png"}
               />
             </div>
           </label>
@@ -71,11 +67,7 @@ const Navbar = () => {
               <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
                 <img
                   className="object-cover object-center h-32"
-                  src={
-                    user?.photoURL
-                      ? user?.photoURL
-                      : "https://laxmipurup.uptaxs.com/public//upload/profiles/6Lj22iGX8Y-1648323906.png"
-                  }
+                  src={user?.photoURL ? user?.photoURL : "/user.png"}
                   alt="Woman looking front"
                 />
               </div>

@@ -10,11 +10,8 @@ const AddAdmin = () => {
   const [fieldsData, setFieldsData] = useState({});
   const navigate = useNavigate();
 
-  //Village correction form handler
   const handleAdminSubmit = (e) => {
     e.preventDefault();
-
-    // console.log(newData);
     fetch(BASE_URL + `/collection/users`, {
       method: "POST",
       headers: {

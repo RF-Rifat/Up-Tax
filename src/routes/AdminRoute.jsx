@@ -7,8 +7,6 @@ import { AdminDataContext } from "../pages/Admin/AdminProvider";
 
 const AdminRoute = ({ children }) => {
   const { isAdmin, isSuperAdmin } = useContext(AdminDataContext);
-
-  console.log(isAdmin, isSuperAdmin);
   if (!isSuperAdmin) {
     if (!isAdmin) {
       return <Navigate to="/"></Navigate>;
